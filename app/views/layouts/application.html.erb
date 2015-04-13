@@ -8,6 +8,90 @@
 </head>
 <body>
 
+  <!-- Header -->
+  <header id="header" data-0="top: 0%;" data-400="top: -10%;">
+    <div class="container">
+      <div class="navbar" role="navigation">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle visible-xs" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <h1 class="logo">
+            <a href="index.html" title="Home"><span class="sprite icon"></span><strong>KiiPet</strong></a>
+          </h1>
+        </div>
+
+        <nav class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li class="active sub">
+              <a href="index.html" title="Home">Home</a>
+              <ul>
+                <li><a href="index.html" title="Gradient" class="active">Gradient</a></li>
+                <li><a href="index-color.html" title="Single color">Single color</a></li>
+                <li><a href="index-video.html" title="Video">Video</a></li>
+                <li><a href="index-image.html" title="Image">Image</a></li>
+                <li><a href="index-cols.html" title="Two columns">Two columns</a></li>
+                <li><a href="index-full-gradient.html" title="Fullscreen gradient">Fullscreen gradient</a></li>
+                <li><a href="index-full-color.html" title="Fullscreen single color">Fullscreen single color</a></li>
+                <li><a href="index-full-video.html" title="Fullscreen video">Fullscreen video</a></li>
+                <li><a href="index-full-image.html" title="Fullscreen image">Fullscreen image</a></li>
+                <li><a href="index-full-cols.html" title="Fullscreen two columns">Fullscreen two columns</a></li>
+              </ul>
+            </li>
+            <li class="sub">
+              <a href="about.html" title="About">About</a>
+              <ul>
+                <li><a href="icons.html" title="Icons">Icons</a></li>
+                <li><a href="landing.html" title="Landing">Landing</a></li>
+              </ul>
+            </li>
+            <li><a href="pricing.html" title="Pricing">Pricing</a></li>
+            <li><a href="blog.html" title="Blog">Blog</a></li>
+            <li><a href="contact.html" title="Contact">Contact</a></li>
+            <li class="login"><a href="login.html" title="Login"><i class="icon fa fa-lock"></i> Login</a></li>
+          </ul>
+        </nav>
+      </div>
+      
+      <div class="text-center wrap">
+        <h2>Template <strong>Cloud Arena</strong> for you</h2>
+        <h3>Fast &amp; robust template for your online services</h3>
+        
+        <!-- Form -->
+        <div class="row">
+          <div class="col-xs-12 col-md-10 col-md-offset-1">
+            <form class="form loginRegistrationForm">
+              <div class="row">
+                <div class="col-xs-12 col-sm-4 i">
+                  <div class="input">
+                    <input type="email" class="form-control input-field">
+                    <label class="input-label">
+                      <span class="input-label-content">Email Address</span>
+                    </label>
+                  </div>
+                </div>
+                <div class="col-xs-12 col-sm-4 i">
+                  <div class="input">
+                    <input type="password" class="form-control input-field">
+                    <label class="input-label">
+                      <span class="input-label-content">Password</span>
+                    </label>
+                  </div>
+                </div>
+                <div class="col-xs-12 col-sm-4 i">
+                  <button type="submit" class="btn btn-lg btn-yellow btn-effect">Create my account</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
 <%= yield %>
 
 </body>

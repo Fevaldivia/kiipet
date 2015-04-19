@@ -11,11 +11,12 @@
                     <div class="col-sm-6 col-md-6">
                          <div class="signin">
                             <h3>Login</h3>
+                            <%= simple_form_for :user, :url => session_path(:user) do |f| %>
+                              <%= devise_error_messages! %>
                               <p class="sign_title">Haz login con tu cuenta</p>
                               <div class="row">
                                    <div class="col-lg-2"></div>
                                    <div class="form col-lg-8">
-                                    <%= form_for :user, :url => session_path(:user) do |f| %>
                                        <%= f.email_field :email, autofocus: true, placeholder: "Email",class: "form-control" %>
                                        <%= f.password_field :password, autocomplete: "off", placeholder: "Password",class: "form-control" %>
                                        <div class="forgot">

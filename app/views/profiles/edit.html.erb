@@ -1,0 +1,665 @@
+<div class="tab-panel" role="tabpanel">
+  <div class="container">
+    <ul class="nav nav-tabs" role="tablist">
+      <li class="active" role="presentation">
+        <a href="/profiles/2/edit">Información Personal</a>
+      </li>
+      <li role="presentation">
+        <a href="/users/edit">Sesión de Usuario</a>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<div class="container">
+        
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="tab-content">
+              <div class="tab-pane active" id="informacion" role="tabpanel">
+                <%= simple_form_for @profile, as: :profile, url: profile_path(@profile) do |f| %>
+                        <div class="row">
+                          <div class="col-sm-6">
+                            <h2>
+                              Información Personal
+                            </h2>
+                            <%= f.input :name, input_html: { class: 'form-control' }, placeholder: "Nombre" %>
+
+                            <div class="form-group file optional profile_avatar"><label class="file optional control-label" for="profile_avatar">Foto de perfil</label><div class="controls"><div class="row upload-image"><div class="col-xs-6 col-sm-5 col-md-4 col-lg-4"><input data-input="false" data-buttontext="" data-iconname="fa fa-user" class="file optional form-control filestyle" type="file" name="profile[avatar]" id="profile_avatar" tabindex="-1" style="position: absolute; clip: rect(0px 0px 0px 0px);"><div class="bootstrap-filestyle input-group"><span class="group-span-filestyle " tabindex="0"><label for="profile_avatar" class="btn btn-default "><span class="glyphicon fa fa-user"></span> </label></span></div><i class="fa fa-user"></i></div><div class="col-xs-6 col-sm-7 col-md-8 col-lg-8 text"><div class="help-block"><p>Sube una imagen desde tu ordenador<span>De preferencia en 40x40</span><span>JPG, GIF, PNG o BMP | 5 MB máximo</span></p></div></div></div></div></div>
+                            <div class="row">
+                              <div class="col-sm-6">
+                                <%= f.input :gender, as: :radio_buttons, collection: Profile.genders.map {|g| [g.first, g.first]}, label_method: lambda { |gender| t("simple_form.options.profile.gender.#{gender.first}") }%>
+                              </div>
+                              <div class="col-sm-6">
+                                <%= f.input :birthday, as: :date%>
+                              </div>
+                            </div>
+                            <div class="row">
+                              <div class="col-sm-6">
+                                <div class="form-group">
+                                  <label class="country required" for="profile_country_code"><abbr title="requerido">*</abbr> País</label><select class="form-control" name="profile[country_code]" id="profile_country_code"><option value="AF">Afghanistan</option>
+                                  <option value="AL">Albania</option>
+                                  <option value="DE">Alemania</option>
+                                  <option value="AD">Andorra</option>
+                                  <option value="AO">Angola</option>
+                                  <option value="AI">Anguilla</option>
+                                  <option value="AG">Antigua y Barbuda</option>
+                                  <option value="AN">Antillas Holandesas</option>
+                                  <option value="AQ">Antártida</option>
+                                  <option value="SA">Arabia Saudí</option>
+                                  <option value="DZ">Argelia</option>
+                                  <option value="AR">Argentina</option>
+                                  <option value="AM">Armenia</option>
+                                  <option value="AW">Aruba</option>
+                                  <option value="AU">Australia</option>
+                                  <option value="AT">Austria</option>
+                                  <option value="AZ">Azerbaiyán</option>
+                                  <option value="BS">Bahamas</option>
+                                  <option value="BH">Bahrein</option>
+                                  <option value="BD">Bangladesh</option>
+                                  <option value="BB">Barbados</option>
+                                  <option value="BZ">Belice</option>
+                                  <option value="BJ">Benin</option>
+                                  <option value="BM">Bermudas</option>
+                                  <option value="BY">Bielorrusia</option>
+                                  <option value="BO">Bolivia</option>
+                                  <option value="BQ">Bonaire, Sint Eustatius and Saba</option>
+                                  <option value="BA">Bosnia y Herzegovina</option>
+                                  <option value="BW">Botswana</option>
+                                  <option value="BR">Brasil</option>
+                                  <option value="BN">Brunei</option>
+                                  <option value="BG">Bulgaria</option>
+                                  <option value="BF">Burkina Faso</option>
+                                  <option value="BI">Burundi</option>
+                                  <option value="BT">Bután</option>
+                                  <option value="BE">Bélgica</option>
+                                  <option value="CV">Cabo Verde</option>
+                                  <option value="KH">Camboya</option>
+                                  <option value="CM">Camerún</option>
+                                  <option value="CA">Canadá</option>
+                                  <option value="QA">Catar</option>
+                                  <option selected="selected" value="CL">Chile</option>
+                                  <option value="CN">China</option>
+                                  <option value="CY">Chipre</option>
+                                  <option value="VA">Ciudad del Vaticano</option>
+                                  <option value="CO">Colombia</option>
+                                  <option value="KM">Comoras</option>
+                                  <option value="CG">Congo</option>
+                                  <option value="CD">Congo (Rep. Dem.)</option>
+                                  <option value="KP">Corea del Norte</option>
+                                  <option value="KR">Corea del Sur</option>
+                                  <option value="CR">Costa Rica</option>
+                                  <option value="CI">Costa de Marfil</option>
+                                  <option value="HR">Croacia</option>
+                                  <option value="CU">Cuba</option>
+                                  <option value="CW">Curaçao</option>
+                                  <option value="DK">Dinamarca</option>
+                                  <option value="DM">Dominica</option>
+                                  <option value="EC">Ecuador</option>
+                                  <option value="EG">Egipto</option>
+                                  <option value="SV">El Salvador</option>
+                                  <option value="AE">Emiratos Árabes Unidos</option>
+                                  <option value="ER">Eritrea</option>
+                                  <option value="SI">Eslovenia</option>
+                                  <option value="ES">España</option>
+                                  <option value="US">Estados Unidos</option>
+                                  <option value="EE">Estonia</option>
+                                  <option value="ET">Etiopía</option>
+                                  <option value="PH">Filipinas</option>
+                                  <option value="FI">Finlandia</option>
+                                  <option value="FJ">Fiyi</option>
+                                  <option value="FR">Francia</option>
+                                  <option value="GA">Gabón</option>
+                                  <option value="GM">Gambia</option>
+                                  <option value="GE">Georgia</option>
+                                  <option value="GH">Ghana</option>
+                                  <option value="GI">Gibraltar</option>
+                                  <option value="GR">Grecia</option>
+                                  <option value="GD">Grenada</option>
+                                  <option value="GL">Groenlandia</option>
+                                  <option value="GP">Guadalupe</option>
+                                  <option value="GU">Guam</option>
+                                  <option value="GT">Guatemala</option>
+                                  <option value="GF">Guayana Francesa</option>
+                                  <option value="GG">Guernsey y Alderney</option>
+                                  <option value="GN">Guinea</option>
+                                  <option value="GQ">Guinea Ecuatorial</option>
+                                  <option value="GW">Guinea-Bisáu</option>
+                                  <option value="GY">Guyana</option>
+                                  <option value="HT">Haiti</option>
+                                  <option value="HN">Honduras</option>
+                                  <option value="HK">Hong Kong</option>
+                                  <option value="HU">Hungría</option>
+                                  <option value="IN">India</option>
+                                  <option value="ID">Indonesia</option>
+                                  <option value="IQ">Irak</option>
+                                  <option value="IR">Iran</option>
+                                  <option value="IE">Irlanda</option>
+                                  <option value="BV">Isla Bouvet</option>
+                                  <option value="IM">Isla de Man</option>
+                                  <option value="CX">Isla de Navidad</option>
+                                  <option value="NF">Isla de Norfolk</option>
+                                  <option value="IS">Islandia</option>
+                                  <option value="KY">Islas Caimán</option>
+                                  <option value="CC">Islas Cocos o Islas Keeling</option>
+                                  <option value="CK">Islas Cook</option>
+                                  <option value="FO">Islas Faroe</option>
+                                  <option value="GS">Islas Georgias del Sur y Sandwich del Sur</option>
+                                  <option value="HM">Islas Heard y McDonald</option>
+                                  <option value="FK">Islas Malvinas</option>
+                                  <option value="MP">Islas Marianas del Norte</option>
+                                  <option value="MH">Islas Marshall</option>
+                                  <option value="PN">Islas Pitcairn</option>
+                                  <option value="SB">Islas Salomón</option>
+                                  <option value="SJ">Islas Svalbard y Jan Mayen</option>
+                                  <option value="TK">Islas Tokelau</option>
+                                  <option value="TC">Islas Turks y Caicos</option>
+                                  <option value="VI">Islas Vírgenes de los Estados Unidos</option>
+                                  <option value="VG">Islas Vírgenes del Reino Unido</option>
+                                  <option value="UM">Islas menores de Estados Unidos</option>
+                                  <option value="IL">Israel</option>
+                                  <option value="IT">Italia</option>
+                                  <option value="JM">Jamaica</option>
+                                  <option value="JP">Japón</option>
+                                  <option value="JE">Jersey</option>
+                                  <option value="JO">Jordania</option>
+                                  <option value="KZ">Kazajistán</option>
+                                  <option value="KE">Kenia</option>
+                                  <option value="KG">Kirguizistán</option>
+                                  <option value="KI">Kiribati</option>
+                                  <option value="KW">Kuwait</option>
+                                  <option value="LA">Laos</option>
+                                  <option value="LS">Lesotho</option>
+                                  <option value="LV">Letonia</option>
+                                  <option value="LR">Liberia</option>
+                                  <option value="LY">Libia</option>
+                                  <option value="LI">Liechtenstein</option>
+                                  <option value="LT">Lituania</option>
+                                  <option value="LU">Luxemburgo</option>
+                                  <option value="LB">Líbano</option>
+                                  <option value="MO">Macao</option>
+                                  <option value="MK">Macedonia</option>
+                                  <option value="MG">Madagascar</option>
+                                  <option value="MY">Malasia</option>
+                                  <option value="MW">Malawi</option>
+                                  <option value="MV">Maldivas</option>
+                                  <option value="ML">Mali</option>
+                                  <option value="MT">Malta</option>
+                                  <option value="MA">Marruecos</option>
+                                  <option value="MQ">Martinica</option>
+                                  <option value="MU">Mauricio</option>
+                                  <option value="MR">Mauritania</option>
+                                  <option value="YT">Mayotte</option>
+                                  <option value="FM">Micronesia</option>
+                                  <option value="MD">Moldavia</option>
+                                  <option value="MN">Mongolia</option>
+                                  <option value="ME">Montenegro</option>
+                                  <option value="MS">Montserrat</option>
+                                  <option value="MZ">Mozambique</option>
+                                  <option value="MM">Myanmar</option>
+                                  <option value="MX">México</option>
+                                  <option value="MC">Mónaco</option>
+                                  <option value="NA">Namibia</option>
+                                  <option value="NR">Nauru</option>
+                                  <option value="NP">Nepal</option>
+                                  <option value="NI">Nicaragua</option>
+                                  <option value="NG">Nigeria</option>
+                                  <option value="NU">Niue</option>
+                                  <option value="NO">Noruega</option>
+                                  <option value="NC">Nueva Caledonia</option>
+                                  <option value="NZ">Nueva Zelanda</option>
+                                  <option value="NE">Níger</option>
+                                  <option value="OM">Omán</option>
+                                  <option value="PK">Pakistán</option>
+                                  <option value="PW">Palau</option>
+                                  <option value="PS">Palestina</option>
+                                  <option value="PA">Panamá</option>
+                                  <option value="PG">Papúa Nueva Guinea</option>
+                                  <option value="PY">Paraguay</option>
+                                  <option value="NL">Países Bajos</option>
+                                  <option value="PE">Perú</option>
+                                  <option value="PF">Polinesia Francesa</option>
+                                  <option value="PL">Polonia</option>
+                                  <option value="PT">Portugal</option>
+                                  <option value="PR">Puerto Rico</option>
+                                  <option value="GB">Reino Unido</option>
+                                  <option value="CF">República Centroafricana</option>
+                                  <option value="CZ">República Checa</option>
+                                  <option value="DO">República Dominicana</option>
+                                  <option value="SK">República Eslovaca</option>
+                                  <option value="ZA">República de Sudáfrica</option>
+                                  <option value="RE">Reunión</option>
+                                  <option value="RW">Ruanda</option>
+                                  <option value="RO">Rumania</option>
+                                  <option value="RU">Rusia</option>
+                                  <option value="EH">Sahara Occidental</option>
+                                  <option value="BL">Saint Barthélemy</option>
+                                  <option value="KN">Saint Kitts y Nevis</option>
+                                  <option value="MF">Saint Martin</option>
+                                  <option value="WS">Samoa</option>
+                                  <option value="AS">Samoa Americana</option>
+                                  <option value="SM">San Marino</option>
+                                  <option value="PM">San Pedro y Miquelón</option>
+                                  <option value="VC">San Vicente y Granadinas</option>
+                                  <option value="SH">Santa Helena</option>
+                                  <option value="LC">Santa Lucía</option>
+                                  <option value="ST">Santo Tomé y Príncipe</option>
+                                  <option value="SN">Senegal</option>
+                                  <option value="RS">Serbia</option>
+                                  <option value="SC">Seychelles</option>
+                                  <option value="SL">Sierra Leone</option>
+                                  <option value="SG">Singapur</option>
+                                  <option value="SX">Sint Maarten</option>
+                                  <option value="SY">Siria</option>
+                                  <option value="SO">Somalia</option>
+                                  <option value="LK">Sri Lanka</option>
+                                  <option value="SZ">Suazilandia</option>
+                                  <option value="SD">Sudán</option>
+                                  <option value="SS">Sudán del Sur</option>
+                                  <option value="SE">Suecia</option>
+                                  <option value="CH">Suiza</option>
+                                  <option value="SR">Surinam</option>
+                                  <option value="TH">Tailandia</option>
+                                  <option value="TW">Taiwán</option>
+                                  <option value="TZ">Tanzania</option>
+                                  <option value="TJ">Tayikistán</option>
+                                  <option value="IO">Territorio Británico del Océano Índico</option>
+                                  <option value="TF">Territorios Franceses del Sur</option>
+                                  <option value="TL">Timor Oriental</option>
+                                  <option value="TG">Togo</option>
+                                  <option value="TO">Tonga</option>
+                                  <option value="TT">Trinidad y Tobago</option>
+                                  <option value="TM">Turkmenistán</option>
+                                  <option value="TR">Turquía</option>
+                                  <option value="TV">Tuvalu</option>
+                                  <option value="TN">Túnez</option>
+                                  <option value="UA">Ucrania</option>
+                                  <option value="UG">Uganda</option>
+                                  <option value="UY">Uruguay</option>
+                                  <option value="UZ">Uzbekistán</option>
+                                  <option value="VU">Vanuatu</option>
+                                  <option value="VE">Venezuela</option>
+                                  <option value="VN">Vietnam</option>
+                                  <option value="WF">Wallis y Futuna</option>
+                                  <option value="YE">Yemen</option>
+                                  <option value="DJ">Yibuti</option>
+                                  <option value="ZM">Zambia</option>
+                                  <option value="ZW">Zimbabue</option>
+                                  <option value="TD">chad</option>
+                                  <option value="AX">Åland Islands</option></select>
+                                </div>
+                              </div>
+                              <div class="col-sm-6">
+                                <div class="form-group string required profile_rut"><label class="string required control-label" for="profile_rut"><abbr title="requerido">*</abbr> Rut</label><input class="string required rut form-control" type="text" value="18.360.834-7" name="profile[rut]" id="profile_rut"></div>
+                              </div>
+                            </div>
+                            <div class="form-group">
+                              <label>Email</label><span class="form-control">fvaldivia@acid.cl</span>
+                            </div>
+                          </div>
+                          <div class="col-sm-6">
+                            <h2>
+                              Información de Contacto
+                            </h2>
+                            <div class="row">
+                              <div class="col-sm-6">
+                                <div class="form-group tel required profile_phone"><label class="tel required control-label" for="profile_phone"><abbr title="requerido">*</abbr> Teléfono Fijo</label><input class="string tel required form-control" type="tel" value="123123" name="profile[phone]" id="profile_phone"></div>
+                              </div>
+                              <div class="col-sm-6">
+                                <div class="form-group tel required profile_cell_phone"><label class="tel required control-label" for="profile_cell_phone"><abbr title="requerido">*</abbr> Teléfono Celular</label><input class="string tel required form-control" type="tel" value="1231233" name="profile[cell_phone]" id="profile_cell_phone"></div>
+                              </div>
+                            </div>
+                            <div class="form-group string required profile_address"><label class="string required control-label" for="profile_address"><abbr title="requerido">*</abbr> Dirección</label><input class="string required form-control" type="text" value="1ra transverrsal" name="profile[address]" id="profile_address"></div><div class="form-group grouped_select optional profile_county_id"><label class="grouped_select optional control-label" for="profile_county_id">Comuna</label><select class="grouped_select optional form-control" name="profile[county_id]" id="profile_county_id"><option value=""></option>
+                            <optgroup label="Arica y Parinacota"><option value="1">Arica</option>
+                            <option value="2">Camarones</option>
+                            <option value="3">Putre</option>
+                            <option value="4">General Lagos</option></optgroup><optgroup label="Tarapacá"><option value="5">Iquique</option>
+                            <option value="6">Alto Hospicio</option>
+                            <option value="7">Pozo Almonte</option>
+                            <option value="8">Camiña</option>
+                            <option value="9">Colchane</option>
+                            <option value="10">Huara</option>
+                            <option value="11">Pica</option></optgroup><optgroup label="Antofagasta"><option value="12">Antofagasta</option>
+                            <option value="13">Mejillones</option>
+                            <option value="14">Sierra Gorda</option>
+                            <option value="15">Taltal</option>
+                            <option value="16">Calama</option>
+                            <option value="17">Ollagüe</option>
+                            <option value="18">San Pedro de Atacama</option>
+                            <option value="19">Tocopilla</option>
+                            <option value="20">María Elena</option></optgroup><optgroup label="Atacama"><option value="21">Copiapó</option>
+                            <option value="22">Caldera</option>
+                            <option value="23">Tierra Amarilla</option>
+                            <option value="24">Chañaral</option>
+                            <option value="25">Diego de Almagro</option>
+                            <option value="26">Vallenar</option>
+                            <option value="27">Alto del Carmen</option>
+                            <option value="28">Freirina</option>
+                            <option value="29">Huasco</option></optgroup><optgroup label="Coquimbo"><option value="30">La Serena</option>
+                            <option value="31">Coquimbo</option>
+                            <option value="32">Andacollo</option>
+                            <option value="33">La Higuera</option>
+                            <option value="34">Paiguano</option>
+                            <option value="35">Vicuña</option>
+                            <option value="36">Illapel</option>
+                            <option value="37">Canela</option>
+                            <option value="38">Los Vilos</option>
+                            <option value="39">Salamanca</option>
+                            <option value="40">Ovalle</option>
+                            <option value="41">Combarbalá</option>
+                            <option value="42">Monte Patria</option>
+                            <option value="43">Punitaqui</option>
+                            <option value="44">Río Hurtado</option></optgroup><optgroup label="Valparaíso"><option value="45">Valparaíso</option>
+                            <option value="46">Casablanca</option>
+                            <option value="47">Concón</option>
+                            <option value="48">Juan Fernández</option>
+                            <option value="49">Puchuncaví</option>
+                            <option value="50">Quintero</option>
+                            <option value="51">Viña del Mar</option>
+                            <option value="52">Isla de Pascua</option>
+                            <option value="53">Los Andes</option>
+                            <option value="54">Calle Larga</option>
+                            <option value="55">Rinconada</option>
+                            <option value="56">San Esteban</option>
+                            <option value="57">La Ligua</option>
+                            <option value="58">Cabildo</option>
+                            <option value="59">Papudo</option>
+                            <option value="60">Petorca</option>
+                            <option value="61">Zapallar</option>
+                            <option value="62">Quillota</option>
+                            <option value="63">Calera</option>
+                            <option value="64">Hijuelas</option>
+                            <option value="65">La Cruz</option>
+                            <option value="66">Nogales</option>
+                            <option value="67">San Antonio</option>
+                            <option value="68">Algarrobo</option>
+                            <option value="69">Cartagena</option>
+                            <option value="70">El Quisco</option>
+                            <option value="71">El Tabo</option>
+                            <option value="72">Santo Domingo</option>
+                            <option value="73">San Felipe</option>
+                            <option value="74">Catemu</option>
+                            <option value="75">Llaillay</option>
+                            <option value="76">Panquehue</option>
+                            <option value="77">Putaendo</option>
+                            <option value="78">Santa María</option>
+                            <option value="79">Limache</option>
+                            <option value="80">Quilpué</option>
+                            <option value="81">Villa Alemana</option>
+                            <option value="82">Olmué</option></optgroup><optgroup label="Metropolitana de Santiago"><option value="295">Colina</option>
+                            <option value="296">Lampa</option>
+                            <option value="297">Tiltil</option>
+                            <option value="298">Pirque</option>
+                            <option value="299">Puente Alto</option>
+                            <option value="300">San José de Maipo</option>
+                            <option value="301">Buin</option>
+                            <option value="302">Calera de Tango</option>
+                            <option value="303">Paine</option>
+                            <option value="304">San Bernardo</option>
+                            <option value="305">Alhué</option>
+                            <option value="306">Curacaví</option>
+                            <option value="307">María Pinto</option>
+                            <option value="308">Melipilla</option>
+                            <option value="309">San Pedro</option>
+                            <option value="310">Cerrillos</option>
+                            <option value="311">Cerro Navia</option>
+                            <option value="312">Conchalí</option>
+                            <option selected="selected" value="313">El Bosque</option>
+                            <option value="314">Estación Central</option>
+                            <option value="315">Huechuraba</option>
+                            <option value="316">Independencia</option>
+                            <option value="317">La Cisterna</option>
+                            <option value="318">La Granja</option>
+                            <option value="319">La Florida</option>
+                            <option value="320">La Pintana</option>
+                            <option value="321">La Reina</option>
+                            <option value="322">Las Condes</option>
+                            <option value="323">Lo Barnechea</option>
+                            <option value="324">Lo Espejo</option>
+                            <option value="325">Lo Prado</option>
+                            <option value="326">Macul</option>
+                            <option value="327">Maipú</option>
+                            <option value="328">Ñuñoa</option>
+                            <option value="329">Pedro Aguirre Cerda</option>
+                            <option value="330">Peñalolén</option>
+                            <option value="331">Providencia</option>
+                            <option value="332">Pudahuel</option>
+                            <option value="333">Quilicura</option>
+                            <option value="334">Quinta Normal</option>
+                            <option value="335">Recoleta</option>
+                            <option value="336">Renca</option>
+                            <option value="337">San Miguel</option>
+                            <option value="338">San Joaquín</option>
+                            <option value="339">San Ramón</option>
+                            <option value="340">Santiago</option>
+                            <option value="341">Vitacura</option>
+                            <option value="342">El Monte</option>
+                            <option value="343">Isla de Maipo</option>
+                            <option value="344">Padre Hurtado</option>
+                            <option value="345">Peñaflor</option>
+                            <option value="346">Talagante</option></optgroup><optgroup label="Libertador General Bernardo O'Higgins"><option value="83">Rancagua</option>
+                            <option value="84">Codegua</option>
+                            <option value="85">Coinco</option>
+                            <option value="86">Coltauco</option>
+                            <option value="87">Doñihue</option>
+                            <option value="88">Graneros</option>
+                            <option value="89">Las Cabras</option>
+                            <option value="90">Machalí</option>
+                            <option value="91">Malloa</option>
+                            <option value="92">Mostazal</option>
+                            <option value="93">Olivar</option>
+                            <option value="94">Peumo</option>
+                            <option value="95">Pichidegua</option>
+                            <option value="96">Quinta de Tilcoco</option>
+                            <option value="97">Rengo</option>
+                            <option value="98">Requínoa</option>
+                            <option value="99">San Vicente</option>
+                            <option value="100">Pichilemu</option>
+                            <option value="101">La Estrella</option>
+                            <option value="102">Litueche</option>
+                            <option value="103">Marchihue</option>
+                            <option value="104">Navidad</option>
+                            <option value="105">Paredones</option>
+                            <option value="106">San Fernando</option>
+                            <option value="107">Chépica</option>
+                            <option value="108">Chimbarongo</option>
+                            <option value="109">Lolol</option>
+                            <option value="110">Nancagua</option>
+                            <option value="111">Palmilla</option>
+                            <option value="112">Peralillo</option>
+                            <option value="113">Placilla</option>
+                            <option value="114">Pumanque</option>
+                            <option value="115">Santa Cruz</option></optgroup><optgroup label="Maule"><option value="116">Talca</option>
+                            <option value="117">Constitución</option>
+                            <option value="118">Curepto</option>
+                            <option value="119">Empedrado</option>
+                            <option value="120">Maule</option>
+                            <option value="121">Pelarco</option>
+                            <option value="122">Pencahue</option>
+                            <option value="123">Río Claro</option>
+                            <option value="124">San Clemente</option>
+                            <option value="125">San Rafael</option>
+                            <option value="126">Cauquenes</option>
+                            <option value="127">Chanco</option>
+                            <option value="128">Pelluhue</option>
+                            <option value="129">Curicó</option>
+                            <option value="130">Hualañé</option>
+                            <option value="131">Licantén</option>
+                            <option value="132">Molina</option>
+                            <option value="133">Rauco</option>
+                            <option value="134">Romeral</option>
+                            <option value="135">Sagrada Familia</option>
+                            <option value="136">Teno</option>
+                            <option value="137">Vichuquén</option>
+                            <option value="138">Linares</option>
+                            <option value="139">Colbún</option>
+                            <option value="140">Longaví</option>
+                            <option value="141">Parral</option>
+                            <option value="142">Retiro</option>
+                            <option value="143">San Javier</option>
+                            <option value="144">Villa Alegre</option>
+                            <option value="145">Yerbas Buenas</option></optgroup><optgroup label="Biobío"><option value="146">Concepción</option>
+                            <option value="147">Coronel</option>
+                            <option value="148">Chiguayante</option>
+                            <option value="149">Florida</option>
+                            <option value="150">Hualqui</option>
+                            <option value="151">Lota</option>
+                            <option value="152">Penco</option>
+                            <option value="153">San Pedro de la Paz</option>
+                            <option value="154">Santa Juana</option>
+                            <option value="155">Talcahuano</option>
+                            <option value="156">Tomé</option>
+                            <option value="157">Hualpén</option>
+                            <option value="158">Lebu</option>
+                            <option value="159">Arauco</option>
+                            <option value="160">Cañete</option>
+                            <option value="161">Contulmo</option>
+                            <option value="162">Curanilahue</option>
+                            <option value="163">Los Alamos</option>
+                            <option value="164">Tirúa</option>
+                            <option value="165">Los Angeles</option>
+                            <option value="166">Antuco</option>
+                            <option value="167">Cabrero</option>
+                            <option value="168">Laja</option>
+                            <option value="169">Mulchén</option>
+                            <option value="170">Nacimiento</option>
+                            <option value="171">Negrete</option>
+                            <option value="172">Quilaco</option>
+                            <option value="173">Quilleco</option>
+                            <option value="174">San Rosendo</option>
+                            <option value="175">Santa Bárbara</option>
+                            <option value="176">Tucapel</option>
+                            <option value="177">Yumbel</option>
+                            <option value="178">Alto Biobío</option>
+                            <option value="179">Chillán</option>
+                            <option value="180">Bulnes</option>
+                            <option value="181">Cobquecura</option>
+                            <option value="182">Coelemu</option>
+                            <option value="183">Coihueco</option>
+                            <option value="184">Chillán Viejo</option>
+                            <option value="185">El Carmen</option>
+                            <option value="186">Ninhue</option>
+                            <option value="187">Ñiquén</option>
+                            <option value="188">Pemuco</option>
+                            <option value="189">Pinto</option>
+                            <option value="190">Portezuelo</option>
+                            <option value="191">Quillón</option>
+                            <option value="192">Quirihue</option>
+                            <option value="193">Ránquil</option>
+                            <option value="194">San Carlos</option>
+                            <option value="195">San Fabián</option>
+                            <option value="196">San Ignacio</option>
+                            <option value="197">San Nicolás</option>
+                            <option value="198">Treguaco</option>
+                            <option value="199">Yungay</option></optgroup><optgroup label="La Araucanía"><option value="200">Temuco</option>
+                            <option value="201">Carahue</option>
+                            <option value="202">Cunco</option>
+                            <option value="203">Curarrehue</option>
+                            <option value="204">Freire</option>
+                            <option value="205">Galvarino</option>
+                            <option value="206">Gorbea</option>
+                            <option value="207">Lautaro</option>
+                            <option value="208">Loncoche</option>
+                            <option value="209">Melipeuco</option>
+                            <option value="210">Nueva Imperial</option>
+                            <option value="211">Padre Las Casas</option>
+                            <option value="212">Perquenco</option>
+                            <option value="213">Pitrufquén</option>
+                            <option value="214">Pucón</option>
+                            <option value="215">Saavedra</option>
+                            <option value="216">Teodoro Schmidt</option>
+                            <option value="217">Toltén</option>
+                            <option value="218">Vilcún</option>
+                            <option value="219">Villarrica</option>
+                            <option value="220">Cholchol</option>
+                            <option value="221">Angol</option>
+                            <option value="222">Collipulli</option>
+                            <option value="223">Curacautín</option>
+                            <option value="224">Ercilla</option>
+                            <option value="225">Lonquimay</option>
+                            <option value="226">Los Sauces</option>
+                            <option value="227">Lumaco</option>
+                            <option value="228">Purén</option>
+                            <option value="229">Renaico</option>
+                            <option value="230">Traiguén</option>
+                            <option value="231">Victoria</option></optgroup><optgroup label="Los Ríos"><option value="232">Valdivia</option>
+                            <option value="233">Corral</option>
+                            <option value="234">Lanco</option>
+                            <option value="235">Los Lagos</option>
+                            <option value="236">Máfil</option>
+                            <option value="237">Mariquina</option>
+                            <option value="238">Paillaco</option>
+                            <option value="239">Panguipulli</option>
+                            <option value="240">La Unión</option>
+                            <option value="241">Futrono</option>
+                            <option value="242">Lago Ranco</option>
+                            <option value="243">Río Bueno</option></optgroup><optgroup label="Los Lagos"><option value="244">Puerto Montt</option>
+                            <option value="245">Calbuco</option>
+                            <option value="246">Cochamó</option>
+                            <option value="247">Fresia</option>
+                            <option value="248">Frutillar</option>
+                            <option value="249">Los Muermos</option>
+                            <option value="250">Llanquihue</option>
+                            <option value="251">Maullín</option>
+                            <option value="252">Puerto Varas</option>
+                            <option value="253">Castro</option>
+                            <option value="254">Ancud</option>
+                            <option value="255">Chonchi</option>
+                            <option value="256">Curaco de Vélez</option>
+                            <option value="257">Dalcahue</option>
+                            <option value="258">Puqueldón</option>
+                            <option value="259">Queilén</option>
+                            <option value="260">Quellón</option>
+                            <option value="261">Quemchi</option>
+                            <option value="262">Quinchao</option>
+                            <option value="263">Osorno</option>
+                            <option value="264">Puerto Octay</option>
+                            <option value="265">Purranque</option>
+                            <option value="266">Puyehue</option>
+                            <option value="267">Río Negro</option>
+                            <option value="268">San Juan de la Costa</option>
+                            <option value="269">San Pablo</option>
+                            <option value="270">Chaitén</option>
+                            <option value="271">Futaleufú</option>
+                            <option value="272">Hualaihué</option>
+                            <option value="273">Palena</option></optgroup><optgroup label="Aisén del General Carlos Ibáñez del Campo"><option value="274">Coihaique</option>
+                            <option value="275">Lago Verde</option>
+                            <option value="276">Aisén</option>
+                            <option value="277">Cisnes</option>
+                            <option value="278">Guaitecas</option>
+                            <option value="279">Cochrane</option>
+                            <option value="280">O'Higgins</option>
+                            <option value="281">Tortel</option>
+                            <option value="282">Chile Chico</option>
+                            <option value="283">Río Ibáñez</option></optgroup><optgroup label="Magallanes y de la Antártica Chilena"><option value="284">Punta Arenas</option>
+                            <option value="285">Laguna Blanca</option>
+                            <option value="286">Río Verde</option>
+                            <option value="287">San Gregorio</option>
+                            <option value="288">Cabo de Hornos</option>
+                            <option value="289">Antártica</option>
+                            <option value="290">Porvenir</option>
+                            <option value="291">Primavera</option>
+                            <option value="292">Timaukel</option>
+                            <option value="293">Natales</option>
+                            <option value="294">Torres del Paine</option></optgroup></select></div>
+                            
+                            <div class="row">
+                              <div class="col-sm-6">
+                                
+                              </div>
+                              <div class="col-sm-6">
+                                
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <hr>
+                        <div class="form-actions text-center">
+                          <input type="submit" name="commit" value="Guardar" class="btn btn-default btn-green">
+                        </div>
+                    <% end %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>

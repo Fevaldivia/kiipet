@@ -15,7 +15,7 @@
                               <div class="row">
                                    <div class="col-lg-2"></div>
                                    <div class="form col-lg-8">
-                                    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+                                    <%= form_for :user, :url => session_path(:user) do |f| %>
                                        <%= f.email_field :email, autofocus: true, placeholder: "Email",class: "form-control" %>
                                        <%= f.password_field :password, autocomplete: "off", placeholder: "Password",class: "form-control" %>
                                        <div class="forgot">
@@ -37,10 +37,13 @@
                     </div>
                     <div class="col-sm-6 col-md-6">
                          <div class="signup">
-                            <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+                            <%= simple_form_for :user, :url => registration_path(:user) do |f| %>
                               <div class="social_sign">
                                 <h3>Aun no tienes cuenta?</h3>
                               </div>
+                              <%= f.simple_fields_for :profile_attributes, KeeperProfile.new do |f| %>
+                                <%= f.input :type, as: :radio_buttons, collection: [[KeeperProfile.model_name.human, KeeperProfile.to_s], [ProspectorProfile.model_name.human, ProspectorProfile.to_s]], label: false%>
+                              <% end %>
                               <p class="sign_title">Crea una, es rapido y gratis!</p>
                               <div class="row">
                                <div class="col-lg-2"></div>

@@ -1,0 +1,2 @@
+class ProspectorProfile < Profile
+end

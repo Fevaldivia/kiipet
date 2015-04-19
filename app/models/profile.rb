@@ -5,9 +5,9 @@ class Profile < ActiveRecord::Base
 
   validates :user, presence: true
 
-  validates :name, :birthday, :gender, :cell_phone, :address, presence: true, on: :update
+  validates :name, :birthday, :gender, :cellphone, :address, presence: true, on: :update
 
   def self.allowed_attributes
-    [:name, :gender, :birthday, :cell_phone, :address]
+    [:name, :gender, :birthday, :cellphone, :address]
   end
 end

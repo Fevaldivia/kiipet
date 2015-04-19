@@ -25,8 +25,9 @@ group :assets do
   gem 'coffee-rails', '~> 4.1.0'
 end
 
-gem 'jquery-rails'
 gem 'devise'
+gem 'simple_form'
+gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0',          group: :doc

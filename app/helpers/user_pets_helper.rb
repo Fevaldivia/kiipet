@@ -1,0 +1,2 @@
+module UserPetsHelper
+end

@@ -27,6 +27,9 @@ end
 
 gem 'devise'
 gem 'simple_form'
+gem 'country_select'
+gem 'globalid'#, github: 'rails/globalid', tag: 'v0.2.2'
+gem "paperclip", "~> 4.2"
 gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'

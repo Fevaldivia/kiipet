@@ -1,0 +1,65 @@
+es:
+  simple_form:
+    "yes": 'Si'
+    "no": 'No'
+    required:
+      text: 'requerido'
+      mark: '*'
+      # You can uncomment the line below if you need to overwrite the whole required html.
+      # When using html, text and mark won't be used.
+      # html: '<abbr title="required">*</abbr>'
+    error_notification:
+      default_message: "Por favor revise los problemas de abajo:"
+    # Examples
+    # labels:
+    #   defaults:
+    #     password: 'Password'
+    #   user:
+    #     new:
+    #       email: 'E-mail to sign in.'
+    #     edit:
+    #       email: 'E-mail.'
+    # hints:
+    #   defaults:
+    #     username: 'User name to sign in.'
+    #     password: 'No special characters, please.'
+    # include_blanks:
+    #   defaults:
+    #     age: 'Rather not say'
+    # prompts:
+    #   defaults:
+    #     age: 'Select your age'
+    placeholders:
+      user:
+        name: Usuario
+        password: Contraseña
+        email: Correo Electrónico
+        password_confirmation: Confirmación Contraseña
+        current_password: Contraseña actual
+    hints:
+      profile:
+        avatar: "<p>Sube una imagen desde tu ordenador<span>De preferencia en 40x40</span><span>JPG, GIF, PNG o BMP | 5 MB máximo</span></p>"
+        address_proof: "<p>Subir comprobante de domicilio<span>Archivo escaneado o digital que acredite su domicilio</span></p>"
+      company:
+        avatar: "<p>Sube una imagen desde tu ordenador<span>JPG, GIF, PNG o BMP | 5 MB máximo</span></p>"
+        scriptures: "<p>Sube un documento desde tu ordenador<span>PDF o Word</span></p>"
+      event:
+        event_image: "<p>Sube una imagen desde tu ordenador <span>De preferencia en 720x360</span><span>JPG, GIF, PNG o BMP | 5 MB máximo</span></p>"
+        event_header: "<p>Sube una imagen desde tu ordenador <span>De preferencia en 1170x365</span><span>JPG, GIF, PNG o BMP | 5 MB máximo</span></p>"
+
+    options:
+      profile:
+        gender:
+          male: Masculino
+          female: Femenino
+        avatar: "<div class='upload-image'><div class='text'><p>Sube una imagen desde tu ordenador<span>JPG, GIF, PNG o BMP | 5 MB máximo</span></p></div></div>"
+      event:
+        owner:
+          company: Compañia
+          profile: Perfil
+        event_image: "<div class='upload-image'><div class='text'><p>Sube una imagen desde tu ordenador<span>JPG, GIF, PNG o BMP | 5 MB máximo</span></p></div></div>"
+        event_header: "<div class='upload-image'><div class='text'><p>Sube una imagen desde tu ordenador<span>JPG, GIF, PNG o BMP | 5 MB máximo</span></p></div></div>"
+    labels:
+      investment:
+        amount: Monto a invertir
+        tickets_sold: Tickets vendidos

@@ -7,8 +7,94 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <header>
+     <div class="container">
+        <div class="navbar navbar-default" role="navigation">
+         <div class="navbar-header"><a class="navbar-brand" href="index.html"><span class="logo_title"><strong>Kiipet</strong></span> <span class="logo_subtitle"></span> </a><a class="btn btn-navbar btn-default navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"><span class="nb_left pull-left"> <span class="fa fa-reorder"></span></span> <span class="nb_right pull-right">menu</span> </a></div>
+         <div class="collapse navbar-collapse">
+            <ul class="nav pull-right navbar-nav">
+               <li class="active"><a href="index.html">Inicio</a></li>
+               <li><a href="about_us.html">Como funciona</a></li>
+               <li><a href="services.html">Servicios</a></li>
+               <li><a href="blog.html">Blog</a></li>
+               <li><a href="contact.html">Contacto</a></li>
+            </ul>
+         </div>
+        </div>
+        <div id="social_media_wrapper"> <a href="https://www.facebook.com"><i class="fa fa-facebook"></i></a> <a href="https://twitter.com/leonartgr"><i class="fa fa-twitter"></i></a> <a href="#googleplus"><i class="fa fa-google-plus"></i></a> </div>
+        <% if user_signed_in? %>
+          <ul class="nav pull-right" id="sign">
+              <!-- user login dropdown start-->
+              <li class="dropdown">
+                <%= link_to '#', class: 'dropdown-toggle', 'aria-expanded' => "false", 'data-toggle' => "dropdown", role: "button" do%>
+                      <%= image_tag(current_user.display_image, :size => "40x40", class: 'img-circle')%>
+                      <span><%= current_user.email %></span>
+                      <span class="caret"></span>
+                      <%end%>
+                  <ul class="dropdown-menu">
+                    <% if current_user.profile.is_a? KeeperProfile %>
+                      <li><%= link_to 'Perfil', edit_profile_path(current_user.profile) %></li>
+                      <li><%= link_to('Mis Servicios', services_path) %></li>
+                      <li><%= link_to('Disponibilidad', "#") %></li>
+                    <% end %>
+                    <% if current_user.profile.is_a? ProspectorProfile %>
+                      <li><%= link_to 'Perfil', edit_profile_path(current_user.profile)  %></li>
+                      <li><%= link_to('Mis Mascotas',  user_pets_path) %></li>
+                    <% end %>
+                      <li><%= link_to('Cerrar Sesion', destroy_user_session_path, :method => :delete) %></li>
+                  </ul>
+              </li>
+              <!-- user login dropdown end -->
+          </ul>
+          <% else %>
+          <div id="sign"><span><%= link_to "Registro/Login", new_user_session_path%></span></div>
+     </div>
+    <% end %>
+</header>
 
-<%= yield %>
 
+    <%= yield %>
+
+      <footer>
+        <section id="footer_teasers_wrapper">
+             <div class="container">
+                  <div class="row">
+                       <div class="footer_teaser col-sm-4 col-md-4">
+                          <!-- <h3>About us</h3>
+                          <p>Fugiat dapibus, tellus ac cursus commodo, mauesris condime ntum nibh, ut fermentum mas justo sitters.</p>
+                          <p><i class="fa fa-map-marker"></i> 3 Athens street</p>
+                          <p><i class="fa fa-phone"></i> (+30) 265-9987</p>
+                          <p><i class="fa fa-print"></i> (+30) 9854-7855</p>
+                          <p><i class="fa fa-envelope"></i> hello@restarttheme.com</p> -->
+                       </div>
+                       <div class="footer_teaser col-sm-4 col-md-4">
+                         <!--  <h3>Latest News</h3>
+                          <ul class="media-list">
+                               <li class="media"> <a href="#" class="media-photo" style="background-image:url(images/portfolio/t5.jpg)"></a> <a href="#" class="media-date">19<span>FEB</span></a>
+                                    <h5 class="media-heading"><a href="#">Media heading, this is a title of a news...</a></h5>
+                                    <p>Fugiat dapibus, tellus ac cursus commodo, ut fermentum...</p>
+                               </li>
+                               <li class="media"> <a href="#" class="media-photo" style="background-image:url(images/portfolio/t4.jpg)"></a> <a href="#" class="media-date">18<span>FEB</span></a>
+                                    <h5 class="media-heading"><a href="#">Media heading, of a news item.</a></h5>
+                                    <p>Fugiat dapibus, tellus ac cursus commodo, condime ntum nibh, ut fermentum...</p>
+                               </li>
+                          </ul> -->
+                       </div>
+                       <div class="footer_teaser col-sm-4 col-md-4" id="latest-flickr-images">
+                            <!-- <h3>FlickrFeed</h3>
+                            <ul></ul> <p>All photos © by <a href="http://www.dimitragiannouka.com" target="_blank">Dimitra Giannouka</a>.</p> -->
+                       </div>
+                  </div>
+             </div>
+        </section>
+          <section class="copyright">
+               <div class="container">
+                    <div class="row">
+                         <div class="col-sm-6 col-md-6"> Copyright ©2015 all rights reserved </div>
+                         <div class="text-right col-sm-6 col-md-6">Kiipet<a href="../../index.html"></a> </div>
+                    </div>
+               </div>
+          </section>
+     </footer>
 </body>
 </html>

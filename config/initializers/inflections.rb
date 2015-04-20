@@ -14,3 +14,9 @@
 # ActiveSupport::Inflector.inflections(:en) do |inflect|
 #   inflect.acronym 'RESTful'
 # end
+
+ActiveSupport::Inflector.inflections do |inflect|
+  inflect.irregular "cuidador", "cuidadores"
+  inflect.irregular "perfil", "perfiles"
+  inflect.irregular "buscador", "buscadores"
+end

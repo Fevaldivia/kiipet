@@ -1,0 +1,11 @@
+es:
+  activerecord:
+    attributes:
+      profile: &profile_enums
+        gender_translation:
+          male: Masculino
+          female: Femenino
+      investor_profile:
+        <<: *profile_enums
+      producer_profile:
+        <<: *profile_enums

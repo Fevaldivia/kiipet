@@ -1,0 +1,71 @@
+# Files in the config/locales directory are used for internationalization
+# and are automatically loaded by Rails. If you want to use locales other
+# than English, add the necessary files in this directory.
+#
+# To use the locales, use `I18n.t`:
+#
+#     I18n.t 'hello'
+#
+# In views, this is aliased to just `t`:
+#
+#     <%= t('hello') %>
+#
+# To use a different locale, set it with `I18n.locale`:
+#
+#     I18n.locale = :es
+#
+# This would use the information in config/locales/es.yml.
+#
+# To learn more, please read the Rails Internationalization guide
+# available at http://guides.rubyonrails.org/i18n.html.
+
+es:
+  messages:
+    controllers:
+      events:
+        successfully:
+          create: Evento se ha creado correctamente.
+          update: Evento se ha actualizado correctamente.
+          destroy: Evento se ha eliminado correctamente.
+          send_to_analisys: Evento enviado a revisión.
+          approved: Evento listo para publicar.
+          rejected: Evento rechazado correctamente.
+          published: Evento publicado correctamente.
+      companies:
+        successfully:
+          create: Empresa se ha creado correctamente.
+          update: Empresa se ha actualizado correctamente.
+          destroy: Empresa se ha eliminado correctamente.
+          approved: Empresa aprobada correctamente.
+          rejected: Empresa rechazada correctamente.
+      profiles:
+        successfully:
+          create: Perfil se ha creado correctamente.
+          update: Perfil se ha actualizado correctamente.
+          destroy: Perfil se ha eliminado correctamente.
+      bands:
+        successfully:
+          create: Banda se ha creado correctamente.
+          update: Banda se ha actualizado correctamente.
+          destroy: Banda se ha eliminado correctamente.
+      venues:
+        successfully:
+          create: Lugar se ha creado correctamente.
+          update: Lugar se ha actualizado correctamente.
+          destroy: Lugar se ha eliminado correctamente.
+      categories:
+        successfully:
+          create: Categoría se ha creado correctamente.
+          update: Categoría se ha actualizado correctamente.
+          destroy: Categoría se ha eliminado correctamente.
+      investments:
+        successfully:
+          create: Inversión comprometida correctamente.
+          update: Inversión enviada a revisión correctamente.
+          approved: Inversion aprobada correctamente.
+          rejected: Inversion rechazada correctamente.
+          destroy: La inversion se ha eliminado correctamente.
+  buttons:
+    trash: "Eliminar&nbsp;"
+    add: "Agregar&nbsp;"
+    simulate: "Simular"

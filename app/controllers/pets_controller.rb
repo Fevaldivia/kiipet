@@ -1,4 +1,6 @@
 class PetsController < ApplicationController
+  before_action :authenticate_user!
+  before_action :ensure_prospector_profile
   before_action :set_pet, only: [:show, :edit, :update, :destroy]
 
   # GET /pets
@@ -14,7 +16,7 @@ class PetsController < ApplicationController
 
   # GET /pets/new
   def new
-    @pet = Pet.new
+    @pet = current_user.pets.build
   end
 
   # GET /pets/1/edit
@@ -24,7 +26,7 @@ class PetsController < ApplicationController
   # POST /pets
   # POST /pets.json
   def create
-    @pet = Pet.new(pet_params)
+    @pet = current_user.pets.build pet_params
 
     respond_to do |format|
       if @pet.save
@@ -61,6 +63,13 @@ class PetsController < ApplicationController
     end
   end
 
+   # Asegurarse que el usuario es un buscador
+    def ensure_prospector_profile
+      # ToDo - Not yet implemented
+      # Nota - cuidado con STI
+      @profile = current_user.profile
+    end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_pet
@@ -69,6 +78,6 @@ class PetsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def pet_params
-      params.require(:pet).permit(:name, :bio, :breed)
+      params.require(:pet).permit(Pet.allowed_attributes)
     end
 end

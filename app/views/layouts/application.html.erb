@@ -26,19 +26,20 @@
           <ul class="nav pull-right" id="sign">
               <!-- user login dropdown start-->
               <li class="dropdown">
-                  <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                      <!--<img alt="" src="images/avatar1_small.jpg">-->
+                <%= link_to '#', class: 'dropdown-toggle', 'aria-expanded' => "false", 'data-toggle' => "dropdown", role: "button" do%>
+                      <%= image_tag(current_user.display_image, :size => "40x40", class: 'img-circle')%>
                       <span><%= current_user.email %></span>
-                      <b class="caret"></b>
-                  </a>
+                      <span class="caret"></span>
+                      <%end%>
                   <ul class="dropdown-menu">
                     <% if current_user.profile.is_a? KeeperProfile %>
                       <li><%= link_to 'Perfil', edit_profile_path(current_user.profile) %></li>
-                      <li><%= link_to('Mis cuidados', "#") %></li>
+                      <li><%= link_to('Mis Servicios', services_path) %></li>
+                      <li><%= link_to('Disponibilidad', "#") %></li>
                     <% end %>
                     <% if current_user.profile.is_a? ProspectorProfile %>
                       <li><%= link_to 'Perfil', edit_profile_path(current_user.profile)  %></li>
-                      <li><%= link_to('Mis Mascotas', "#") %></li>
+                      <li><%= link_to('Mis Mascotas',  user_pets_path) %></li>
                     <% end %>
                       <li><%= link_to('Cerrar Sesion', destroy_user_session_path, :method => :delete) %></li>
                   </ul>

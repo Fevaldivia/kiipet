@@ -11,7 +11,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150417005913) do
+ActiveRecord::Schema.define(version: 20150420004335) do
+
+  create_table "counties", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "region_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "counties", ["region_id"], name: "index_counties_on_region_id"
+
+  create_table "countries", force: :cascade do |t|
+    t.string   "name"
+    t.string   "code"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "keeper_profiles", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -22,9 +38,19 @@ ActiveRecord::Schema.define(version: 20150417005913) do
     t.string   "name"
     t.text     "bio"
     t.string   "breed"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+    t.integer  "owneable_id"
+    t.string   "owneable_type"
+    t.integer  "user_id"
+    t.string   "pet_image_file_name"
+    t.string   "pet_image_content_type"
+    t.integer  "pet_image_file_size"
+    t.datetime "pet_image_updated_at"
   end
+
+  add_index "pets", ["owneable_type", "owneable_id"], name: "index_pets_on_owneable_type_and_owneable_id"
+  add_index "pets", ["user_id"], name: "index_pets_on_user_id"
 
   create_table "profiles", force: :cascade do |t|
     t.integer  "user_id"
@@ -34,8 +60,16 @@ ActiveRecord::Schema.define(version: 20150417005913) do
     t.string   "cellphone"
     t.string   "address"
     t.string   "type"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
+    t.string   "phone"
+    t.string   "rut"
+    t.string   "country_code"
+    t.integer  "county_id"
   end
 
   add_index "profiles", ["user_id"], name: "index_profiles_on_user_id"
@@ -44,6 +78,28 @@ ActiveRecord::Schema.define(version: 20150417005913) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  create_table "regions", force: :cascade do |t|
+    t.string   "name"
+    t.string   "short_name"
+    t.string   "code"
+    t.integer  "country_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "regions", ["country_id"], name: "index_regions_on_country_id"
+
+  create_table "services", force: :cascade do |t|
+    t.string   "name"
+    t.text     "description"
+    t.string   "price"
+    t.integer  "profile_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "services", ["profile_id"], name: "index_services_on_profile_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false

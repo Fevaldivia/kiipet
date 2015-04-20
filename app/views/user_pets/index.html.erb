@@ -1,0 +1,39 @@
+
+<div class="container">
+  <div class="col-md-12">
+  <h1>Mis Mascotas</h1>
+
+  <table>
+    <thead>
+      <tr>
+        <th class="text-center">Foto</th>
+        <th class="text-center">Nombre</th>
+        <th class="text-center">Bio</th>
+        <th class="text-center">Raza</th>
+        <th></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @pets.each do |pet| %>
+        <tr>
+          <td class="text-center"><%= image_tag pet.pet_image, :size => "80x80"%></td>
+          <td class="text-center "><%= pet.name %></td>
+          <td class="text-center"><%= pet.bio %></td>
+          <td class="text-center"><%= pet.breed %></td>
+          <td class="actions">
+            <div class="btn-group" role='group'>
+              <td><%= link_to 'Ver', pet, class: "btn btn-default" %></td>
+              <td><%= link_to 'Editar', edit_pet_path(pet), class: "btn btn-default"  %></td>
+              <td><%= link_to 'Eliminar', pet, method: :delete, data: { confirm: 'Estas Seguro?' }, class: "btn btn-danger"  %></td>
+            </div>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  </div>
+  <br>
+
+  <%= link_to 'Nueva Mascota', new_pet_path %>
+</div>

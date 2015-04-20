@@ -12,327 +12,78 @@
 </div>
 
 <div class="container">
-        
-        <div class="row">
-          <div class="col-sm-12">
-            <div class="tab-content">
-              <div class="tab-pane active" id="informacion" role="tabpanel">
-                <%= simple_form_for @profile, as: :profile, url: profile_path(@profile) do |f| %>
-                        <div class="row">
-                          <div class="col-sm-6">
-                            <h2>
-                              Información Personal
-                            </h2>
-                            <%= f.input :name, input_html: { class: 'form-control' }, placeholder: "Nombre" %>
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="tab-content">
+        <div class="tab-pane active" id="informacion" role="tabpanel">
+          <%= simple_form_for @profile, as: :profile, url: profile_path(@profile) do |f| %>
+                  <div class="row">
+                    <div class="col-sm-6">
+                      <h2>
+                        Información Personal
+                      </h2>
+                      <%= f.input :name, input_html: { class: 'form-control' }, placeholder: "Nombre" %>
 
-                            <div class="form-group file optional profile_avatar"><label class="file optional control-label" for="profile_avatar">Foto de perfil</label><div class="controls"><div class="row upload-image"><div class="col-xs-6 col-sm-5 col-md-4 col-lg-4"><input data-input="false" data-buttontext="" data-iconname="fa fa-user" class="file optional form-control filestyle" type="file" name="profile[avatar]" id="profile_avatar" tabindex="-1" style="position: absolute; clip: rect(0px 0px 0px 0px);"><div class="bootstrap-filestyle input-group"><span class="group-span-filestyle " tabindex="0"><label for="profile_avatar" class="btn btn-default "><span class="glyphicon fa fa-user"></span> </label></span></div><i class="fa fa-user"></i></div><div class="col-xs-6 col-sm-7 col-md-8 col-lg-8 text"><div class="help-block"><p>Sube una imagen desde tu ordenador<span>De preferencia en 40x40</span><span>JPG, GIF, PNG o BMP | 5 MB máximo</span></p></div></div></div></div></div>
-                            <div class="row">
-                              <div class="col-sm-6">
-                                <%= f.input :gender, as: :radio_buttons, collection: Profile.genders.map {|g| [g.first, g.first]}, label_method: lambda { |gender| t("simple_form.options.profile.gender.#{gender.first}") }%>
-                              </div>
-                              <div class="col-sm-6">
-                                <%= f.input :birthday, as: :date%>
-                              </div>
-                            </div>
-                            <div class="row">
-                              <div class="col-sm-6">
-                                <div class="form-group">
-                                  <label class="country required" for="profile_country_code"><abbr title="requerido">*</abbr> País</label><select class="form-control" name="profile[country_code]" id="profile_country_code"><option value="AF">Afghanistan</option>
-                                  <option value="AL">Albania</option>
-                                  <option value="DE">Alemania</option>
-                                  <option value="AD">Andorra</option>
-                                  <option value="AO">Angola</option>
-                                  <option value="AI">Anguilla</option>
-                                  <option value="AG">Antigua y Barbuda</option>
-                                  <option value="AN">Antillas Holandesas</option>
-                                  <option value="AQ">Antártida</option>
-                                  <option value="SA">Arabia Saudí</option>
-                                  <option value="DZ">Argelia</option>
-                                  <option value="AR">Argentina</option>
-                                  <option value="AM">Armenia</option>
-                                  <option value="AW">Aruba</option>
-                                  <option value="AU">Australia</option>
-                                  <option value="AT">Austria</option>
-                                  <option value="AZ">Azerbaiyán</option>
-                                  <option value="BS">Bahamas</option>
-                                  <option value="BH">Bahrein</option>
-                                  <option value="BD">Bangladesh</option>
-                                  <option value="BB">Barbados</option>
-                                  <option value="BZ">Belice</option>
-                                  <option value="BJ">Benin</option>
-                                  <option value="BM">Bermudas</option>
-                                  <option value="BY">Bielorrusia</option>
-                                  <option value="BO">Bolivia</option>
-                                  <option value="BQ">Bonaire, Sint Eustatius and Saba</option>
-                                  <option value="BA">Bosnia y Herzegovina</option>
-                                  <option value="BW">Botswana</option>
-                                  <option value="BR">Brasil</option>
-                                  <option value="BN">Brunei</option>
-                                  <option value="BG">Bulgaria</option>
-                                  <option value="BF">Burkina Faso</option>
-                                  <option value="BI">Burundi</option>
-                                  <option value="BT">Bután</option>
-                                  <option value="BE">Bélgica</option>
-                                  <option value="CV">Cabo Verde</option>
-                                  <option value="KH">Camboya</option>
-                                  <option value="CM">Camerún</option>
-                                  <option value="CA">Canadá</option>
-                                  <option value="QA">Catar</option>
-                                  <option selected="selected" value="CL">Chile</option>
-                                  <option value="CN">China</option>
-                                  <option value="CY">Chipre</option>
-                                  <option value="VA">Ciudad del Vaticano</option>
-                                  <option value="CO">Colombia</option>
-                                  <option value="KM">Comoras</option>
-                                  <option value="CG">Congo</option>
-                                  <option value="CD">Congo (Rep. Dem.)</option>
-                                  <option value="KP">Corea del Norte</option>
-                                  <option value="KR">Corea del Sur</option>
-                                  <option value="CR">Costa Rica</option>
-                                  <option value="CI">Costa de Marfil</option>
-                                  <option value="HR">Croacia</option>
-                                  <option value="CU">Cuba</option>
-                                  <option value="CW">Curaçao</option>
-                                  <option value="DK">Dinamarca</option>
-                                  <option value="DM">Dominica</option>
-                                  <option value="EC">Ecuador</option>
-                                  <option value="EG">Egipto</option>
-                                  <option value="SV">El Salvador</option>
-                                  <option value="AE">Emiratos Árabes Unidos</option>
-                                  <option value="ER">Eritrea</option>
-                                  <option value="SI">Eslovenia</option>
-                                  <option value="ES">España</option>
-                                  <option value="US">Estados Unidos</option>
-                                  <option value="EE">Estonia</option>
-                                  <option value="ET">Etiopía</option>
-                                  <option value="PH">Filipinas</option>
-                                  <option value="FI">Finlandia</option>
-                                  <option value="FJ">Fiyi</option>
-                                  <option value="FR">Francia</option>
-                                  <option value="GA">Gabón</option>
-                                  <option value="GM">Gambia</option>
-                                  <option value="GE">Georgia</option>
-                                  <option value="GH">Ghana</option>
-                                  <option value="GI">Gibraltar</option>
-                                  <option value="GR">Grecia</option>
-                                  <option value="GD">Grenada</option>
-                                  <option value="GL">Groenlandia</option>
-                                  <option value="GP">Guadalupe</option>
-                                  <option value="GU">Guam</option>
-                                  <option value="GT">Guatemala</option>
-                                  <option value="GF">Guayana Francesa</option>
-                                  <option value="GG">Guernsey y Alderney</option>
-                                  <option value="GN">Guinea</option>
-                                  <option value="GQ">Guinea Ecuatorial</option>
-                                  <option value="GW">Guinea-Bisáu</option>
-                                  <option value="GY">Guyana</option>
-                                  <option value="HT">Haiti</option>
-                                  <option value="HN">Honduras</option>
-                                  <option value="HK">Hong Kong</option>
-                                  <option value="HU">Hungría</option>
-                                  <option value="IN">India</option>
-                                  <option value="ID">Indonesia</option>
-                                  <option value="IQ">Irak</option>
-                                  <option value="IR">Iran</option>
-                                  <option value="IE">Irlanda</option>
-                                  <option value="BV">Isla Bouvet</option>
-                                  <option value="IM">Isla de Man</option>
-                                  <option value="CX">Isla de Navidad</option>
-                                  <option value="NF">Isla de Norfolk</option>
-                                  <option value="IS">Islandia</option>
-                                  <option value="KY">Islas Caimán</option>
-                                  <option value="CC">Islas Cocos o Islas Keeling</option>
-                                  <option value="CK">Islas Cook</option>
-                                  <option value="FO">Islas Faroe</option>
-                                  <option value="GS">Islas Georgias del Sur y Sandwich del Sur</option>
-                                  <option value="HM">Islas Heard y McDonald</option>
-                                  <option value="FK">Islas Malvinas</option>
-                                  <option value="MP">Islas Marianas del Norte</option>
-                                  <option value="MH">Islas Marshall</option>
-                                  <option value="PN">Islas Pitcairn</option>
-                                  <option value="SB">Islas Salomón</option>
-                                  <option value="SJ">Islas Svalbard y Jan Mayen</option>
-                                  <option value="TK">Islas Tokelau</option>
-                                  <option value="TC">Islas Turks y Caicos</option>
-                                  <option value="VI">Islas Vírgenes de los Estados Unidos</option>
-                                  <option value="VG">Islas Vírgenes del Reino Unido</option>
-                                  <option value="UM">Islas menores de Estados Unidos</option>
-                                  <option value="IL">Israel</option>
-                                  <option value="IT">Italia</option>
-                                  <option value="JM">Jamaica</option>
-                                  <option value="JP">Japón</option>
-                                  <option value="JE">Jersey</option>
-                                  <option value="JO">Jordania</option>
-                                  <option value="KZ">Kazajistán</option>
-                                  <option value="KE">Kenia</option>
-                                  <option value="KG">Kirguizistán</option>
-                                  <option value="KI">Kiribati</option>
-                                  <option value="KW">Kuwait</option>
-                                  <option value="LA">Laos</option>
-                                  <option value="LS">Lesotho</option>
-                                  <option value="LV">Letonia</option>
-                                  <option value="LR">Liberia</option>
-                                  <option value="LY">Libia</option>
-                                  <option value="LI">Liechtenstein</option>
-                                  <option value="LT">Lituania</option>
-                                  <option value="LU">Luxemburgo</option>
-                                  <option value="LB">Líbano</option>
-                                  <option value="MO">Macao</option>
-                                  <option value="MK">Macedonia</option>
-                                  <option value="MG">Madagascar</option>
-                                  <option value="MY">Malasia</option>
-                                  <option value="MW">Malawi</option>
-                                  <option value="MV">Maldivas</option>
-                                  <option value="ML">Mali</option>
-                                  <option value="MT">Malta</option>
-                                  <option value="MA">Marruecos</option>
-                                  <option value="MQ">Martinica</option>
-                                  <option value="MU">Mauricio</option>
-                                  <option value="MR">Mauritania</option>
-                                  <option value="YT">Mayotte</option>
-                                  <option value="FM">Micronesia</option>
-                                  <option value="MD">Moldavia</option>
-                                  <option value="MN">Mongolia</option>
-                                  <option value="ME">Montenegro</option>
-                                  <option value="MS">Montserrat</option>
-                                  <option value="MZ">Mozambique</option>
-                                  <option value="MM">Myanmar</option>
-                                  <option value="MX">México</option>
-                                  <option value="MC">Mónaco</option>
-                                  <option value="NA">Namibia</option>
-                                  <option value="NR">Nauru</option>
-                                  <option value="NP">Nepal</option>
-                                  <option value="NI">Nicaragua</option>
-                                  <option value="NG">Nigeria</option>
-                                  <option value="NU">Niue</option>
-                                  <option value="NO">Noruega</option>
-                                  <option value="NC">Nueva Caledonia</option>
-                                  <option value="NZ">Nueva Zelanda</option>
-                                  <option value="NE">Níger</option>
-                                  <option value="OM">Omán</option>
-                                  <option value="PK">Pakistán</option>
-                                  <option value="PW">Palau</option>
-                                  <option value="PS">Palestina</option>
-                                  <option value="PA">Panamá</option>
-                                  <option value="PG">Papúa Nueva Guinea</option>
-                                  <option value="PY">Paraguay</option>
-                                  <option value="NL">Países Bajos</option>
-                                  <option value="PE">Perú</option>
-                                  <option value="PF">Polinesia Francesa</option>
-                                  <option value="PL">Polonia</option>
-                                  <option value="PT">Portugal</option>
-                                  <option value="PR">Puerto Rico</option>
-                                  <option value="GB">Reino Unido</option>
-                                  <option value="CF">República Centroafricana</option>
-                                  <option value="CZ">República Checa</option>
-                                  <option value="DO">República Dominicana</option>
-                                  <option value="SK">República Eslovaca</option>
-                                  <option value="ZA">República de Sudáfrica</option>
-                                  <option value="RE">Reunión</option>
-                                  <option value="RW">Ruanda</option>
-                                  <option value="RO">Rumania</option>
-                                  <option value="RU">Rusia</option>
-                                  <option value="EH">Sahara Occidental</option>
-                                  <option value="BL">Saint Barthélemy</option>
-                                  <option value="KN">Saint Kitts y Nevis</option>
-                                  <option value="MF">Saint Martin</option>
-                                  <option value="WS">Samoa</option>
-                                  <option value="AS">Samoa Americana</option>
-                                  <option value="SM">San Marino</option>
-                                  <option value="PM">San Pedro y Miquelón</option>
-                                  <option value="VC">San Vicente y Granadinas</option>
-                                  <option value="SH">Santa Helena</option>
-                                  <option value="LC">Santa Lucía</option>
-                                  <option value="ST">Santo Tomé y Príncipe</option>
-                                  <option value="SN">Senegal</option>
-                                  <option value="RS">Serbia</option>
-                                  <option value="SC">Seychelles</option>
-                                  <option value="SL">Sierra Leone</option>
-                                  <option value="SG">Singapur</option>
-                                  <option value="SX">Sint Maarten</option>
-                                  <option value="SY">Siria</option>
-                                  <option value="SO">Somalia</option>
-                                  <option value="LK">Sri Lanka</option>
-                                  <option value="SZ">Suazilandia</option>
-                                  <option value="SD">Sudán</option>
-                                  <option value="SS">Sudán del Sur</option>
-                                  <option value="SE">Suecia</option>
-                                  <option value="CH">Suiza</option>
-                                  <option value="SR">Surinam</option>
-                                  <option value="TH">Tailandia</option>
-                                  <option value="TW">Taiwán</option>
-                                  <option value="TZ">Tanzania</option>
-                                  <option value="TJ">Tayikistán</option>
-                                  <option value="IO">Territorio Británico del Océano Índico</option>
-                                  <option value="TF">Territorios Franceses del Sur</option>
-                                  <option value="TL">Timor Oriental</option>
-                                  <option value="TG">Togo</option>
-                                  <option value="TO">Tonga</option>
-                                  <option value="TT">Trinidad y Tobago</option>
-                                  <option value="TM">Turkmenistán</option>
-                                  <option value="TR">Turquía</option>
-                                  <option value="TV">Tuvalu</option>
-                                  <option value="TN">Túnez</option>
-                                  <option value="UA">Ucrania</option>
-                                  <option value="UG">Uganda</option>
-                                  <option value="UY">Uruguay</option>
-                                  <option value="UZ">Uzbekistán</option>
-                                  <option value="VU">Vanuatu</option>
-                                  <option value="VE">Venezuela</option>
-                                  <option value="VN">Vietnam</option>
-                                  <option value="WF">Wallis y Futuna</option>
-                                  <option value="YE">Yemen</option>
-                                  <option value="DJ">Yibuti</option>
-                                  <option value="ZM">Zambia</option>
-                                  <option value="ZW">Zimbabue</option>
-                                  <option value="TD">chad</option>
-                                  <option value="AX">Åland Islands</option></select>
-                                </div>
-                              </div>
-                              <div class="col-sm-6">
-                                <div class="form-group string required profile_rut"><label class="string required control-label" for="profile_rut"><abbr title="requerido">*</abbr> Rut</label><input class="string required rut form-control" type="text" value="18.360.834-7" name="profile[rut]" id="profile_rut"></div>
-                              </div>
-                            </div>
-                            <div class="form-group">
-                              <label>Email</label><span class="form-control"><%= current_user.email%></span>
-                            </div>
-                          </div>
-                          <div class="col-sm-6">
-                            <h2>
-                              Información de Contacto
-                            </h2>
-                            <div class="row">
-                              <div class="col-sm-6">
-                                <div class="form-group tel required profile_phone"><label class="tel required control-label" for="profile_phone"><abbr title="requerido">*</abbr> Teléfono Fijo</label><input class="string tel required form-control" type="tel" value="123123" name="profile[phone]" id="profile_phone"></div>
-                              </div>
-                              <div class="col-sm-6">
-                                <%= f.input :cellphone, input_html: { class: 'form-control' }, placeholder: "Celular" %>
-                              </div>
-                            </div>
-                            <div class="form-group">
-                              <%= f.input :address, input_html: { class: 'form-control' }, placeholder: "Direccion" %>
-                            </div>
-
-                            <div class="form-group grouped_select optional profile_county_id"><label class="grouped_select optional control-label" for="profile_county_id">Comuna</label>
-                              <select class="grouped_select optional form-control" name="profile[county_id]" id="profile_county_id"></select></div>
-                            
-                            <div class="row">
-                              <div class="col-sm-6">
-                                
-                              </div>
-                              <div class="col-sm-6">
-                                
-                              </div>
-                            </div>
+                      <div class="form-group file optional profile_avatar">
+                      <%= f.input :avatar, input_html: {'data-input' => false, 'data-buttonText' => '', 'data-iconName' => 'fa fa-user'}%>
+                      </div>
+                      <div class="row">
+                        <div class="col-sm-6">
+                          <%= f.input :gender, as: :radio_buttons, collection: Profile.genders.map {|g| [g.first, g.first]}, label_method: lambda { |gender| t("simple_form.options.profile.gender.#{gender.first}") }%>
+                        </div>
+                        <div class="col-sm-6">
+                          <%= f.input :birthday, as: :date, start_year: Date.today.year - 90,
+                              end_year: Date.today.year - 12, discard_day: false,
+                              order: [:day, :month, :year] %>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-sm-6">
+                          <div class="form-group">
+                            <%= f.label :country_code %>
+                            <%= country_select(:profile, :country_code, {selected: f.object.country_code || "CL"}, {class: 'form-control'})%>
                           </div>
                         </div>
-                        <hr>
-                        <div class="form-actions text-center">
-                          <%= f.button :submit, "Guardar", class: 'btn btn-info'%>
+                        <div class="col-sm-6">
+                          <div class="form-group">
+                            <%= f.input :rut, input_html: { class: 'form-control' }, placeholder: "Rut" %>
+                          </div>
                         </div>
-                    <% end %>
-              </div>
-            </div>
-          </div>
+                      </div>
+                      <div class="form-group">
+                        <label>Email</label><span class="form-control"><%= current_user.email%></span>
+                      </div>
+                    </div>
+                    <div class="col-sm-6">
+                      <h2>
+                        Información de Contacto
+                      </h2>
+                      <div class="row">
+                        <div class="col-sm-6">
+                          <div class="form-group">
+                            <%= f.input :phone, input_html: { class: 'form-control' }, placeholder: "Telefono" %>
+                          </div>
+                        </div>
+                        <div class="col-sm-6">
+                          <%= f.input :cellphone, input_html: { class: 'form-control' }, placeholder: "Celular" %>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <%= f.input :address, input_html: { class: 'form-control' }, placeholder: "Direccion" %>
+                      </div>
+
+                      <div class="form-group">
+                        <%= f.input :county_id, collection: Region.all, as: :grouped_select, group_method: :counties, input_html: { class: 'form-control' }%>
+                      </div>
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="form-actions text-center">
+                    <%= f.button :submit, "Guardar", class: 'btn btn-info'%>
+                  </div>
+              <% end %>
         </div>
       </div>
+    </div>
+  </div>
+</div>

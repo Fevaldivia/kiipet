@@ -11,28 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150422020058) do
-
-  create_table "counties", force: :cascade do |t|
-    t.string   "name"
-    t.integer  "region_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  add_index "counties", ["region_id"], name: "index_counties_on_region_id"
-
-  create_table "countries", force: :cascade do |t|
-    t.string   "name"
-    t.string   "code"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "keeper_profiles", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
+ActiveRecord::Schema.define(version: 20150420004335) do
 
   create_table "pets", force: :cascade do |t|
     t.string   "name"
@@ -97,6 +76,27 @@ ActiveRecord::Schema.define(version: 20150422020058) do
     t.integer  "profile_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+  end
+
+  create_table "counties", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "region_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "counties", ["region_id"], name: "index_counties_on_region_id"
+
+  create_table "countries", force: :cascade do |t|
+    t.string   "name"
+    t.string   "code"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "keeper_profiles", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   add_index "services", ["profile_id"], name: "index_services_on_profile_id"

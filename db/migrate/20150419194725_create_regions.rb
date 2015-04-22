@@ -8,6 +8,5 @@ class CreateRegions < ActiveRecord::Migration
 
       t.timestamps null: false
     end
-    add_foreign_key :regions, :countries
   end
 end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150420004335) do
+ActiveRecord::Schema.define(version: 20150423033601) do
 
   create_table "counties", force: :cascade do |t|
     t.string   "name"
@@ -21,13 +21,6 @@ ActiveRecord::Schema.define(version: 20150420004335) do
   end
 
   add_index "counties", ["region_id"], name: "index_counties_on_region_id"
-
-  create_table "countries", force: :cascade do |t|
-    t.string   "name"
-    t.string   "code"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
 
   create_table "keeper_profiles", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -83,12 +76,10 @@ ActiveRecord::Schema.define(version: 20150420004335) do
     t.string   "name"
     t.string   "short_name"
     t.string   "code"
-    t.integer  "country_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "country_code"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
   end
-
-  add_index "regions", ["country_id"], name: "index_regions_on_country_id"
 
   create_table "services", force: :cascade do |t|
     t.string   "name"

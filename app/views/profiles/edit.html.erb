@@ -71,10 +71,24 @@
                   <div class="form-group">
                     <%= f.input :address, input_html: { class: 'form-control' }, placeholder: "Direccion" %>
                   </div>
-
-                  <div class="form-group">
-                    <%= f.input :county_id, collection: Region.all, as: :grouped_select, group_method: :counties, input_html: { class: 'form-control' }%>
+                  <div class="row">
+                    <div class="col-md-6">
+                      <%= f.input :region_id, collection: Region.all, input_html: { class: 'form-control' }%>
+                    </div>
+                    <div class="col-md-6">
+                      <%= f.association :county, input_html: { class: 'form-control' } %>
+                    </div>
                   </div>
+                  <h2>Informacion Bancaria</h2>
+                  <div class="row">
+                    <div class="col-md-6">
+                      <h3>banco</h1>
+                    </div>
+                    <div class="col-md-6">
+                      <h3>tipo de banco</h3>
+                    </div>
+                  </div>
+                  <h2>number</h2>
                 </div>
               </div>
               <hr>

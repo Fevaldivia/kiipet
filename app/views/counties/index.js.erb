@@ -1,0 +1,9 @@
+$('#profile_county_id option').attr('disabled', true)
+$('#profile_county_id option').removeAttr("selected");
+
+<% @counties.each do |county| %>
+  $('#profile_county_id option[value="<%= county.id %>"]').attr('disabled', false)
+<% end %>
+
+
+$('#profile_county_id option:not(:disabled)[value="<%= current_user.profile.county_id %>"]').attr("selected", true);

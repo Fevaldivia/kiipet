@@ -33,7 +33,7 @@ class ProfilesController < ApplicationController
       params.require(:profile).permit(Profile.allowed_attributes)
     end
 
-    # def check_current_profile
-    #   raise ActiveRecord::RecordNotFound if current_user.profile.id != params[:id].to_i
-    # end
+    def check_current_profile
+      raise ActiveRecord::RecordNotFound if current_user.profile.id != params[:id].to_i
+    end
 end

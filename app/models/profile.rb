@@ -6,6 +6,12 @@ class Profile < ActiveRecord::Base
 
   enum gender: [:masculino, :femenino]
 
+  attr_accessor :region_id
+
+  def region_id
+    county ? county.region_id : nil
+  end
+
   validates :user, presence: true
 
   has_attached_file :avatar, styles: {original: '40x40!'}

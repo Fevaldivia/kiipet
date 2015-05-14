@@ -13,7 +13,9 @@
  *= require_tree .
  *= require_self
  */
-
+.container-full{
+  background: url('home.png') no-repeat 50% 0;
+}
 html {
   font-family: sans-serif;
   -ms-text-size-adjust: 100%;
@@ -740,6 +742,10 @@ pre code {
   max-height: 340px;
   overflow-y: scroll;
 }
+.bg1 {
+  background: url('home.png') no-repeat 50% 0;
+  }
+
 .container {
   margin-right: auto;
   margin-left: auto;

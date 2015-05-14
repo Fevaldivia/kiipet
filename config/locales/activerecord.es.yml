@@ -27,6 +27,7 @@ es:
         avatar: Foto de perfil
         gender: Género
         birthday: Fecha de nacimiento
+        cellphone: Celular
         country: País
         country_code: País
         rut: Rut

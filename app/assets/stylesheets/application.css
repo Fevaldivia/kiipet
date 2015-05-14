@@ -13,6 +13,9 @@
  *= require_tree .
  *= require_self
  */
+ #profile_county_id option:disabled {
+  display: none!important;
+}
 .container-full{
   background: url('home.png') no-repeat 50% 0;
 }

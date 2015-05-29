@@ -4,6 +4,10 @@ class Profile < ActiveRecord::Base
   belongs_to :user, inverse_of: :profile
   belongs_to :county
 
+  has_one :bank_account, inverse_of: :profile, dependent: :destroy
+
+  accepts_nested_attributes_for :bank_account
+
   enum gender: [:masculino, :femenino]
 
   attr_accessor :region_id

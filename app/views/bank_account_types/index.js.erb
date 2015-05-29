@@ -1,0 +1,9 @@
+// ver si se cambia por visibility
+$('#profile_bank_account_attributes_bank_account_type_id option').attr('disabled', true)
+$('#profile_bank_account_attributes_bank_account_type_id option').removeAttr("selected");
+
+<% @bank_account_types.each do |bank_account_type| %>
+  $('#profile_bank_account_attributes_bank_account_type_id option[value="<%= bank_account_type.id %>"]').attr('disabled', false)
+<% end %>
+
+$('#profile_bank_account_attributes_bank_account_type_id option:not(:disabled)[value="<%= current_user.profile.bank_account.try(:bank_account_type_id) %>"]').attr("selected", true);

@@ -7,4 +7,6 @@ Rails.application.routes.draw do
   resources :services
 
   root 'home#index'
+
+  get '/regions/:region_id/counties', to: 'counties#index', as: :counties
 end

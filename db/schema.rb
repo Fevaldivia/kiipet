@@ -11,7 +11,42 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150423033601) do
+ActiveRecord::Schema.define(version: 20150514052224) do
+
+  create_table "available_accounts", force: :cascade do |t|
+    t.integer  "bank_id"
+    t.integer  "bank_account_type_id"
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+  end
+
+  add_index "available_accounts", ["bank_account_type_id"], name: "index_available_accounts_on_bank_account_type_id"
+  add_index "available_accounts", ["bank_id"], name: "index_available_accounts_on_bank_id"
+
+  create_table "bank_account_types", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "bank_accounts", force: :cascade do |t|
+    t.integer  "bank_id"
+    t.integer  "bank_account_type_id"
+    t.integer  "profile_id"
+    t.string   "number"
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+  end
+
+  add_index "bank_accounts", ["bank_account_type_id"], name: "index_bank_accounts_on_bank_account_type_id"
+  add_index "bank_accounts", ["bank_id"], name: "index_bank_accounts_on_bank_id"
+  add_index "bank_accounts", ["profile_id"], name: "index_bank_accounts_on_profile_id"
+
+  create_table "banks", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "counties", force: :cascade do |t|
     t.string   "name"

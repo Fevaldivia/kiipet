@@ -9,6 +9,8 @@ class ProfilesController < ApplicationController
   # GET /profiles/1/edit
   def edit
     @profile = current_user.profile
+
+    @profile.build_bank_account unless @profile.bank_account.present?
   end
 
   # PATCH/PUT /profiles/1

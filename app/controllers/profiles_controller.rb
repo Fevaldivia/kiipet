@@ -32,7 +32,8 @@ class ProfilesController < ApplicationController
   private
     # Never trust parameters from the scary internet, only allow the white list through.
     def profile_params
-      params.require(:profile).permit(Profile.allowed_attributes)
+      params.require(:profile).permit(Profile.allowed_attributes,
+        bank_account_attributes: BankAccount.allowed_attributes)
     end
 
     def check_current_profile

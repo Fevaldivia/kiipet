@@ -34,7 +34,7 @@
                     <div class="col-sm-6">
                       <%= f.input :birthday, as: :date, start_year: Date.today.year - 90,
                           end_year: Date.today.year - 12, discard_day: false,
-                          order: [:day, :month, :year] %>
+                          order: [:day, :month, :year], input_html: { class: 'form-control' } %>
                     </div>
                   </div>
                   <div class="row">
@@ -83,13 +83,13 @@
                   <%= f.simple_fields_for :bank_account do |builder| %>
                     <div class="row">
                       <div class="col-md-6">
-                        <%= builder.association :bank %>
+                        <%= builder.association :bank, input_html: { class: 'form-control' } %>
                       </div>
                       <div class="col-md-6">
-                        <%= builder.association :bank_account_type %>
+                        <%= builder.association :bank_account_type, input_html: { class: 'form-control' } %>
                       </div>
                     </div>
-                      <%= builder.input :number %>
+                      <%= builder.input :number, input_html: { class: 'form-control' } %>
                   <% end %>
                 </div>
               </div>

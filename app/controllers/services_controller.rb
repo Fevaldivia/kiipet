@@ -11,14 +11,14 @@ class ServicesController < ApplicationController
   end
 
   def new
-    @service = @profile.service.build
+    @service = @profile.services.build
   end
 
   def edit
   end
 
   def create
-    @service = @profile.service.build service_params
+    @service = @profile.services.build service_params
     if @service.save
       redirect_to services_path, notice: t(:create, scope: [:messages, :controllers, :services, :successfully])
     else
@@ -46,8 +46,8 @@ class ServicesController < ApplicationController
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
-    def company_params
-      params.require(:company).permit(Service.allowed_attributes)
+    def service_params
+      params.require(:service).permit(Service.allowed_attributes)
     end
 
     def set_current_profile

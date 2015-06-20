@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150514052224) do
+ActiveRecord::Schema.define(version: 20150618023517) do
 
   create_table "available_accounts", force: :cascade do |t|
     t.integer  "bank_id"
@@ -79,6 +79,17 @@ ActiveRecord::Schema.define(version: 20150514052224) do
 
   add_index "pets", ["owneable_type", "owneable_id"], name: "index_pets_on_owneable_type_and_owneable_id"
   add_index "pets", ["user_id"], name: "index_pets_on_user_id"
+
+  create_table "profile_services", force: :cascade do |t|
+    t.integer  "profile_id"
+    t.integer  "service_id"
+    t.integer  "price"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "profile_services", ["profile_id"], name: "index_profile_services_on_profile_id"
+  add_index "profile_services", ["service_id"], name: "index_profile_services_on_service_id"
 
   create_table "profiles", force: :cascade do |t|
     t.integer  "user_id"

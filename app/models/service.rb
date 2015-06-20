@@ -1,9 +1,11 @@
 class Service < ActiveRecord::Base
-  belongs_to :profile, inverse_of: :services
+
+  has_many :profile_services
+  has_many :profiles, through: :profile_services
 
   def self.allowed_attributes
     [
-      :name, :description, :price
+      :name, :description
     ]
   end
 end

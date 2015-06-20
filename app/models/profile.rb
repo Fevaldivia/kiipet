@@ -1,6 +1,8 @@
 class Profile < ActiveRecord::Base
 
-  has_many :services, inverse_of: :profile, dependent: :destroy
+  has_many :profile_services
+  has_many :services, through: :profile_services
+
   belongs_to :user, inverse_of: :profile
   belongs_to :county
 

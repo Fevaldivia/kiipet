@@ -53,6 +53,15 @@
                   <div class="form-group">
                     <label>Email</label><span class="form-control"><%= current_user.email%></span>
                   </div>
+                  <br>
+                  <div>
+                      <h2>
+                        Informacion de Servicios
+                      </h2>
+                      <%= f.input :slogan, input_html: { class: 'form-control' }%>
+                      <br>
+                      <%= f.input :bio, input_html: { class: 'form-control' } %>
+                  </div>
                 </div>
                 <div class="col-sm-6">
                   <h2>
@@ -91,8 +100,36 @@
                     </div>
                       <%= builder.input :number, input_html: { class: 'form-control' } %>
                   <% end %>
+                  <br>
+                  <br>
+                  <section>
+                <div class="row">
+                  <h2 class="precios">Precios</h2>
+                  <br>
+                  <ul class="thumbnails" id="servicios">
+                    <%= f.simple_fields_for :profile_services do |ps| %>
+                      <div class='service'>
+                        <li class="col-md-4">
+                          <div class="thumbnail">
+                            <div class="caption">
+                              <h4><%= ps.object.service.name %></h4>
+                            </div>
+                            <span>
+                            </span>
+                            <span class="caption">
+                              <%= ps.input :service_id, as: :hidden, input_html: { value: ps.object.service.id} %>
+                              <%= ps.input :price, input_html: { class: 'form-control' }%>
+                            </span>
+                          </div>
+                        </li>
+                      </div>
+                    <% end %>
+                    </ul>
+                    </div>
+                  </section>
                 </div>
               </div>
+                <br>
               <hr>
               <div class="form-actions text-center">
                 <%= f.button :submit, "Guardar", class: 'btn btn-info'%>

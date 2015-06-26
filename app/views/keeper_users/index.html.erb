@@ -1,0 +1,29 @@
+
+<div class="container">
+  <h2>Cuidadores</h2>
+  <br>
+   <ul class="thumbnails" id="servicios">
+      <% @keepers.each do |keep|%>
+        <div class='service'>
+          <li class="col-md-12">
+            <div class="thumbnail">
+              <div class="caption">
+              <%= image_tag keep.avatar , :size => "60x60"%>
+              </div>
+              <div class="">
+                <h4><%= keep.slogan %></h4>
+              </div>
+              <span class="">
+                <%= keep.bio%>
+              </span>
+              <div>
+                <div class="caption" align="right">
+              <p><a href="#" class="btn btn-primary" role="button">Leer Mas...</a></p>
+              </div>
+            </div>
+          </li>
+        </div>
+      <% end %>
+      </ul>
+</div>
+

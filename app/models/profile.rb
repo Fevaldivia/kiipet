@@ -9,14 +9,21 @@ class Profile < ActiveRecord::Base
   has_one :bank_account, inverse_of: :profile, dependent: :destroy
 
   accepts_nested_attributes_for :bank_account
+  accepts_nested_attributes_for :profile_services
 
   enum gender: [:masculino, :femenino]
+
+  # validate :services_quantity
 
   attr_accessor :region_id
 
   def region_id
     county ? county.region_id : nil
   end
+
+  # def services_quantity
+  #   errors.add(:services, 'Deben ser 3') unless services.size == 3
+  # end
 
   validates :user, presence: true
 
@@ -34,6 +41,6 @@ class Profile < ActiveRecord::Base
   end
 
   def self.allowed_attributes
-    [:name, :avatar, :country_code, :gender, :birthday, :county_id, :rut ,:phone, :cellphone, :address]
+    [:name, :bio, :slogan, :avatar, :country_code, :gender, :birthday, :county_id, :rut ,:phone, :cellphone, :address, profile_services_attributes: [:id, :service_id, :price] ]
   end
 end

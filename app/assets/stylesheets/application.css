@@ -13,6 +13,15 @@
  *= require_tree .
  *= require_self
  */
+ .precios{
+  margin-left: 25px;
+ }
+ ul .thumbnails{
+    list-style-type: none;
+ }
+li{
+  display: inline;
+}
  #profile_county_id option:disabled {
   display: none!important;
 }
@@ -5796,10 +5805,10 @@ button.close {
     display: none !important;
   }
 }
-/*!                    
+/*!
 Theme Name: ReStart
 THEME STYLES
-================================================================= 
+=================================================================
 */
 /* =General
 -------------------------------------------------------------- */

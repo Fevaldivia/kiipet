@@ -40,8 +40,9 @@
                     <% end %>
                     <% if current_user.profile.is_a? ProspectorProfile %>
                       <li><%= link_to 'Perfil', edit_profile_path(current_user.profile)  %></li>
-                      <li><%= link_to('Mis Mascotas',  user_pets_path) %></li>
+                      <li><%= link_to('Mis Mascotas',  pets_path) %></li>
                     <% end %>
+                      <li><%= link_to "Settings", edit_user_registration_path(@user) %></li>
                       <li><%= link_to('Cerrar Sesion', destroy_user_session_path, :method => :delete) %></li>
                   </ul>
               </li>

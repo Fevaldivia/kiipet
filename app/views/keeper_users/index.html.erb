@@ -1,11 +1,54 @@
 
 <div class="container">
+  <div class="row">
   <h2>Cuidadores</h2>
   <br>
+  <section class="buscador">
+    <div class="col-md-4">
+                <!-- Blog Search Well -->
+                <div class="well">
+                    <h4>Busca un cuidador</h4>
+                    <div class="input-group">
+                        <input type="text" class="form-control">
+                        <span class="input-group-btn">
+                            <button class="btn btn-default" type="button">
+                                <span class="glyphicon glyphicon-search"></span>
+                        </button>
+                        </span>
+                    </div>
+                    <!-- /.input-group -->
+                </div>
+
+                <!-- Blog Categories Well -->
+                <div class="well">
+                    <h4>Blog Categories</h4>
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <ul class="list-unstyled">
+
+                        </div>
+                        <div class="col-lg-6">
+                            <ul class="list-unstyled">
+
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- /.row -->
+                </div>
+
+                <!-- Side Widget Well -->
+                <div class="well">
+                    <h4></h4>
+                    <p>Encuentra a los mejores cuidadores de tu zona, consulta por sus precios y servicios y realiza la reserva mediante kiipet, ya que el mejor amigo del hombre merece lo mejor </p>
+                </div>
+
+            </div>
+  </section>
+  <section class="cuidadores">
    <ul class="thumbnails" id="servicios">
       <% @keepers.each do |keep|%>
         <div class='service'>
-          <li class="col-md-12">
+          <li class="col-md-8">
             <div class="thumbnail">
               <div class="caption">
               <%= image_tag keep.avatar , :size => "60x60"%>
@@ -25,5 +68,7 @@
         </div>
       <% end %>
       </ul>
+  </section>
+  </div>
 </div>
 

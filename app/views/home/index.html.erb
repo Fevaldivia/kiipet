@@ -1,43 +1,89 @@
-<div class="container-full">
-
-      <div class="row">
-
-        <div class="col-lg-12 text-center v-center">
-
-          <p class="lead"></p>
-
-          <br><br><br>
-
-
-        </div>
-
-      </div> <!-- /row -->
-
-      <div class="row">
-
-        <div class="col-lg-12 text-center v-center" style="font-size:39pt;">
-          <%= link_to "Buscar Cuidadores", keeper_users_path, :class => "btn btn-primary"%>
-          <a href="#"><i class="icon-google-plus"></i></a> <a href="#"><i class="icon-facebook"></i></a>  <a href="#"><i class="icon-twitter"></i></a> <a href="#"><i class="icon-github"></i></a> <a href="#"><i class="icon-pinterest"></i></a>
-        </div>
-
-      </div>
-
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-     <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-
+<!-- Home -->
+<section id="first" class="text-center bg1 fullheight">
+<a class="anchor" id="row1"></a>
+<div class="headline-wrapper fullheight">
+  <div class="headline slides">
+    <div class="flexslider">
+      <ul class="slides">
+        <li>
+          <h2><span class="emphasis">Para</span>Tu perro</h2><br>
+          <h2>Hay un cuidador <span class="emphasis">Mas Cerca</span> De lo que crees.</h2>
+        </li>
+      </ul>
+    </div>
+  </div>
 </div>
+<%= link_to "Busca Cuidadores", keeper_users_path,  input_html: { class: 'btn btn-primary' }%>
+</section>
 
+    <!-- About -->
+<section id="second" class="about text-center">
+  <a class="anchor" id="row2"></a>
+
+  <div class="wrapper bg-colored ">
+    <div class="container">
+      <div class="row">
+        <h2>Como Funciona?</h2><br>
+        <div class="como-funciona">
+        <div class="col-md-3">
+          <%=image_tag("search.png")%>
+          <br>
+          <p>Busca un Cuidador</p>
+        </div>
+        <div class="col-md-3">
+          <%=image_tag("reserva.png")%>
+          <br>
+          <p>Haz la reserva</p>
+        </div>
+        <div class="col-md-3">
+          <%=image_tag("like.png")%>
+          <br>
+          <p>Tu mascota en las mejores manos</p>
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="third" class="about text-center">
+  <a class="anchor" id="row3"></a>
+  <div class="wrapper">
+    <div class="container story"><br>
+      <h2>Servicios</h2>
+      <div class="servicios">
+        <div class="col-md-3">
+          <%=image_tag("paseo.jpg")%>
+          <br>
+          <p>Paseo de tus mascotas</p>
+        </div>
+        <div class="col-md-3">
+          <%=image_tag("cuidado.jpg")%>
+          <br>
+          <p>Cuidado del dia</p>
+        </div>
+        <div class="col-md-3">
+          <%=image_tag("alojamiento.jpg")%>
+          <br>
+          <p>Alojamiento para tu mascota</p>
+        </div>
+        <div class="col-md-3">
+          <%=image_tag("veterinario.jpg")%>
+          <br>
+          <p>Veterinario a domicilio</p>
+        </div>
+      </div>
+      </div>
+</section>
+
+      <!-- Background Image -->
+    <section id="third" class="text-center bg2">
+      <div class="headline-wrapper fullheight pattern">
+        <div class="headline">
+          <div class="headline-holder">
+            <h2><span class="emphasis">Testimonios</span></h2>
+            <p class="headline-author">Erich Fromm</p>
+          </div>
+        </div>
+      </div>
+    </section>

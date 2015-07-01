@@ -105,11 +105,13 @@
 
         <div role="tabpanel" class="tab-pane" id="servicios">
           <%= simple_form_for @profile, as: :profile, url: profile_path(@profile) do |f| %>
-                  <div>
-                    <h2>Informacion de Servicios</h2>
-                    <%= f.input :slogan, input_html: { class: 'form-control' }%>
-                    <br>
-                    <%= f.input :bio, input_html: { class: 'form-control' } %>
+                  <div class="row">
+                    <div class="col-md-6">
+                      <h2>Informacion de Servicios</h2>
+                      <%= f.input :slogan, input_html: { class: 'form-control' }%>
+                      <br>
+                      <%= f.input :bio, input_html: { class: 'form-control' } %>
+                    </div>
                   </div>
              <section>
                 <div class="row">
@@ -118,10 +120,11 @@
                   <ul class="thumbnails" id="servicio">
                     <%= f.simple_fields_for :profile_services do |ps| %>
                       <div class='service'>
-                        <li class="col-md-4">
+                        <li class="col-md-3">
                           <div class="thumbnail">
                             <div class="caption">
                               <h4><%= ps.object.service.name %></h4>
+                              <p><%= ps.object.service.description%></p>
                             </div>
                             <span>
                             </span>

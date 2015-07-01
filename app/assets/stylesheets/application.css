@@ -13,6 +13,24 @@
  *= require_tree .
  *= require_self
  */
+.bg1 { background: url('home.png') no-repeat 50% 0; }
+.bg2 { background: url('bg-2.jpg') no-repeat 50% 0; }
+.bg1, .bg2{
+  height: 700px;
+  padding: 0;
+  background-attachment: fixed;
+}
+.headline-wrapper {
+   display: table;
+   width: 100%;
+}
+ /*Estilos para seccion principal*/
+.como-funciona{
+  margin-left: 200px;
+}
+.servicios{
+  margin-left: -30px;
+}
  .precios{
   margin-left: 25px;
  }
@@ -24,9 +42,6 @@ li{
 }
  #profile_county_id option:disabled {
   display: none!important;
-}
-.container-full{
-  background: url('home.png') no-repeat 50% 0;
 }
 html {
   font-family: sans-serif;

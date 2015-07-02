@@ -1,68 +1,115 @@
-<div class="main">
-     <div class="container">
-          <section class="hgroup">
-               <h1>Unete a nosotros</h1>
-               <ul class="breadcrumb pull-right">
-                    <li class="active">Registro y Login</li>
-               </ul>
-          </section>
-          <section>
-               <div class="row">
-                    <div class="col-sm-6 col-md-6">
-                         <div class="signin">
-                            <h3>Login</h3>
-                            <%= simple_form_for :user, :url => session_path(:user) do |f| %>
-                              <%= devise_error_messages! %>
-                              <p class="sign_title">Haz login con tu cuenta</p>
-                              <div class="row">
-                                   <div class="col-lg-2"></div>
-                                   <div class="form col-lg-8">
-                                       <%= f.email_field :email, autofocus: true, placeholder: "Email",class: "form-control" %>
-                                       <%= f.password_field :password, autocomplete: "off", placeholder: "Password",class: "form-control" %>
-                                       <div class="forgot">
-                                          <% if devise_mapping.rememberable? -%>
-                                            <div class="checkbox">
-                                             <label class="">
-                                              <%= f.check_box :remember_me %>
+<div class="breadcrumb-wrap breadcrumb-light">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <h4>Inicia sesion</h4>
+                    </div>
+                </div>
+            </div>
+        </div><!--breadcrumb light-->
+        <div class="divide60"></div>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6 col-sm-offset-3 sky-form-login-register">
+                    <div class="margin40">
+                        <%= simple_form_for :user, :url => session_path(:user), html: { class: "sky-form", id: "sky-form "} do |f| %>
+                            <%= devise_error_messages! %>
+                            <h3 class="text-center">Inicia sesion con tu cuenta</h3>
+                            <fieldset>
+                                <section>
+                                    <div class="row">
+                                        <label class="label col col-4">Tu email</label>
+                                        <div class="col col-8">
+                                            <label class="input">
+                                                <i class="icon-append fa fa-user"></i>
+                                                <%= f.email_field :email, autofocus: true, placeholder: "Email", class: "form-control" %>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </section>
+
+                                <section>
+                                    <div class="row">
+                                        <label class="label col col-4">Ingresa tu password</label>
+                                        <div class="col col-8">
+                                            <label class="input">
+                                                <i class="icon-append fa fa-lock"></i>
+                                                <%= f.password_field :password, autocomplete: "off", placeholder: "Password",class: "form-control" %>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </section>
+
+                                <section>
+                                    <div class="row">
+                                        <div class="col col-4"></div>
+                                        <div class="col col-8">
+                                            <% if devise_mapping.rememberable? -%>
+                                            <div class="">
+                                             <label class="checkbox">
+                                              <i></i><%= f.check_box :remember_me %>
                                               Recordarme </label>
                                             </div>
                                           <% end -%>
-                                            <%= render "devise/shared/links" %>
-                                       </div>
-                                       <%= f.submit "Login", class: "btn btn-primary btn-lg" %>
-                                   </div>
-                                   <% end %>
-                                   <div class="col-lg-2"></div>
-                              </div>
-                         </div>
-                    </div>
-                    <div class="col-sm-6 col-md-6">
-                         <div class="signup">
-                            <%= simple_form_for :user, :url => registration_path(:user) do |f| %>
-                              <div class="social_sign">
-                                <h3>Aun no tienes cuenta?</h3>
-                              </div>
-                              <%= f.simple_fields_for :profile_attributes, KeeperProfile.new do |f| %>
-                                <%= f.input :type, as: :radio_buttons, collection: [[KeeperProfile.model_name.human, KeeperProfile.to_s], [ProspectorProfile.model_name.human, ProspectorProfile.to_s]], label: false%>
-                              <% end %>
-                              <p class="sign_title">Crea una, es rapido y gratis!</p>
-                              <div class="row">
-                               <div class="col-lg-2"></div>
-                               <div class="col-lg-8">
-                                <%= f.email_field :email, autofocus: true, placeholder: "Email",class: "form-control" %>
-                                <% if @validatable %>
-                                <em>(<%= @minimum_password_length %> characters minimum)</em>
-                                <% end %>
-                                <%= f.password_field :password, autocomplete: "off", placeholder: "Password",class: "form-control" %>
-                                <%= f.password_field :password_confirmation, autocomplete: "off",placeholder: "Confirmar password",class: "form-control" %>
+                                        </div>
+                                    </div>
+                                </section>
+                            </fieldset>
+                            <footer class="text-right">
+                                <%= link_to "Registrate", new_user_registration_path, input_html: {class: "btn btn-link"}%>
+                                <%= f.submit "Login", class: "btn btn-theme-bg btn-lg" %>
+                            </footer>
+                        <% end %>
+                    </div><!--login form wrap end-->
+
+
+
+
+                    <form action="sky-form/php_files/demo-login-process.php" id="sky-form2" class="sky-form sky-form-modal">
+                        <header>Password recovery</header>
+
+                        <fieldset>
+                            <section>
+                                <label class="label">E-mail</label>
+                                <label class="input">
+                                    <i class="icon-append fa fa-envelope-o"></i>
+                                    <input type="email" name="email" id="email">
+                                </label>
+                            </section>
+                        </fieldset>
+
+                        <footer>
+                            <button type="submit" name="submit" class="button">Submit</button>
+                            <a href="shop-login.html#" class="button button-secondary modal-closer">Close</a>
+                        </footer>
+
+                        <div class="message">
+                            <i class="fa fa-check"></i>
+                            <p>Your request successfully sent!<br><a href="shop-login.html#" class="modal-closer">Close window</a></p>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="social-login-wrapper">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-6 col-sm-offset-3">
+                        <div class="row social-login">
+                            <div class="col-sm-12">
+                                <div class="border-rits">
+                                    <span>or</span>
                                 </div>
-                                <%= f.submit "Registrate", class: "btn btn-success btn-lg" %>
-                              </div>
-                               <div class="col-lg-2"></div>
-                              </div>
-                            <% end %>
-                         </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <button class="btn btn-lg btn-facebook"><i class="fa fa-facebook"></i> Login with facebook</button>
+                            </div>
+                            <div class="col-sm-6">
+                                <button class="btn btn-lg btn-twitter"><i class="fa fa-twitter"></i> Login with Twitter</button>
+                            </div>
+                        </div>
                     </div>
-               </div>
-          </section>
-     </div>
+                </div>
+            </div>
+        </div><!--social login wrapper-->

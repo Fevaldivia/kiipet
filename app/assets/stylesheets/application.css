@@ -28,7 +28,16 @@
   padding: 200px 0;
   background-size: cover;
  }
+.menu-principal{
+  background-color: black;
+}
  #profile_county_id option:disabled {
   display: none!important;
 }
+.dropdown-menu>li>a:focus, .dropdown-menu>li>a:hover{
+  background-color:  #262626;
+}
 
+.top-dark-right li a:hover {
+  color: white;
+}

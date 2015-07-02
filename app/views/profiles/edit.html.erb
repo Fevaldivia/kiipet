@@ -1,4 +1,4 @@
-<div class="tab-panel" role="tabpanel">
+<div class="tabs" role="tabpanel">
   <div class="container">
     <ul class="nav nav-tabs" role="tablist">
       <li class="active" role="presentation">
@@ -21,9 +21,7 @@
           <%= simple_form_for @profile, as: :profile, url: profile_path(@profile) do |f| %>
               <div class="row">
                 <div class="col-sm-6">
-                  <h2>
-                    Información Personal
-                  </h2>
+                  <h3>Información Personal</h3>
                   <%= f.input :name, input_html: { class: 'form-control' }, placeholder: "Nombre" %>
 
                   <div class="form-group file optional profile_avatar">
@@ -57,9 +55,9 @@
                   </div>
                 </div>
                 <div class="col-sm-6">
-                  <h2>
+                  <h3>
                     Información de Contacto
-                  </h2>
+                  </h3>
                   <div class="row">
                     <div class="col-sm-6">
                       <div class="form-group">
@@ -81,7 +79,9 @@
                       <%= f.association :county, input_html: { class: 'form-control' } %>
                     </div>
                   </div>
-                  <h2>Informacion Bancaria</h2>
+                  <br>
+                  <br>
+                  <h3>Informacion Bancaria</h3>
                   <%= f.simple_fields_for :bank_account do |builder| %>
                     <div class="row">
                       <div class="col-md-6">
@@ -107,15 +107,17 @@
           <%= simple_form_for @profile, as: :profile, url: profile_path(@profile) do |f| %>
                   <div class="row">
                     <div class="col-md-6">
-                      <h2>Informacion de Servicios</h2>
+                      <h3>Informacion de Servicios</h3>
                       <%= f.input :slogan, input_html: { class: 'form-control' }%>
                       <br>
                       <%= f.input :bio, input_html: { class: 'form-control' } %>
                     </div>
                   </div>
              <section>
+             <br>
+             <br>
                 <div class="row">
-                  <h2 class="precios">Precios</h2>
+                  <h3 class="precios">Precios</h3>
                   <br>
                   <ul class="thumbnails" id="servicio">
                     <%= f.simple_fields_for :profile_services do |ps| %>

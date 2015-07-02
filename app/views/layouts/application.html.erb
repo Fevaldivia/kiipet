@@ -31,7 +31,7 @@
                             <%= current_user.email %>
                           <% end %>
                           <i class="fa fa-angle-down"></i>
-                          <ul class="dropdown-menu">
+                          <ul class="dropdown-menu menu-principal">
                             <% if current_user.profile.is_a? KeeperProfile %>
                               <li><%= link_to 'Perfil', edit_profile_path(current_user.profile) %></li>
                               <li><%= link_to('Disponibilidad', "#") %></li>
@@ -133,10 +133,28 @@
         <div class="row">
             <div class="col-md-3 col-sm-6 margin30">
                 <div class="footer-col">
-                    <h3>About assan</h3>
+                    <h3>Acerca de Kiipet</h3>
                     <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer lorem quam, adipiscing condimentum tristique vel, eleifend sed turpis. Pellentesque cursus arcu id magna euismod in elementum purus molestie.
+                        Kiipet es una plataforma que pone en contacto a cuidadores de mascotas con experiencia y propietarios de mascotas. Nuestra plataforma permite que cada propietario encuentre el cuidador perfecto para su mascota, haciendo la reserva de forma cómoda y garantizando el pago seguro
                     </p>
+                </div>
+            </div><!--footer col-->
+            <div class="col-md-3 col-sm-6 margin30">
+                <div class="footer-col">
+                    <h3>Contacto</h3>
+
+                    <ul class="list-unstyled contact">
+                        <li><p><strong><i class="fa fa-map-marker"></i> Direccion:</strong> moneda</p></li>
+                        <li><p><strong><i class="fa fa-envelope"></i> E-mail:</strong> contacto@kiipet.com</p></li>
+                        <li> <p><strong><i class="fa fa-phone"></i> Telefono:</strong> +91 1800 2345 2132</p></li>
+                        <li> <p><strong><i class="fa fa-skype"></i> Skype</strong> kiipet</p></li>
+
+                    </ul>
+                </div>
+            </div><!--footer col-->
+            <div class="col-md-3 col-sm-6 margin30">
+                <div class="footer-col">
+                    <h3>Social</h3>
                     <ul class="list-inline social-1">
                         <li><a href="index.html#"><i class="fa fa-facebook"></i></a></li>
                         <li><a href="index.html#"><i class="fa fa-twitter"></i></a></li>
@@ -148,37 +166,15 @@
             </div><!--footer col-->
             <div class="col-md-3 col-sm-6 margin30">
                 <div class="footer-col">
-                    <h3>Contact</h3>
-
-                    <ul class="list-unstyled contact">
-                        <li><p><strong><i class="fa fa-map-marker"></i> Address:</strong> vaisahali, jaipur, 302012</p></li>
-                        <li><p><strong><i class="fa fa-envelope"></i> Mail Us:</strong> <a href="index.html#">Support@designmylife.com</a></p></li>
-                        <li> <p><strong><i class="fa fa-phone"></i> Phone:</strong> +91 1800 2345 2132</p></li>
-                        <li> <p><strong><i class="fa fa-print"></i> Fax</strong> 1800 2345 2132</p></li>
-                        <li> <p><strong><i class="fa fa-skype"></i> Skype</strong> assan.856</p></li>
-
-                    </ul>
-                </div>
-            </div><!--footer col-->
-            <div class="col-md-3 col-sm-6 margin30">
-                <div class="footer-col">
-                    <h3>Social</h3>
-                    <ul class="list-inline f2-work">
-
-                    </ul>
-                </div>
-            </div><!--footer col-->
-            <div class="col-md-3 col-sm-6 margin30">
-                <div class="footer-col">
                     <h3>Newsletter</h3>
                     <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer lorem quam,
+                        Ingresa tu email para obtener novedades y tips para tu mascota
                     </p>
                     <form role="form" class="subscribe-form">
                         <div class="input-group">
-                            <input type="text" class="form-control" placeholder="Enter email to subscribe">
+                            <input type="text" class="form-control" placeholder="Ingresa tu email">
                             <span class="input-group-btn">
-                                <button class="btn  btn-theme-dark btn-lg" type="submit">Ok</button>
+                                <button class="btn  btn-theme-dark btn-lg" type="submit">Enviar</button>
                             </span>
                         </div>
                     </form>

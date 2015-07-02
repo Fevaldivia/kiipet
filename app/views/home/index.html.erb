@@ -1,89 +1,171 @@
-<!-- Home -->
-<section id="first" class="text-center bg1 fullheight">
-<a class="anchor" id="row1"></a>
-<div class="headline-wrapper fullheight">
-  <div class="headline slides">
-    <div class="flexslider">
-      <ul class="slides">
-        <li>
-          <h2><span class="emphasis">Para</span>Tu perro</h2><br>
-          <h2>Hay un cuidador <span class="emphasis">Mas Cerca</span> De lo que crees.</h2>
-        </li>
-      </ul>
+<section class="me-intro parallax bg-principal" data-stellar-background-ratio="0.5">
+    <div class="container text-left">
+        <div class="caption title-2 sft animated slideInLeft"
+             data-x="50"
+             data-y="160"
+             data-speed="1000"
+             data-start="1000"
+             data-easing="easeOutExpo">
+            Encuentra a los mejores <br>
+            Cuidadores
+        </div>
+        <!-- <p class="lead animated slideInLeft ">I am a Graphics and Web designer </p> -->
+        <p><%= link_to "Cuidadores Cerca", keeper_users_path, class: "btn btn-lg btn-theme-bg"%></p>
+        <br>
+        <br>
+        <br>
+        <br>
     </div>
-  </div>
-</div>
-<%= link_to "Busca Cuidadores", keeper_users_path,  input_html: { class: 'btn btn-primary' }%>
-</section>
+</section><!--me intro parallax-->
 
-    <!-- About -->
-<section id="second" class="about text-center">
-  <a class="anchor" id="row2"></a>
+<div class="divide60"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-8 col-sm-offset-2">
+                    <div class="center-heading">
+                        <h2><strong>Como</strong> Funciona</h2>
+                        <span class="center-line"></span>
+                        <p class="sub-text margin40">
+                            We want to present you a simple and functional template “ASSAN”. It is a powerful Multi-Purpose HTML 5 Template. Build whatever you like with this Template that looks effortlessly on-point in Business </p>
+                    </div>
+                </div>
 
-  <div class="wrapper bg-colored ">
-    <div class="container">
-      <div class="row">
-        <h2>Como Funciona?</h2><br>
-        <div class="como-funciona">
-        <div class="col-md-3">
-          <%=image_tag("search.png")%>
-          <br>
-          <p>Busca un Cuidador</p>
-        </div>
-        <div class="col-md-3">
-          <%=image_tag("reserva.png")%>
-          <br>
-          <p>Haz la reserva</p>
-        </div>
-        <div class="col-md-3">
-          <%=image_tag("like.png")%>
-          <br>
-          <p>Tu mascota en las mejores manos</p>
-        </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+            </div><!--center heading end-->
+            <div class="divide50"></div>
+            <div class="row">
+                <div class="col-md-3 col-sm-6 margin30">
+                    <div class="colored-boxed green">
+                        <i class="fa fa-calendar-o"></i>
+                        <h3>Free support & updates</h3>
+                        <span class="center-line"></span>
+                        <p>
+                            Nullam vulputate lorem ut leo. Sed volutpat. Etiam non pede. Nullam et mauris.
+                        </p>
+                    </div>
+                </div><!--colored boxed col end-->
+                <div class="col-md-3 col-sm-6 margin30">
+                    <div class="colored-boxed dark">
+                        <i class="fa fa-tablet"></i>
+                        <h3>Ultra responsive</h3>
+                        <span class="center-line"></span>
+                        <p>
+                            Nullam vulputate lorem ut leo. Sed volutpat. Etiam non pede. Nullam et mauris.
+                        </p>
+                    </div>
+                </div><!--colored boxed col end-->
+                <div class="col-md-3 col-sm-6 margin30">
+                    <div class="colored-boxed blue">
+                        <i class="fa fa-heart"></i>
+                        <h3>made with love</h3>
+                        <span class="center-line"></span>
+                        <p>
+                            Nullam vulputate lorem ut leo. Sed volutpat. Etiam non pede. Nullam et mauris.
+                        </p>
+                    </div>
+                </div><!--colored boxed col end-->
+                <div class="col-md-3 col-sm-6 margin30">
+                    <div class="colored-boxed red">
+                        <i class="fa fa-check-square-o"></i>
+                        <h3>Premium plugins</h3>
+                        <span class="center-line"></span>
+                        <p>
+                            Nullam vulputate lorem ut leo. Sed volutpat. Etiam non pede. Nullam et mauris.
+                        </p>
+                    </div>
+                </div><!--colored boxed col end-->
+            </div>
+        </div><!--services container-->
 
-<section id="third" class="about text-center">
-  <a class="anchor" id="row3"></a>
-  <div class="wrapper">
-    <div class="container story"><br>
-      <h2>Servicios</h2>
-      <div class="servicios">
-        <div class="col-md-3">
-          <%=image_tag("paseo.jpg")%>
-          <br>
-          <p>Paseo de tus mascotas</p>
-        </div>
-        <div class="col-md-3">
-          <%=image_tag("cuidado.jpg")%>
-          <br>
-          <p>Cuidado del dia</p>
-        </div>
-        <div class="col-md-3">
-          <%=image_tag("alojamiento.jpg")%>
-          <br>
-          <p>Alojamiento para tu mascota</p>
-        </div>
-        <div class="col-md-3">
-          <%=image_tag("veterinario.jpg")%>
-          <br>
-          <p>Veterinario a domicilio</p>
-        </div>
-      </div>
-      </div>
-</section>
+        <section class="fun-fact-wrap fun-facts-bg">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-3 margin20 facts-in">
+                        <h3><span class="counter">1000</span> +</h3>
+                        <h4>Downloads</h4>
+                    </div><!--facts in-->
+                    <div class="col-md-3 margin20 facts-in">
+                        <h3><span class="counter">2300</span></h3>
+                        <h4>Happy Customers</h4>
+                    </div><!--facts in-->
+                    <div class="col-md-3 margin20 facts-in">
+                        <h3><span class="counter">80</span> +</h3>
+                        <h4>Valid layouts </h4>
+                    </div><!--facts in-->
+                    <div class="col-md-3 margin20 facts-in">
+                        <h3><span class="counter">3000</span></h3>
+                        <h4>Cups of tea</h4>
+                    </div><!--facts in-->
+                </div>
+            </div>
+        </section><!--fun facts-->
 
-      <!-- Background Image -->
-    <section id="third" class="text-center bg2">
-      <div class="headline-wrapper fullheight pattern">
-        <div class="headline">
-          <div class="headline-holder">
-            <h2><span class="emphasis">Testimonios</span></h2>
-            <p class="headline-author">Erich Fromm</p>
-          </div>
-        </div>
-      </div>
-    </section>
+
+        <div class="testimonials-v-2 wow animated fadeInUp" data-wow-duration="700ms" data-wow-delay="100ms">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-8 col-sm-offset-2">
+                        <div class="center-heading">
+                            <h2><strong>Que piensan</strong> los usuarios</h2>
+                            <p>1000+ Worldwide customers  use Assan template.</p>
+                            <span class="center-line"></span>
+
+                        </div>
+                    </div>
+                </div><!--center heading end-->
+
+                <div class="row">
+
+                    <div class="col-sm-8 col-sm-offset-2">
+                        <div class="testi-slide">
+                            <ul class="slides">
+                                <li>
+                                    <img src="img/customer-1.jpg" alt="">
+                                    <p>
+                                        <i class="ion-quote"></i>
+                                        It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters.
+                                    </p>
+                                    <h4 class="test-author">
+                                        Rick man - <em>rock inc</em>
+                                    </h4>
+                                </li><!--testi item-->
+                            </ul>
+                        </div><!--flex slider testimonials end here-->
+                    </div>
+                </div><!--testi slider row end-->
+
+            </div>
+        </div><!--testimonials v-2 end-->
+
+
+
+          <div class="blue-bg">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-6 margin30">
+                        <div class="services-box wow animated fadeInDown">
+                            <div class="services-box-icon">
+                                <i class="fa fa-bars"></i>
+                            </div><!--services icon-->
+                            <div class="services-box-info">
+                                <h4>Lorem</h4>
+                                <p>
+                                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor.</div>
+                        </div><!--service box-->
+                    </div>
+                    <div class="col-sm-6 ">
+                        <div class="services-box wow animated fadeInUp">
+                            <div class="services-box-icon">
+                                <i class="fa fa-download"></i>
+                            </div><!--services icon-->
+                            <div class="services-box-info">
+                                <h4>Lorem ipsum & Lorem</h4>
+                                <p>
+                                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor. </div>
+                        </div><!--service box-->
+                    </div>
+                </div>
+            </div>
+        </div><!--full wide 2 columns content end-->
+
+
+

@@ -38,6 +38,8 @@ es:
         cell_phone: Teléfono Celular
         address: Dirección
         address_proof: Comprobante de domicilio
+      profile_service:
+        price: Precio
       bank:
         name: Nombre
       bank_account_type:

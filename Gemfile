@@ -34,5 +34,4 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0',          group: :doc
 gem "font-awesome-rails"
-gem "simple_calendar", "~> 1.1.0"
 

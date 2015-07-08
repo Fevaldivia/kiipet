@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150626003143) do
+ActiveRecord::Schema.define(version: 20150703201839) do
 
   create_table "available_accounts", force: :cascade do |t|
     t.integer  "bank_id"
@@ -47,6 +47,18 @@ ActiveRecord::Schema.define(version: 20150626003143) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  create_table "calendars", force: :cascade do |t|
+    t.date     "expirate"
+    t.date     "service_date"
+    t.integer  "profile_id"
+    t.integer  "service_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  add_index "calendars", ["profile_id"], name: "index_calendars_on_profile_id"
+  add_index "calendars", ["service_id"], name: "index_calendars_on_service_id"
 
   create_table "counties", force: :cascade do |t|
     t.string   "name"
@@ -136,6 +148,7 @@ ActiveRecord::Schema.define(version: 20150626003143) do
     t.integer  "profile_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.datetime "starts_at"
   end
 
   add_index "services", ["profile_id"], name: "index_services_on_profile_id"

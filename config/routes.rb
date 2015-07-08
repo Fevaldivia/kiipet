@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   root 'home#index'
 
   get "contact", to: "home#contact"
+  get "calendar", to: "calendars#index"
 
   get '/regions/:region_id/counties', to: 'counties#index', as: :counties
 end

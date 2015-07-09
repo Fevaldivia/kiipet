@@ -148,7 +148,6 @@ ActiveRecord::Schema.define(version: 20150703201839) do
     t.integer  "profile_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
-    t.datetime "starts_at"
   end
 
   add_index "services", ["profile_id"], name: "index_services_on_profile_id"

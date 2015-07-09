@@ -4,6 +4,7 @@ class ProfilesController < ApplicationController
   # before_action :check_current_profile, only: [:edit, :update]
 
   def show
+    @profile = Profile.find params[:id]
   end
 
   # GET /profiles/1/edit

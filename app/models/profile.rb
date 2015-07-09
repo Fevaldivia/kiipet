@@ -27,7 +27,7 @@ class Profile < ActiveRecord::Base
 
   validates :user, presence: true
 
-  has_attached_file :avatar, styles: {original: '40x40!'}
+  has_attached_file :avatar, styles: {original: '200x200!'}
   validates_attachment_content_type :avatar, :content_type => /^image\/(jpg|jpeg|pjpeg|png|x-png|gif)$/
   validates_attachment_size :avatar, :less_than => 5.megabytes
 

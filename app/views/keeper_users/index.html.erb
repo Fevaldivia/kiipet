@@ -51,7 +51,7 @@
 
                 <% @keepers.each do |kp|%>
                     <div class="results-box">
-                        <h3><%= link_to kp.slogan, "#"%></h3>
+                        <h3><%= link_to kp.slogan, profile_path(kp)%></h3>
                         <ul class="list-inline link-ul">
                             <li>http:/www.designmylife.co.in/assan</li>
                             <li class="btn-group">
@@ -72,7 +72,7 @@
                         </p>
                     </div><!--result box-->
                     <hr>
-                  <% end %>
+                <% end %>
 
                     <ul class="pagination">
                         <li>

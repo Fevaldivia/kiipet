@@ -5,7 +5,7 @@ class Service < ActiveRecord::Base
 
   def self.allowed_attributes
     [
-      :name, :description, :price
+      :name, :description
     ]
   end
 end

@@ -26,6 +26,7 @@ group :assets do
   gem 'coffee-rails', '~> 4.1.0'
 end
 
+gem 'pry-rails'
 gem 'devise'
 gem 'simple_form'
 gem 'country_select'

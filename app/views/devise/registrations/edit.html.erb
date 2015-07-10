@@ -28,7 +28,9 @@
     <hr>
     <h3>Eliminar mi cuenta</h3>
 
-    <p>Deseas eliminar tu cuenta?<%= button_to "Eliminar", registration_path(resource_name), data: { confirm: "Estas seguro?" }, method: :delete, class: 'btn btn-danger' %></p>
+    <p>Deseas eliminar tu cuenta?
+    <br>
+    <%= button_to "Eliminar", registration_path(resource_name), data: { confirm: "Estas seguro?" }, method: :delete, class: 'btn btn-danger' %></p>
     <hr>
     <div class="form-actions">
       <%= f.button :submit, "Guardar", class: 'btn btn-info'%>

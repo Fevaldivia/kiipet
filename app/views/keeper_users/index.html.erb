@@ -8,20 +8,6 @@
                     </div>
                 </div>
             </div>
-        </div><!--breadcrumbs-->
-        <div class="search-area">
-            <div class="container">
-                <div class="row">
-                    <div class="col-sm-5">
-                        <div class="input-group">
-                            <input type="text" class="form-control" placeholder="que buscas?">
-                            <span class="input-group-btn">
-                                <button class="btn btn-theme-bg btn-lg" type="button"><i class="fa fa-search"></i></button>
-                            </span>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </div>
         <div class="divide40"></div>
         <div class="container">
@@ -51,7 +37,7 @@
 
                 <% @keepers.each do |kp|%>
                     <div class="results-box">
-                        <h3><%= link_to kp.slogan, profile_path(kp)%></h3>
+                        <h3><%= link_to kp.slogan, profile_path(kp) %></h3>
                         <ul class="list-inline link-ul">
                             <li>http:/www.designmylife.co.in/assan</li>
                             <li class="btn-group">
@@ -93,4 +79,4 @@
                     </ul>
                 </div>
             </div>
-        </div><!--search results container end-->
+        </div><!--buscador de contenidos end-->

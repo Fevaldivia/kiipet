@@ -46,6 +46,7 @@
                             <span class="caption">
                               <%-  ps.profile_services.each do |p| %>
                                 <p>Precio</p>
+                                <%= p.service.id %>
                                 <%= p.price %>
                               <% end %>
                             </span>

@@ -108,9 +108,10 @@
                   <div class="row">
                     <div class="col-md-6">
                       <h3>Informacion de Servicios</h3>
-                      <%= f.input :slogan, input_html: { class: 'form-control' }%>
+                      <p>Esta es la información que le mostraras a tus clientes en nuestro buscador</p>
+                      <%= f.input :slogan, input_html: { class: 'form-control' }, placeholder: 'Me encanta cuidar ballenas azules y viajar por el mundo' %>
                       <br>
-                      <%= f.input :bio, input_html: { class: 'form-control' } %>
+                      <%= f.input :bio, input_html: { class: 'form-control' }, placeholder: 'Tengo 3 a;os de experiencias cuidando ballenas. Antes cuidaba elefantes.' %>
                     </div>
                   </div>
              <section>
@@ -118,6 +119,7 @@
              <br>
                 <div class="row">
                   <h3 class="precios">Precios</h3>
+                  <p>Aquí debes especificar el valor por tus servicios. Por ahora tienes que llenarlos todos, pero si no prestas todos los servicios puedes colocar 0.</p>
                   <br>
                   <ul class="thumbnails" id="servicio">
                     <%= f.simple_fields_for :profile_services do |ps| %>

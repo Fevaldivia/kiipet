@@ -44,11 +44,8 @@
                             <span>
                             </span>
                             <span class="caption">
-                              <%-  ps.profile_services.each do |p| %>
-                                <p>Precio</p>
-                                <%= p.service.id %>
-                                <%= p.price %>
-                              <% end %>
+                              <p>Precio</p>
+                              <%= ps.profile_services.get_price(@profile.id) %>
                             </span>
                           </div>
                         </li>

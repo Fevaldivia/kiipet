@@ -8,4 +8,6 @@ class ProfileService < ActiveRecord::Base
       :price
     ]
   end
+
+  scope :get_price, ->(id) { find_by_profile_id(id).price }
 end

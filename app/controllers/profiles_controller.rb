@@ -10,12 +10,10 @@ class ProfilesController < ApplicationController
   # GET /profiles/1/edit
   def edit
     @profile = current_user.profile
-
     @profile.build_bank_account unless @profile.bank_account.present?
-
     @services = Service.all
     @services.each do |service|
-        @profile.profile_services.build(service: service) unless @profile.services.any?
+      @profile.profile_services.build(service: service) unless @profile.services.any?
     end
   end
 

@@ -37,27 +37,27 @@
 
                 <% @keepers.each do |kp|%>
                     <div class="results-box">
+                      <div class="col-md-2">
+                        <%= image_tag kp.avatar.url , :size => "100x100", class: "img-circle"%>
+                      </div>
+                      <div class="col-md-10">
                         <h3><%= link_to kp.slogan, profile_path(kp) %></h3>
                         <ul class="list-inline link-ul">
-                            <li><%= kp.county.name if kp.county %></li>
-                            <li class="btn-group">
-                                <button data-toggle="dropdown" class="btn btn-default dropdown-toggle" type="button">
-                                    <i class="fa fa-caret-down"></i>
-                                    <span class="sr-only">Toggle Dropdown</span>
-                                </button>
-                                <ul role="menu" class="dropdown-menu">
-                                    <li><a href="search-results.html#">Similar</a></li>
-                                    <li><a href="search-results.html#">Advanced search</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="search-results.html#">Wrapbootstrap</a></li>
-                            <li><a href="search-results.html#">Design_mylife</a></li>
+                            <% if kp.county %>
+                              <li><%= kp.county.name %></li>
+                            <% else %>
+                              <li>Sin Comuna</li>
+                            <% end -%>
+                              <li><%= kp.county.region.name%></li>
                         </ul>
                         <p>
-                            <%= kp.bio %>
+                            <%= kp.bio.truncate_words(20) %>
                         </p>
+                        <hr>
+                      </div>
+
                     </div><!--result box-->
-                    <hr>
+
                 <% end %>
 
                     <ul class="pagination">

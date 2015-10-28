@@ -39,3 +39,6 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 gem "font-awesome-rails"
 gem 'fullcalendar-rails'
 gem 'momentjs-rails'
+#gem for elastic search
+gem 'elasticsearch-model'
+gem 'elasticsearch-rails'

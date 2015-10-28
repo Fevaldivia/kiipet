@@ -12,25 +12,27 @@
     </div>
   <% end %>
 
-
+<div class="col-md-6">
   <div class="field">
     <%= f.input :pet_image, input_html: {'data-input' => false, 'data-buttonText' => '', 'data-iconName' => 'fa fa-user'}%>
   </div>
 
   <div class="field">
     <%= f.label :name %><br>
-    <%= f.text_field :name %>
+    <%= f.text_field :name, class: "form-control" %>
   </div>
   <div class="field">
     <%= f.label :bio %><br>
-    <%= f.text_area :bio %>
+    <%= f.text_area :bio, class: "form-control"  %>
   </div>
   <div class="field">
     <%= f.label :breed %><br>
-    <%= f.text_field :breed %>
+    <%= f.text_field :breed , class: "form-control" %>
   </div>
+  <br>
   <div class="actions">
-    <%= f.submit %>
+    <%=f.button :submit, "Crear", class: 'btn btn-info'%>
   </div>
 <% end %>
+</div>
 </div>

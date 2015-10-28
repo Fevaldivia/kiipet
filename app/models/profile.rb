@@ -1,5 +1,8 @@
 class Profile < ActiveRecord::Base
 
+  has_many :calendars
+  has_many :services, through: :calendars
+
   has_many :profile_services
   has_many :services, through: :profile_services
 
@@ -10,6 +13,7 @@ class Profile < ActiveRecord::Base
 
   accepts_nested_attributes_for :bank_account
   accepts_nested_attributes_for :profile_services
+  accepts_nested_attributes_for :county
 
   enum gender: [:masculino, :femenino]
 
@@ -27,7 +31,7 @@ class Profile < ActiveRecord::Base
 
   validates :user, presence: true
 
-  has_attached_file :avatar, styles: {original: '40x40!'}
+  has_attached_file :avatar, styles: {original: '200x200!'}
   validates_attachment_content_type :avatar, :content_type => /^image\/(jpg|jpeg|pjpeg|png|x-png|gif)$/
   validates_attachment_size :avatar, :less_than => 5.megabytes
 
@@ -41,6 +45,7 @@ class Profile < ActiveRecord::Base
   end
 
   def self.allowed_attributes
-    [:name, :bio, :slogan, :avatar, :country_code, :gender, :birthday, :county_id, :rut ,:phone, :cellphone, :address, profile_services_attributes: [:id, :service_id, :price] ]
+    [:name, :bio, :slogan, :avatar, :country_code, :gender, :birthday, :county_id, :rut ,:phone, :cellphone, :address,
+    profile_services_attributes: [:id, :service_id, :price] ]
   end
 end

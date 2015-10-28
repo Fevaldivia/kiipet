@@ -8,20 +8,6 @@
                     </div>
                 </div>
             </div>
-        </div><!--breadcrumbs-->
-        <div class="search-area">
-            <div class="container">
-                <div class="row">
-                    <div class="col-sm-5">
-                        <div class="input-group">
-                            <input type="text" class="form-control" placeholder="que buscas?">
-                            <span class="input-group-btn">
-                                <button class="btn btn-theme-bg btn-lg" type="button"><i class="fa fa-search"></i></button>
-                            </span>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </div>
         <div class="divide40"></div>
         <div class="container">
@@ -51,28 +37,28 @@
 
                 <% @keepers.each do |kp|%>
                     <div class="results-box">
-                        <h3><%= link_to kp.slogan, "#"%></h3>
+                      <div class="col-md-2">
+                        <%= image_tag kp.avatar.url , :size => "100x100", class: "img-circle"%>
+                      </div>
+                      <div class="col-md-10">
+                        <h3><%= link_to kp.slogan, profile_path(kp) %></h3>
                         <ul class="list-inline link-ul">
-                            <li>http:/www.designmylife.co.in/assan</li>
-                            <li class="btn-group">
-                                <button data-toggle="dropdown" class="btn btn-default dropdown-toggle" type="button">
-                                    <i class="fa fa-caret-down"></i>
-                                    <span class="sr-only">Toggle Dropdown</span>
-                                </button>
-                                <ul role="menu" class="dropdown-menu">
-                                    <li><a href="search-results.html#">Similar</a></li>
-                                    <li><a href="search-results.html#">Advanced search</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="search-results.html#">Wrapbootstrap</a></li>
-                            <li><a href="search-results.html#">Design_mylife</a></li>
+                            <% if kp.county %>
+                              <li><%= kp.county.name %></li>
+                            <% else %>
+                              <li>Sin Comuna</li>
+                            <% end -%>
+                              <li><%= kp.county.region.name%></li>
                         </ul>
                         <p>
-                            <%= kp.bio %>
+                            <%= kp.bio.truncate_words(20) %>
                         </p>
+                        <hr>
+                      </div>
+
                     </div><!--result box-->
-                    <hr>
-                  <% end %>
+
+                <% end %>
 
                     <ul class="pagination">
                         <li>
@@ -93,4 +79,4 @@
                     </ul>
                 </div>
             </div>
-        </div><!--search results container end-->
+        </div><!--buscador de contenidos end-->

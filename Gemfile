@@ -26,6 +26,7 @@ group :assets do
   gem 'coffee-rails', '~> 4.1.0'
 end
 
+gem 'pry-rails'
 gem 'devise'
 gem 'simple_form'
 gem 'country_select'
@@ -38,3 +39,6 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 gem "font-awesome-rails"
 gem 'fullcalendar-rails'
 gem 'momentjs-rails'
+#gem for elastic search
+gem 'elasticsearch-model'
+gem 'elasticsearch-rails'

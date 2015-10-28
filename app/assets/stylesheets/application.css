@@ -15,7 +15,9 @@
  *= require_tree .
  *= require_self
  */
-
+.show-profile{
+  margin-bottom: 15px;
+}
  .login{
   z-index: 10000;
  }

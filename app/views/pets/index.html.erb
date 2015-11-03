@@ -13,12 +13,13 @@
         </div>
           <div class="caption">
             <h3><%= pet.name %></h3>
-             <p><%= pet.breed %></p>
+             <p>Raza: <%= pet.breed %></p>
+             <h5>A tener en cuenta:</h5>
             <p><%= pet.bio %></p>
           </div>
           <div class="caption">
             <%= link_to 'Editar', edit_pet_path(pet), class: "btn btn btn-info" %>
-            <%= link_to 'Eliminar', pet, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn btn-danger"  %>
+            <%= link_to 'Eliminar', pet, method: :delete, data: { confirm: 'Estas seguro?' }, class: "btn btn btn-danger"  %>
           </div>
         </div>
       </li>

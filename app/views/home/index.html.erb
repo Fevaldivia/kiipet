@@ -1,19 +1,25 @@
 <section class="me-intro parallax bg-principal" data-stellar-background-ratio="0.5">
     <div class="container text-left">
-        <div class="caption title-2 sft animated slideInLeft">
-            Encuentra a los mejores <br>
-            Cuidadores
-        </div>
         <div class="caption text sfl animated slideInLeft">
-            Busca Cuidadores, Paseadores y alojamiento<br>
-            tu mejor amigo en las mejores manos
+            <div class="col-md-2">
+
+            </div>
+            <div class="col-md-10">
+            <div class="caption title-2 sft animated slideInLeft">
+            Encuentra a los mejores Cuidadores
+            </div>
+            Busca Cuidadores, Paseadores y alojamiento
+            <br>
+            <br>
+            <%= form_tag(keeper_users_path, :method => "get", id: "search-form") do %>
+              <%= text_field_tag :search, params[:search], placeholder: "Busca cuidadores en...", class: "input-lg col-md-6" %>
+              <%= button_tag(class: "btn btn-info btn-lg") do %>
+                <i class="fa fa-search top-search"> Buscar Cuidadores</i>
+              <% end -%>
+            <% end %>
         </div>
-        <br>
-        <br>
-        <!-- <p class="lead animated slideInLeft ">I am a Graphics and Web designer </p> -->
-        <p><%= link_to "Cuidadores Cerca", keeper_users_path, class: "btn border-white btn-lg animated slideInLeft"%></p>
-        <br>
-        <br>
+        </div>
+  </div>
     </div>
 </section><!--me intro parallax-->
 

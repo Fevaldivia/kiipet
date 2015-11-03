@@ -44,6 +44,11 @@ class Profile < ActiveRecord::Base
     ISO3166::Country[country_code]
   end
 
+  def self.search(search)
+    where("slogan ILIKE ?", "%#{search}%")
+    where("name ILIKE ?", "%#{search}%")
+  end
+
   def self.allowed_attributes
     [:name, :bio, :slogan, :avatar, :country_code, :gender, :birthday, :county_id, :rut ,:phone, :cellphone, :address,
     profile_services_attributes: [:id, :service_id, :price] ]

@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   resources :pets
 
   resources :profiles, only: [:show, :edit, :update]
-  resources :keeper_users, only: :index
+  resources :keeper_users
   resources :services
 
   root 'home#index'

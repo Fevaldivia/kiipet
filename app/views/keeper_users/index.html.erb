@@ -15,11 +15,10 @@
                 <div class="col-sm-3">
                     <div class="results-sidebar-box">
                         <h4>Busca por region</h4>
-                        <ul class="list-unstyled">
-                            <li><a href="search-results.html#">Bootstrap template</a></li>
-                            <li><a href="search-results.html#">Admin template</a></li>
-                            <li><a href="search-results.html#">Responsive template</a></li>
-                        </ul>
+                        <%= form_tag(keeper_users_path, :method => "get", id: "search-form") do %>
+                        <%= text_field_tag :search, params[:search], placeholder: "Search Posts" %>
+                        <%= submit_tag "Search" %>
+                        <% end %>
                         <hr>
                     </div><!--sidebar box of search results end-->
                     <div class="results-sidebar-box">
@@ -33,6 +32,7 @@
                     </div><!--sidebar box of search results end-->
                 </div><!--search sidebar col end-->
                 <div class="col-sm-9">
+                <% if @keepers.present? %>
                     <span class="results-number">Cerca 230,000 results (in 0.40 seconds)</span>
 
                 <% @keepers.each do |kp|%>
@@ -77,6 +77,9 @@
                             </a>
                         </li>
                     </ul>
+                    <% else %>
+                    <p>There are no posts containing the term(s) <%= params[:search] %>.</p>
+                    <% end -%>
                 </div>
             </div>
         </div><!--buscador de contenidos end-->

@@ -17,6 +17,10 @@ class Profile < ActiveRecord::Base
 
   enum gender: [:masculino, :femenino]
 
+  scope :by_commune, ->(commune) {
+    joins(:county).where("counties.name = ?", commune)
+  }
+  
   # validate :services_quantity
 
   attr_accessor :region_id

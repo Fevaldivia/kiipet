@@ -67,98 +67,13 @@ es:
         name: Nombre
         region: Región
         region_id: Región
-      company:
-        name: Nombre Productora
-        website: Sitio Web
-        history: Historia Productora
-        legal_name: Razón Social
-        rut: RUT
-        activity: Giro
-        legal_representative_name: Representante Legal
-        legal_representative_rut: RUT Representante Legal
-        phone: Teléfono Fijo
-        cellphone: Teléfono Celular
-        email: Correo electrónico
-        address: Dirección Comercial
-        scriptures: Escrituras
-        state: Estado
-      venue:
+      pet:
         name: Nombre
-        address: Dirección
-        link: Página Web
-      event:
-        name: Nombre
-        date_event: Fecha
-        event_image: Imagen
-        event_header: Imagen fondo
-        band_ids: Bandas
-        bands: Bandas
-        finish_date: Fecha Término
-        date_pay: Fecha pago
-        goal: Meta
-        total_courtesy: Total Cortesias
-        max_rent: Rentabilidad Máxima
-        max_rent_attendes: Rentabilidad Máxima
-        balance_point: Punto equilibrio
-        balance_point_attendes: Punto equilibrio
-        min_rent: Rentabilidad mínima
-        min_rent_attendes: Rentabilidad mínima
-        comments: Comentarios
-        owneable_gid: Crear como
-        owneable: Creador
-        owneable_id: Creador
-        category_ids: Categorías
-        categories: Categorías
-        event_ids: Eventos
-        events: Eventos
-        state: Estado
-        total_capacity: Capacidad
-        total_ticket: Ticket Promedio
-        total_investment: Inversion Total
-        total_exchange: Canje Total
-        venue: Lugar
-      band:
-        name: Nombre
-        bio: Biografía
-        link_spotify: Link Spotify
-        country: Pais
-        country_id: Pais
-        events: Eventos
+        bio: Descripcion
+        breed: Raza
+        pet_image: Foto
       category:
         name: Nombre
-      referral:
-        band: Banda
-        band_id: Banda
-        venue: Lugar
-        venue_id: Lugar
-        event: Evento
-        event_id: Evento
-        date_last_show: Fecha último show
-        sales: Entradas último show
-      ticket:
-        ticket_name: Nombre Ticket
-        quantity_sale: Cantidad
-        courtesy: Cortesias
-        price: Precio Ticket
-        event: Evento
-        event_id: Evento
-      medium:
-        name: Medio
-        investment: Inversión
-        exchange: Canje
-        event: Evento
-        event_id: Evento
-      investment:
-        amount: Monto
-        user_id: Usuario
-        event: Evento
-        event_id: Evento
-        owneable_gid: Invertir como
-        owneable: Creador
-        owneable_id: Creador
-        state: Estado
-        conditions: Acepto Contrato Inversionista
-        deposit_proof: Comprobante de Depósito
     errors:
       models:
         user:

@@ -1,8 +1,5 @@
 class Profile < ActiveRecord::Base
 
-  has_many :calendars
-  has_many :services, through: :calendars
-
   has_many :profile_services
   has_many :services, through: :profile_services
 

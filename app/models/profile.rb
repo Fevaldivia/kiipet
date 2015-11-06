@@ -17,10 +17,10 @@ class Profile < ActiveRecord::Base
 
   enum gender: [:masculino, :femenino]
 
-  scope :by_commune, ->(commune) {
-    joins(:county).where("counties.name = ?", commune)
-  }
-  
+  # scope :by_commune, ->(commune) {
+  #   joins(:county).where("counties.name = ?", commune)
+  # }
+
   # validate :services_quantity
 
   attr_accessor :region_id
@@ -49,8 +49,8 @@ class Profile < ActiveRecord::Base
   end
 
   def self.search(search)
-    where("slogan ILIKE ?", "%#{search}%")
-    where("name ILIKE ?", "%#{search}%")
+    where("slogan LIKE ?", "%#{search}%")
+    where("name LIKE ?", "%#{search}%")
   end
 
   def self.allowed_attributes

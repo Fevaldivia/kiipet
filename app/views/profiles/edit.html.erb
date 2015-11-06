@@ -34,9 +34,7 @@
                       <%= f.input :gender, as: :radio_buttons, collection: Profile.genders.map {|g| [g.first, g.first]}, label_method: lambda { |gender| t("simple_form.options.profile.gender.#{gender.first}") }%>
                     </div>
                     <div class="col-sm-6">
-                      <%= f.input :birthday, as: :date, start_year: Date.today.year - 90,
-                          end_year: Date.today.year - 12, discard_day: false,
-                          order: [:day, :month, :year], input_html: { class: 'form-control' } %>
+                      <%= f.input :birthday, as: :string, input_html: { class: 'datepicker form-control'  } %>
                     </div>
                   </div>
                   <div class="row">

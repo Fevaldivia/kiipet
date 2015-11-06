@@ -42,3 +42,5 @@ gem 'momentjs-rails'
 #gem for elastic search
 gem 'elasticsearch-model'
 gem 'elasticsearch-rails'
+#gem for date picker rails
+gem 'bootstrap-datepicker-rails'

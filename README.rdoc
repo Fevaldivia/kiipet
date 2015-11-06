@@ -19,6 +19,7 @@ Luego de esto se creara un id por ejemplo #3, entonces el nombre de la rama ser√
 - Inactive: No action needed or possible. The issue is either fixed, addressed better by other issues, or just out of product scope
 - Pending: Esta listo, pero necesita algunas cosas sucedan primero. Necesita un merge con alguna caracteristica que esta construyendo otra persona o que necesita m√°s datos para terminar el branch. En este caso no se puede hacer branch hasta que alguien haga el merge.
 - Question: Algun programador del equipo tiene dudas sobre como hacer algo o como se implemento algo.
+- Fix: hacer nuevamente una funcionalidad que no esta dando los resultados esperados, o solucionar un problema.
 
 === 3. Cuando se termina una caracteristicas se hace un merge con no fast fordward
 

@@ -1,28 +1,26 @@
-== README
+== Leer antes de contribuir
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+=== 1. Crear un issue antes de un branch
 
-Things you may want to cover:
+Antes de crear el branch en el que trabajaras es necesario crear un issue, en el cual pones el nombre que utilizaras para el branch: Ejemplo: Agregar un buscador.
 
-* Ruby version
+El issue sera: add-search-in-home
 
-* System dependencies
+Luego de esto se creara un id por ejemplo #3, entonces el nombre de la rama será
 
-* Configuration
+3-add-search-in-home
 
-* Database creation
+=== 2. Labels para Issues:
 
-* Database initialization
+- Bug: Issue que hace que el producto se rompa. Alta prioridad, especialmente si está presente en la producción.
+- Feature: Nueva funcionalidad, Nuevas páginas, flujos de trabajo, criterios de valoración, etc.
+- Feedback: Requires further conversation to figure out the action steps. Most feature ideas start here. Ejemplo un profesor o un cliente propone algo que podria tener la plataforma.
+- Improvements: Iteraciones sobre las características. Generalmente éstos velocidad de actualización o mejora de la calidad de los resultados. Ejemplo: Adición de un nuevo campo "Propietario" a un modelo de "calendario" que existe en el API, por ejemplo.
+- Inactive: No action needed or possible. The issue is either fixed, addressed better by other issues, or just out of product scope
+- Pending: Esta listo, pero necesita algunas cosas sucedan primero. Necesita un merge con alguna caracteristica que esta construyendo otra persona o que necesita más datos para terminar el branch. En este caso no se puede hacer branch hasta que alguien haga el merge.
+- Question: Algun programador del equipo tiene dudas sobre como hacer algo o como se implemento algo.
 
-* How to run the test suite
+=== 3. Cuando se termina una caracteristicas se hace un merge con no fast fordward
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+git checkout master
+git merge 3-add-search-in-home --no-ff

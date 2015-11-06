@@ -13,6 +13,11 @@
 //= require jquery
 //= require moment
 //= require fullcalendar
+//= require bootstrap-datepicker
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+$(document).ready(function(){
+    $('.datepicker').datepicker();
+  });

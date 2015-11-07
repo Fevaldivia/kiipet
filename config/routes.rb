@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  resources :calendars do
+	  resources :bookings
+	end
   get 'calendars/index'
 
   devise_for :users
@@ -11,7 +14,6 @@ Rails.application.routes.draw do
   root 'home#index'
 
   get "contact", to: "home#contact"
-  get "calendar", to: "calendars#index"
 
   get '/regions/:region_id/counties', to: 'counties#index', as: :counties
 

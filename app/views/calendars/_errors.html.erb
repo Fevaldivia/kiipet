@@ -1,0 +1,13 @@
+<% if @calendar.errors.any? %>
+  <div class="errors">
+    <h3>
+      <%= pluralize(@calendar.errors.count, 'error') %>
+      prohibited this calendar from being saved:
+    </h3>
+    <ul>
+      <% @calendar.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>

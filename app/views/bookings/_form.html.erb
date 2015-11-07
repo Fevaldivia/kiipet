@@ -1,0 +1,11 @@
+<%= form_for([@calendar, @booking]) do |f| %>
+  <p>
+    <%= f.label 'start_time', 'Empieza' %>
+    <%= f.datetime_select :start_time, { minute_step: 15 } %>
+  </p>
+  <p>
+    <%= f.label 'length', 'Duracion en horas' %>
+    <%= f.number_field 'length', min: 1 %>
+  </p>
+  <%= f.submit 'Hacer Reserva' %>
+<% end %>

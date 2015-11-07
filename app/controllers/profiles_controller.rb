@@ -11,10 +11,13 @@ class ProfilesController < ApplicationController
   def edit
     @profile = current_user.profile
     @profile.build_bank_account unless @profile.bank_account.present?
+
     @services = Service.all
     @services.each do |service|
       @profile.profile_services.build(service: service) unless @profile.services.any?
     end
+
+    @profile.build_calendar
   end
 
   # PATCH/PUT /profiles/1

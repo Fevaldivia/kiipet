@@ -2,7 +2,10 @@ module Bookable
   extend ActiveSupport::Concern
 
   included do
-    belongs_to :calendar
+    #belongs_to :calendar
+    has_many :calendars
+    has_many :profiles, through: :calendars
+
 
     validates :start_time, presence: true 
     validates :length, presence: true, numericality: { greater_than: 0 }

@@ -34,7 +34,7 @@
                     <ul class="dropdown-menu menu-principal">
                       <% if current_user.profile.is_a? KeeperProfile %>
                         <li><%= link_to 'Perfil', edit_profile_path(current_user.profile) %></li>
-                        <li><%= link_to('Disponibilidad', calendar_path) %></li>
+                        <li><%= link_to('Disponibilidad', calendars_path) %></li>
                       <% end %>
                       <% if current_user.profile.is_a? ProspectorProfile %>
                         <li><%= link_to 'Perfil', edit_profile_path(current_user.profile)  %></li>

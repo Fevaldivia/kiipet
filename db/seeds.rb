@@ -8,4 +8,3 @@
 load "#{Rails.root}/db/seeds/chilean_cities.rb"
 load "#{Rails.root}/db/seeds/banks.rb"
 load "#{Rails.root}/db/seeds/services.rb"
-load "#{Rails.root}/db/seeds/calendars.rb"

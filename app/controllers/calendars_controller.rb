@@ -1,23 +1,24 @@
 class CalendarsController < ApplicationController
   before_action :authenticate_user!
+  before_action :set_current_profile
 
   def index
-    @calendars = Calendar.all
+    @calendars = @profile.calendars
   end
 
   def new
-    @calendar = Calendar.new
+    @calendar = @profile.calendars.build
   end
 
   def create
-    @calendar = Calendar.create(calendar_params)
+    @calendar = @profile.calendars.build calendar_params
     if @calendar.save
       name = @calendar.name
       redirect_to calendars_path
-      flash[:notice] = "#{name} created"
+      flash[:notice] = "#{name} creado"
     else
       render 'new'
-      flash[:error] = "Unable to create calendar. Please try again"
+      flash[:error] = "No ha sido posible crear el calendario. Porfavor intente nuevamente"
     end
   end
 
@@ -48,4 +49,7 @@ class CalendarsController < ApplicationController
       params.require(:calendar).permit(:name, :delete)
     end
 
+    def set_current_profile
+      @profile = current_user.profile
+    end
 end

@@ -9,9 +9,7 @@ class ProfilesController < ApplicationController
   # GET /profiles/1/edit
   def edit
     @profile = current_user.profile
-
     @profile.build_bank_account unless @profile.bank_account.present?
-
     @services = Service.all
     @services.each do |service|
       @profile.profile_services.build(service: service) unless @profile.services.any?
@@ -22,7 +20,6 @@ class ProfilesController < ApplicationController
   # PATCH/PUT /profiles/1.json
   def update
     @profile = current_user.profile
-    @profile.build_calendar(name: "Calendario") unless @profile.calendar.present?
 
     respond_to do |format|
       if @profile.update(profile_params)

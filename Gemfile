@@ -34,7 +34,7 @@ gem 'globalid'#, github: 'rails/globalid', tag: 'v0.2.2'
 gem "paperclip", "~> 4.2"
 gem 'jquery-rails'
 gem 'turbolinks'
-gem 'jbuilder', '~> 2.0'
+gem 'jbuilder', '~> 1.2'
 gem 'sdoc', '~> 0.4.0',          group: :doc
 gem "font-awesome-rails"
 gem 'fullcalendar-rails'
@@ -44,3 +44,5 @@ gem 'elasticsearch-model'
 gem 'elasticsearch-rails'
 #gem for date picker rails
 gem 'bootstrap-datepicker-rails'
+#gem for making reservations
+gem 'bookable', '~> 0.0.52'

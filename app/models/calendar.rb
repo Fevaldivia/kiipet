@@ -1,8 +1,6 @@
 class Calendar < ActiveRecord::Base
-  belongs_to :profile
-  belongs_to :service
+  validates :name, presence: true, uniqueness: true
 
-  def self.allowed_attributes
-    [ :expirate, :service_date]
-  end
+  belongs_to :profile, inverse_of: :calendar
+  has_many :bookings
 end

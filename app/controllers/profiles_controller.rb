@@ -1,6 +1,5 @@
 class ProfilesController < ApplicationController
   before_action :authenticate_user!
-
   # before_action :check_current_profile, only: [:edit, :update]
 
   def show

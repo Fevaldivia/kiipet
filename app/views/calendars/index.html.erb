@@ -1,2 +1,12 @@
-<h1>Calendars#index</h1>
-<p>Find me in app/views/calendars/index.html.erb</p>
+<div class="container">
+<br>
+  <h3>Mi disponibilidad</h3>
+
+  <% @calendars.each do |calendar| %>
+      <%= calendar.name %>
+      <%= link_to "Show all bookings", calendar_bookings_path(calendar) %>
+      <%= link_to "Delete", calendar_path(calendar), data: { confirm: 'Are you sure?' }, method: :delete %>
+      <%= link_to "Edit", edit_calendar_path(calendar) %>
+      <%= link_to "Add booking", new_calendar_booking_path(calendar) %>
+  <% end %>
+</div>

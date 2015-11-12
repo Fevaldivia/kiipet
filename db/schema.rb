@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150703201839) do
+ActiveRecord::Schema.define(version: 20151107070508) do
 
   create_table "available_accounts", force: :cascade do |t|
     t.integer  "bank_id"
@@ -48,17 +48,26 @@ ActiveRecord::Schema.define(version: 20150703201839) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "calendars", force: :cascade do |t|
-    t.date     "expirate"
-    t.date     "service_date"
-    t.integer  "profile_id"
-    t.integer  "service_id"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+  create_table "bookings", force: :cascade do |t|
+    t.datetime "start_time"
+    t.datetime "end_time"
+    t.integer  "length"
+    t.integer  "calendar_id"
   end
 
+  add_index "bookings", ["calendar_id"], name: "index_bookings_on_calendar_id"
+
+  create_table "calendars", force: :cascade do |t|
+    t.string  "name"
+    t.integer "profile_id"
+    t.integer "user_id"
+    t.integer "booking_id"
+    t.boolean "taken",      default: false
+  end
+
+  add_index "calendars", ["booking_id"], name: "index_calendars_on_booking_id"
   add_index "calendars", ["profile_id"], name: "index_calendars_on_profile_id"
-  add_index "calendars", ["service_id"], name: "index_calendars_on_service_id"
+  add_index "calendars", ["user_id"], name: "index_calendars_on_user_id"
 
   create_table "counties", force: :cascade do |t|
     t.string   "name"

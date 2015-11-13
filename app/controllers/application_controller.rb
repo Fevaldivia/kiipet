@@ -10,6 +10,11 @@ class ApplicationController < ActionController::Base
     end
   def after_sign_in_path_for(user)
     # return the path based on resource
-    edit_profile_path(current_user.profile)
+    if current_user
+      edit_profile_path(current_user.profile)
+    else
+      sign_in user
+      step_1_wizards_path 
+    end
   end
 end

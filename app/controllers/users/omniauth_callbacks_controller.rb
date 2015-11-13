@@ -18,7 +18,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
           :success, 
           :kind => "Facebook") if is_navigational_format?
       else
-        redirect_to wizards_step_1_path
+        sign_in_and_redirect step_1_wizards_path, @user
       end
     end
 

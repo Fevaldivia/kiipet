@@ -11,6 +11,7 @@ class User < ActiveRecord::Base
   accepts_nested_attributes_for :profile
 
   def display_image
+    return self.gravatar_url || '/user.png' if profile.nil?
     return profile.avatar.url if profile.avatar?
     self.gravatar_url || '/user.png'
   end

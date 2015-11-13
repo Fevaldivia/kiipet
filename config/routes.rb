@@ -5,8 +5,7 @@ Rails.application.routes.draw do
   get 'calendars/index'
 
   devise_for :users, controllers: {
-    omniauth_callbacks: "users/omniauth_callbacks",
-    registrations: "users/registrations"
+    omniauth_callbacks: "users/omniauth_callbacks"
   }
   
   resources :pets

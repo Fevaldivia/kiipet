@@ -4,7 +4,10 @@ Rails.application.routes.draw do
 	end
   get 'calendars/index'
 
-  devise_for :users
+  devise_for :users, controllers: {
+    omniauth_callbacks: "users/omniauth_callbacks"
+  }
+  
   resources :pets
 
   resources :profiles, only: [:show, :edit, :update]

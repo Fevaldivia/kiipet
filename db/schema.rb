@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151107070508) do
+ActiveRecord::Schema.define(version: 20151113152554) do
 
   create_table "available_accounts", force: :cascade do |t|
     t.integer  "bank_id"
@@ -174,6 +174,8 @@ ActiveRecord::Schema.define(version: 20151107070508) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "provider"
+    t.string   "uid"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

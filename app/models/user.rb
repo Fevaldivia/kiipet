@@ -2,7 +2,7 @@ class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
+         :recoverable, :rememberable, :trackable, :validatable, :omniauthable, omniauth_providers: [:facebook]
 
   has_one :profile, inverse_of: :user, dependent: :destroy
   has_many :pets, dependent: :destroy
@@ -19,4 +19,18 @@ class User < ActiveRecord::Base
     return unless self.email
     "https://gravatar.com/avatar/#{Digest::MD5.new.update(self.email)}.jpg?default=http://#{Rails.configuration.default_url_options[:host]}/user.png"
   end
+
+def self.find_for_facebook_oauth(auth, signed_in_resource=nil)      
+    user = User.where(provider: auth.provider, uid: auth.uid).first       
+    return user if user    
+    user = User.where(email: auth.info.email).first 
+    return user if user
+    binding.pry
+    User.create(
+    #  name: auth.extra.raw_info.name,
+      provider: auth.provider, uid: auth.uid,
+      email: auth.info.email,
+      password: Devise.friendly_token[0,20])  
+    end
+
 end

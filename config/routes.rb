@@ -5,14 +5,20 @@ Rails.application.routes.draw do
   get 'calendars/index'
 
   devise_for :users, controllers: {
-    omniauth_callbacks: "users/omniauth_callbacks"
+    omniauth_callbacks: "users/omniauth_callbacks",
+    registrations: "users/registrations"
   }
   
   resources :pets
 
   resources :profiles, only: [:show, :edit, :update]
-  resources :keeper_users
+  resources :keeper_users, only: [:index]
   resources :services
+  resources :wizards, only: [:step_1] do
+    collection do 
+      get 'step_1'
+    end
+  end
 
   root 'home#index'
 

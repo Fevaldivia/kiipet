@@ -7,12 +7,10 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   # end
 
     def facebook
-      binding.pry
       @user = User.find_for_facebook_oauth(
         request.env["omniauth.auth"], 
         current_user
       )
-      binding.pry
       if @user.persisted?
         sign_in_and_redirect @user, 
           :event => :authentication 
@@ -20,7 +18,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
           :success, 
           :kind => "Facebook") if is_navigational_format?
       else
-        redirect_to new_user_registration_url
+        redirect_to wizards_step_1_path
       end
     end
 

@@ -77,7 +77,21 @@
                             <footer>
                                 <%= f.submit "Registrate", class: "button" %>
                             </footer>
-                      <% end %>
+                            <fieldset>
+                              <div class="row social-login">
+                                <div class="col-sm-12">
+                                  <div class="border-rits">
+                                    <span>o</span>
+                                  </div>
+                                </div>
+                                <div class="col-sm-12">
+                                  <%= link_to user_omniauth_authorize_path(:facebook), class: 'btn btn-lg btn-facebook col-sm-11' do %>
+                                    <i class="fa fa-facebook"></i> Registrate con facebook
+                                  <% end %>  
+                                </div>
+                              </div> 
+                            </fieldset>      
+                    <% end %>
                     </div><!--login form wrap end-->
 
                 </div>
@@ -89,20 +103,10 @@
                     <div class="col-sm-6 col-sm-offset-3">
                         <div class="row social-login">
                             <div class="col-sm-12">
-                                <div class="border-rits">
-                                    <span>o</span>
-                                </div>
                             </div>
                             <div class="col-sm-6">
-                                <%= link_to user_omniauth_authorize_path(:facebook), class: 'btn btn-lg btn-facebook' do %>
-                                  <i class="fa fa-facebook"></i> Registrate con facebook
-                                <% end %>
-
-                                
-
                             </div>
                             <div class="col-sm-6">
-                                <button class="btn btn-lg btn-twitter"><i class="fa fa-twitter"></i> Registrate con twitter</button>
                             </div>
                         </div>
                     </div>

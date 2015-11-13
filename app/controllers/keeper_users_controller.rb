@@ -9,4 +9,5 @@ class KeeperUsersController < ApplicationController
       @keepers = Profile.where(type: "KeeperProfile").order('created_at DESC')
     end
   end
+
 end

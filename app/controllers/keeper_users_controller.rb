@@ -5,4 +5,5 @@ class KeeperUsersController < ApplicationController
       @search = Profile.where(type: "KeeperProfile").ransack(params[:q])
       @keepers = @search.result.includes(:county)
   end
+
 end

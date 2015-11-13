@@ -15,6 +15,7 @@ group :development, :test do
   gem 'byebug'
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
+  gem 'dotenv-rails'
 end
 
 group :assets do
@@ -28,6 +29,8 @@ end
 
 gem 'pry-rails'
 gem 'devise'
+gem 'omniauth'
+gem 'omniauth-facebook'
 gem 'simple_form'
 gem 'country_select'
 gem 'globalid'#, github: 'rails/globalid', tag: 'v0.2.2'

@@ -1,6 +1,6 @@
 <div class="col-sm-3"></div>
 <div class="col-sm-6 sky-form-login-register">
-  <%= simple_form_for :choose, :url => '#', html: { class: "sky-form", id: "sky-form" } do |f| %>
+  <%= simple_form_for :keeperprofile, :url => wizards_path , html: { class: "sky-form", id: "sky-form" } do |f| %>
     <h3 class="text-center">Selecciona el tipo de cuenta</h3>
     <fieldset>
       <section>
@@ -9,7 +9,7 @@
         <% end %>
       </section>
       
-    <%= f.submit "Registrate", class: "button" %>
+    <%= f.submit "Continuar", class: "button" %>
     </fieldset>
 
   <% end %>

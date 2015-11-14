@@ -21,17 +21,25 @@ class User < ActiveRecord::Base
     "https://gravatar.com/avatar/#{Digest::MD5.new.update(self.email)}.jpg?default=http://#{Rails.configuration.default_url_options[:host]}/user.png"
   end
 
-def self.find_for_facebook_oauth(auth, signed_in_resource=nil)      
+  def self.find_for_facebook_oauth(auth, signed_in_resource=nil)      
     user = User.where(provider: auth.provider, uid: auth.uid).first       
-    return user if user    
+    if user
+      user.update_attributes(fb_access_token: auth[:credentials][:token])
+      return user
+    end 
+
     user = User.where(email: auth.info.email).first 
-    return user if user
-    binding.pry
+    if user    
+      user.update_attributes(fb_access_token: auth[:credentials][:token])
+      return user
+    end
+    
     User.create(
-    #  name: auth.extra.raw_info.name,
       provider: auth.provider, uid: auth.uid,
       email: auth.info.email,
-      password: Devise.friendly_token[0,20])  
-    end
+      password: Devise.friendly_token[0,20],  
+      fb_access_token: auth[:credentials][:token])  
+    
+  end
 
 end

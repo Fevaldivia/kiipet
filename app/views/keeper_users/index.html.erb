@@ -3,15 +3,6 @@
                 <div class="row">
                     <div class="col-sm-6">
                         <h4>Busca a los mejores cuidadores</h4>
-                        <%= search_form_for @search, url: keeper_users_url do |f| %>
-                            <div class="field">
-                              <%= f.label :name_cont, "Name contains" %>
-                              <%= f.text_field :name_cont %>
-                            </div>
-                            <div class="actions">
-                              <%= f.submit "Buscar" %>
-                            </div>
-                        <% end -%>
                     </div>
                     <div class="col-sm-6 hidden-xs text-right">
                     </div>
@@ -26,23 +17,24 @@
                         <h4>Busca por region</h4>
                           <%= search_form_for @search, url: keeper_users_url do |f| %>
                             <div class="field">
-                              <%= f.text_field :county_region_name_cont %>
+                              <%= f.collection_select :county_region_id_eq, Region.all, :id, :name, include_blank: true %>
                             </div>
                             <div class="actions">
-                              <%= f.submit "Buscar" %>
+                            <br>
+                              <%= f.submit "Buscar", class: "btn btn-info btn-lg" %>
                             </div>
                         <% end -%>
-
                         <hr>
                     </div><!--sidebar box of search results end-->
                     <div class="results-sidebar-box">
                         <h4>Busca por comuna</h4>
                         <%= search_form_for @search, url: keeper_users_url do |f| %>
                             <div class="field">
-                              <%= f.text_field :county_name_cont %>
+                              <%= f.text_field :county_name_cont, input_html: { class: 'form-control large' }, placeholder: "Escribe tu comuna.." %>
                             </div>
                             <div class="actions">
-                              <%= f.submit "Buscar" %>
+                            <br>
+                              <%= f.submit "Buscar", class: "btn btn-info btn-lg" %>
                             </div>
                         <% end -%>
                         <hr>
@@ -94,7 +86,7 @@
                         </li>
                     </ul>
                     <% else %>
-                    <p>There are no posts containing the term(s) <%= params[:search] %>.</p>
+                    <p>No se han econtrado resultados...</p>
                     <% end -%>
                 </div>
             </div>

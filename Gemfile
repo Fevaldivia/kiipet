@@ -46,3 +46,7 @@ gem 'elasticsearch-rails'
 gem 'bootstrap-datepicker-rails'
 #gem for making reservations
 gem 'bookable', '~> 0.0.52'
+# ransack nested model search
+gem 'ransack'
+# autocomplete jquery
+gem 'rails4-autocomplete'

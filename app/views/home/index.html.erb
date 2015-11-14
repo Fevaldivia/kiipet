@@ -11,8 +11,8 @@
             Busca Cuidadores, Paseadores y alojamiento
             <br>
             <br>
-            <%= form_tag(keeper_users_path, :method => "get", id: "search-form") do %>
-              <%= text_field_tag :search, params[:search], placeholder: "Busca cuidadores en...", class: "input-lg col-md-6" %>
+            <%= search_form_for @search, url: keeper_users_url do |f| %>
+              <%= f.text_field :county_region_name_cont , placeholder: "Busca cuidadores en la region...", class: "input-lg col-md-6" %>
               <%= button_tag(class: "btn btn-info btn-lg") do %>
                 <i class="fa fa-search top-search"> Buscar Cuidadores</i>
               <% end -%>

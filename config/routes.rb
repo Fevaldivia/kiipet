@@ -13,7 +13,11 @@ Rails.application.routes.draw do
   resources :profiles, only: [:show, :edit, :update]
   resources :keeper_users, only: [:index]
   resources :services
+<<<<<<< HEAD
   resources :wizards, only: [:step_1] do
+=======
+  resources :wizards, only: [:step_1, :create] do
+>>>>>>> 47ce24c03e855d00d5429158c41d0cfd346f236a
     collection do 
       get 'step_1'
     end

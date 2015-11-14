@@ -31,6 +31,10 @@ gem 'pry-rails'
 gem 'devise'
 gem 'omniauth'
 gem 'omniauth-facebook'
+<<<<<<< HEAD
+=======
+gem "koala", "~> 2.2"
+>>>>>>> 47ce24c03e855d00d5429158c41d0cfd346f236a
 gem 'simple_form'
 gem 'country_select'
 gem 'globalid'#, github: 'rails/globalid', tag: 'v0.2.2'

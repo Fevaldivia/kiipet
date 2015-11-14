@@ -1,1 +1,17 @@
-blaaaaa
+<div class="col-sm-3"></div>
+<div class="col-sm-6 sky-form-login-register">
+  <%= simple_form_for :choose, :url => '#', html: { class: "sky-form", id: "sky-form" } do |f| %>
+    <h3 class="text-center">Selecciona el tipo de cuenta</h3>
+    <fieldset>
+      <section>
+        <%= f.simple_fields_for :profile_attributes, KeeperProfile.new do |f| %>
+          <%= f.input :type, as: :select, collection: [[KeeperProfile.model_name.human, KeeperProfile.to_s], [ProspectorProfile.model_name.human, ProspectorProfile.to_s]], label: false %>
+        <% end %>
+      </section>
+      
+    <%= f.submit "Registrate", class: "button" %>
+    </fieldset>
+
+  <% end %>
+</div>
+<div class="col-sm-3"></div>

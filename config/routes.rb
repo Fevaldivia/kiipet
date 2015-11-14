@@ -7,18 +7,15 @@ Rails.application.routes.draw do
   devise_for :users, controllers: {
     omniauth_callbacks: "users/omniauth_callbacks"
   }
-  
+
   resources :pets
 
   resources :profiles, only: [:show, :edit, :update]
   resources :keeper_users, only: [:index]
   resources :services
-<<<<<<< HEAD
-  resources :wizards, only: [:step_1] do
-=======
+
   resources :wizards, only: [:step_1, :create] do
->>>>>>> 47ce24c03e855d00d5429158c41d0cfd346f236a
-    collection do 
+    collection do
       get 'step_1'
     end
   end

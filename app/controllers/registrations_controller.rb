@@ -5,6 +5,7 @@ class RegistrationsController < Devise::RegistrationsController
   # this method in your own RegistrationsController.
   def after_update_path_for(resource)
     # signed_in_root_path(resource)
+    binding.pry
     edit_user_registration_path
   end
 end

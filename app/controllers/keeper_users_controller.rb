@@ -1,12 +1,8 @@
 class KeeperUsersController < ApplicationController
   before_action :authenticate_user!
-  # GET /user_pets
+  # GET /keeper_users
   def index
-    @keepers = Profile.where(type: "KeeperProfile")
-    if params[:search]
-      @keepers = Profile.search(params[:search]).order("created_at DESC")
-   else
-      @keepers = Profile.where(type: "KeeperProfile").order('created_at DESC')
-    end
+      @search = Profile.where(type: "KeeperProfile").ransack(params[:q])
+      @keepers = @search.result.includes(:county)
   end
 end

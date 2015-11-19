@@ -15,7 +15,9 @@
                 <div class="col-sm-6 margin30">
                     <h3 class="heading">Bienvenido a kiipet</h3>
                     <p>
-                        Suspendisse et tincidunt ipsum, et dignissim urna. Vestibulum nisl tortor, gravida at magna et, suscipit vehicula massa.
+                      Kiipet es una plataforma que pone en contacto a cuidadores de mascotas con experiencia y propietarios de mascotas.
+                       Nuestra plataforma permite que cada propietario encuentre el cuidador perfecto para su mascota,
+                       haciendo la reserva de forma cómoda y garantizando el pago seguro
                     </p>
 
                     <div class="divide50"></div>
@@ -39,10 +41,7 @@
                                     <label class="input">
                                         <i class="icon-append fa fa-envelope-o"></i>
                                         <%= f.email_field :email, autofocus: true, placeholder: "Email", class: "form-control" %>
-                                        <% if @validatable %>
-                                        <em>(<%= @minimum_password_length %> characters minimum)</em>
-                                        <% end %>
-                                        <b class="tooltip tooltip-bottom-right">Needed to verify your account</b>
+                                        <b class="tooltip tooltip-bottom-right">Ingresa un email valido</b>
                                     </label>
                                 </section>
 
@@ -50,7 +49,10 @@
                                     <label class="input">
                                         <i class="icon-append fa fa-lock"></i>
                                         <%= f.password_field :password, autocomplete: "off", placeholder: "Password", class: "form-control" %>
-                                        <b class="tooltip tooltip-bottom-right">Don't forget your password</b>
+                                        <b class="tooltip tooltip-bottom-right">No olvides la contraseña</b>
+                                        <% if @validatable %>
+                                        <em>(<%= @minimum_password_length %> caracteres minimo)</em>
+                                        <% end %>
                                     </label>
                                 </section>
 
@@ -58,7 +60,7 @@
                                     <label class="input">
                                         <i class="icon-append fa fa-lock"></i>
                                         <%= f.password_field :password_confirmation, autocomplete: "off",placeholder: "Confirmar password", class: "form-control" %>
-                                        <b class="tooltip tooltip-bottom-right">Don't forget your password</b>
+                                        <b class="tooltip tooltip-bottom-right">No olvides tu contraseña</b>
                                     </label>
                                 </section>
                             </fieldset>
@@ -87,29 +89,13 @@
                                 <div class="col-sm-12">
                                   <%= link_to user_omniauth_authorize_path(:facebook), class: 'btn btn-lg btn-facebook col-sm-11' do %>
                                     <i class="fa fa-facebook"></i> Registrate con facebook
-                                  <% end %>  
+                                  <% end %>
                                 </div>
-                              </div> 
-                            </fieldset>      
+                              </div>
+                            </fieldset>
                     <% end %>
                     </div><!--login form wrap end-->
 
                 </div>
             </div>
         </div>
-        <div class="social-login-wrapper">
-            <div class="container">
-                <div class="row">
-                    <div class="col-sm-6 col-sm-offset-3">
-                        <div class="row social-login">
-                            <div class="col-sm-12">
-                            </div>
-                            <div class="col-sm-6">
-                            </div>
-                            <div class="col-sm-6">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div><!--social login wrapper-->

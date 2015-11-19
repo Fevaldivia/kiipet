@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151113152554) do
+ActiveRecord::Schema.define(version: 20151114032401) do
 
   create_table "available_accounts", force: :cascade do |t|
     t.integer  "bank_id"

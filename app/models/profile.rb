@@ -56,7 +56,7 @@ class Profile < ActiveRecord::Base
   end
 
   def self.allowed_attributes
-    [:name, :bio, :slogan, :avatar, :country_code, :gender, :birthday, :county_id, :rut ,:phone, :cellphone, :address,
+    [:name, :bio, :slogan, :avatar, :country_code, :gender, :date_birth, :county_id, :rut ,:phone, :cellphone, :address,
     profile_services_attributes: [:id, :service_id, :price] ]
   end
 end

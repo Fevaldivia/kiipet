@@ -26,7 +26,7 @@ es:
         name: Nombre Completo
         avatar: Foto de perfil
         gender: Género
-        birthday: Fecha de nacimiento
+        date_birth: Fecha de nacimiento
         cellphone: Celular
         country: País
         country_code: País

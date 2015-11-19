@@ -39,10 +39,7 @@
                                     <label class="input">
                                         <i class="icon-append fa fa-envelope-o"></i>
                                         <%= f.email_field :email, autofocus: true, placeholder: "Email", class: "form-control" %>
-                                        <% if @validatable %>
-                                        <em>(<%= @minimum_password_length %> characters minimum)</em>
-                                        <% end %>
-                                        <b class="tooltip tooltip-bottom-right">Needed to verify your account</b>
+                                        <b class="tooltip tooltip-bottom-right">Ingresa un email valido</b>
                                     </label>
                                 </section>
 
@@ -50,7 +47,10 @@
                                     <label class="input">
                                         <i class="icon-append fa fa-lock"></i>
                                         <%= f.password_field :password, autocomplete: "off", placeholder: "Password", class: "form-control" %>
-                                        <b class="tooltip tooltip-bottom-right">Don't forget your password</b>
+                                        <b class="tooltip tooltip-bottom-right">No olvides la contraseña</b>
+                                        <% if @validatable %>
+                                        <em>(<%= @minimum_password_length %> caracteres minimo)</em>
+                                        <% end %>
                                     </label>
                                 </section>
 
@@ -58,7 +58,7 @@
                                     <label class="input">
                                         <i class="icon-append fa fa-lock"></i>
                                         <%= f.password_field :password_confirmation, autocomplete: "off",placeholder: "Confirmar password", class: "form-control" %>
-                                        <b class="tooltip tooltip-bottom-right">Don't forget your password</b>
+                                        <b class="tooltip tooltip-bottom-right">No olvides tu contraseña</b>
                                     </label>
                                 </section>
                             </fieldset>

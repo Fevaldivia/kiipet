@@ -18,6 +18,6 @@
 //= require turbolinks
 //= require_tree .
 
-$(document).ready(function(){
-    $('.datepicker').datepicker();
+$(document).on('ready page:change', function() {
+    $('.datetimepicker').datepicker();
   });

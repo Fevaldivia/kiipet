@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151114032401) do
+ActiveRecord::Schema.define(version: 20151119201517) do
 
   create_table "available_accounts", force: :cascade do |t|
     t.integer  "bank_id"
@@ -132,6 +132,7 @@ ActiveRecord::Schema.define(version: 20151114032401) do
     t.integer  "county_id"
     t.string   "slogan"
     t.text     "bio"
+    t.string   "date_birth"
   end
 
   add_index "profiles", ["user_id"], name: "index_profiles_on_user_id"

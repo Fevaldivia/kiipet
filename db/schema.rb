@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151119201517) do
+ActiveRecord::Schema.define(version: 20151122035647) do
 
   create_table "available_accounts", force: :cascade do |t|
     t.integer  "bank_id"
@@ -96,6 +96,7 @@ ActiveRecord::Schema.define(version: 20151119201517) do
     t.string   "pet_image_content_type"
     t.integer  "pet_image_file_size"
     t.datetime "pet_image_updated_at"
+    t.integer  "size"
   end
 
   add_index "pets", ["owneable_type", "owneable_id"], name: "index_pets_on_owneable_type_and_owneable_id"

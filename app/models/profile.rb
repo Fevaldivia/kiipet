@@ -1,4 +1,5 @@
 class Profile < ActiveRecord::Base
+  after_create :assign_calendar
 
   has_many :profile_services
   has_many :services, through: :profile_services
@@ -7,9 +8,6 @@ class Profile < ActiveRecord::Base
   belongs_to :county
 
   has_one :bank_account, inverse_of: :profile, dependent: :destroy
-
-  #has_one :calendar, inverse_of: :profile, dependent: :destroy
-
   has_many :calendars, dependent: :destroy
 
   accepts_nested_attributes_for :bank_account
@@ -50,9 +48,10 @@ class Profile < ActiveRecord::Base
     ISO3166::Country[country_code]
   end
 
-  def self.search(search)
-    where("slogan LIKE ?", "%#{search}%")
-    where("name LIKE ?", "%#{search}%")
+  def assign_calendar
+    if calendars.length <= 0
+      calendars.create(name: "Calendario")
+    end
   end
 
   def self.allowed_attributes

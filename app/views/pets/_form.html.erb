@@ -29,6 +29,10 @@
     <%= f.label :breed %><br>
     <%= f.text_field :breed , class: "form-control" %>
   </div>
+  <div class="field">
+    <%= f.label :size %><br>
+    <%= f.input :size, as: :select, :collection => Pet.sizes.keys.to_a, label: false, class: "form-control"  %>
+  </div>
   <br>
   <div class="actions">
     <%=f.button :submit, "Crear", class: 'btn btn-info'%>

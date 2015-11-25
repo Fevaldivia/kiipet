@@ -8,7 +8,7 @@ class Profile < ActiveRecord::Base
   belongs_to :county
 
   has_one :bank_account, inverse_of: :profile, dependent: :destroy
-  has_many :calendars, dependent: :destroy
+  has_many :calendars, inverse_of: :profile, dependent: :destroy
 
   accepts_nested_attributes_for :bank_account
   accepts_nested_attributes_for :calendars

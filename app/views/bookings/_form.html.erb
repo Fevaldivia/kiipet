@@ -7,5 +7,10 @@
     <%= f.label 'length', 'Duracion en horas' %>
     <%= f.number_field 'length', min: 1 %>
   </p>
+  <%- @calendar.profile.profile_services.each do |service| %>
+    <!-- Agregar checkbox por cada elemento !-->
+    <%= service.price %> - <%= service.service.name %>
+  <% end %>
+
   <%= f.submit 'Hacer Reserva' %>
 <% end %>

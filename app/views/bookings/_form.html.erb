@@ -1,5 +1,9 @@
 <%= form_for([@calendar, @booking]) do |f| %>
   <p>
+    <%= collection_select :service_id, :id, @profiles.services, :id, :name %>
+    <%= collection_select :profile_service_id, :id, @calendar.profile.profile_services, :id, :price %>
+  </p>
+  <p>
     <%= f.label 'start_time', 'Empieza' %>
     <%= f.datetime_select :start_time, { minute_step: 15 } %>
   </p>
@@ -7,12 +11,10 @@
     <%= f.label 'length', 'Duracion en horas' %>
     <%= f.number_field 'length', min: 1 %>
     </p>
-  <%= collection_select :service_id, :id, @calendar.profile.profile_services, :id, :price %>
-  <%- @calendar.profile.profile_services.each do |service| %>
-    <!-- Agregar checkbox por cada elemento !-->
+  <!-- <%- @calendar.profile.profile_services.each do |service| %>
     <%= service.price %> - <%= service.service.name %>
     <%= check_box(service.service.name, service.service.id, { checked: true }) %>
-  <% end %>
+  <% end %> -->
 
   <%= f.submit 'Hacer Reserva' %>
 <% end %>

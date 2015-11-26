@@ -10,6 +10,7 @@ class BookingsController < ApplicationController
   end
 
   def new
+    @profiles = @calendar.profile
     @booking = Booking.new(calendar_id: @calendar.id)
   end
 

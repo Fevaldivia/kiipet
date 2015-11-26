@@ -14,7 +14,6 @@ class BookingsController < ApplicationController
   end
 
   def create
-    binding.pry
     @booking =  Booking.new(params[:booking].permit(:calendar_id, :start_time, :length))
     @booking.calendar = @calendar
     if @booking.save

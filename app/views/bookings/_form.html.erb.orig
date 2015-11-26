@@ -1,0 +1,24 @@
+<%= form_for([@calendar, @booking]) do |f| %>
+  <p>
+    <%= collection_select :service_id, :id, @profiles.services, :id, :name %>
+    <%= collection_select :profile_service_id, :id, @calendar.profile.profile_services, :id, :price %>
+  </p>
+  <p>
+    <%= f.label 'start_time', 'Empieza' %>
+    <%= f.datetime_select :start_time, { minute_step: 15 } %>
+  </p>
+  <p>
+    <%= f.label 'length', 'Duracion en horas' %>
+    <%= f.number_field 'length', min: 1 %>
+    </p>
+<<<<<<< HEAD
+    <%= collection_select :service, :service_id, @calendar.profile.services, :id, :name_with_price %>
+=======
+  <!-- <%- @calendar.profile.profile_services.each do |service| %>
+    <%= service.price %> - <%= service.service.name %>
+    <%= check_box(service.service.name, service.service.id, { checked: true }) %>
+  <% end %> -->
+
+>>>>>>> b8d90e14124fefdd16e67e220f5caa7b9e6d21be
+  <%= f.submit 'Hacer Reserva' %>
+<% end %>

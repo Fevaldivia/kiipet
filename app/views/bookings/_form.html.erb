@@ -6,6 +6,7 @@
   <p>
     <%= f.label 'length', 'Duracion en horas' %>
     <%= f.number_field 'length', min: 1 %>
-  </p>
+    </p>
+    <%= collection_select :service, :service_id, @calendar.profile.services, :id, :name_with_price %>
   <%= f.submit 'Hacer Reserva' %>
 <% end %>

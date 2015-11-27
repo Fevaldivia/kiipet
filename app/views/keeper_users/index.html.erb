@@ -51,7 +51,9 @@
                       </div>
                       <div class="col-md-10">
                         <h3><%= link_to kp.slogan, profile_path(kp) %></h3>
-                        <%= rating_for kp, "quality", :disable_after_rate => true %>
+                        <% if current_user%>
+                        <%= rating_for kp, "quality", current_user %>
+                        <% end %>
                         <ul class="list-inline link-ul">
                             <% if kp.county %>
                               <li><%= kp.county.name %></li>

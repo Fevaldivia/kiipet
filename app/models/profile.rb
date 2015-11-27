@@ -1,4 +1,6 @@
 class Profile < ActiveRecord::Base
+  ratyrate_rateable "quality"
+
   after_create :assign_calendar
 
   has_many :profile_services

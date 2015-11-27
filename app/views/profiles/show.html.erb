@@ -7,6 +7,7 @@
         <div class="results-box">
           <div class="col-md-2">
             <%= image_tag @profile.avatar.url, class: 'img-circle', :size => "150x150"%>
+            <%= rating_for @profile, "quality", :disable_after_rate => false %>
           </div>
           <div class="col-md-10">
             <h4 class="profile_name"><%= @profile.name %></h4>

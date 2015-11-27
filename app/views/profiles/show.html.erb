@@ -1,57 +1,52 @@
  <div class="breadcrumb-wrap">
+ </div><!--breadcrumbs-->
+<br>
     <div class="container">
-        <div class="row">
-            <div class="col-sm-6">
-                <h4>Perfil</h4>
-            </div>
-            <div class="col-sm-6 hidden-xs text-right">
-            </div>
-        </div>
-    </div>
-</div><!--breadcrumbs-->
-<div class="divide80"></div>
-<div class="container">
-    <div class="row">
-        <div class="col-sm-12">
-          <%= image_tag @profile.avatar.url, class: 'img-circle', :size => "100x100"%>
-        </div>
-    </div>
-    <div class="divide30"></div>
-    <div class="row">
-        <div class="col-sm-6">
-            <h4><%= @profile.name %></h4>
-             <p><%= @profile.bio %></p>
-        </div>
-        <div class="col-sm-6">
-            <h4>Calendario con disponibilidad</h4>
-             <p>
-                Donec sed odio dui. Nulla vitae elit libero, a pharetra augue. Nullam id dolor id nibh ultricies vehicula ut id elit. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Duis mollis, est non commodo luctus. Aenean lacinia bibendum nulla sed consectetur. Cras mattis consectetur purus sit amet fermentum. Donec id elit non mi porta gravida at eget metus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum id ligula porta felis euismod semper.
+      <div class="panel panel-default">
+      <div class="panel-body">
+        <div class="results-box">
+          <div class="col-md-2">
+            <%= image_tag @profile.avatar.url, class: 'img-circle', :size => "150x150"%>
+            <%= rating_for @profile, "quality", :disable_after_rate => false %>
+          </div>
+          <div class="col-md-10">
+            <h4 class="profile_name"><%= @profile.name %></h4>
+            <ul class="list-inline link-ul">
+              <p><%= @profile.county.name%></p>
+            </ul>
+            <p>
+              <p><%= @profile.bio %></p>
             </p>
-        </div>
-    </div><!--1/2 row end-->
-        <div class="divide30"></div>
-          <div class="divide30"></div>
+            <hr>
+          </div>
+
+        </div><!--result box-->
+      </div>
+    </div>
             <div class="row">
-              <div class="profile-service">
-                 <% @profile.services.each do |ps| %>
-                      <div class='service'>
-                        <li class="col-md-3">
-                          <div class="thumbnail">
-                            <div class="caption">
-                              <h4><%= ps.name %> </h4>
-                              <p><%= ps.description%></p>
+              <div class="col-md-12">
+                <div class="profile-service">
+                   <% @profile.services.each do |ps| %>
+                        <div class='service'>
+                          <li class="col-md-3 services">
+                            <div class="thumbnail">
+                              <div class="caption">
+                                <h4><%= ps.name %> </h4>
+                                <p><%= ps.description%></p>
+                              </div>
+                              <span>
+                              </span>
+                              <span class="caption">
+                                <p class="price-services">Precio:
+                                  <%= ps.profile_services.get_price(@profile.id) %>
+                                </p>
+                              </span>
                             </div>
-                            <span>
-                            </span>
-                            <span class="caption">
-                              <p>Precio</p>
-                              <%= ps.profile_services.get_price(@profile.id) %>
-                            </span>
-                          </div>
-                        </li>
-                      </div>
-                    <% end %>
-                </div>
+                          </li>
+                        </div>
+                      <% end %>
+                  </div>
+              </div>
               </div>
              <div class="divide30"></div>
         </div><!--full width container-->

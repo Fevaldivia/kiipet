@@ -1,12 +1,18 @@
-<%= form_for([@calendar, @booking]) do |f| %>
-  <p>
-    <%= f.label 'start_time', 'Empieza' %>
-    <%= f.datetime_select :start_time, { minute_step: 15 } %>
-  </p>
-  <p>
-    <%= f.label 'length', 'Duracion en horas' %>
-    <%= f.number_field 'length', min: 1 %>
+<div class="col-md-6">
+  <%= form_for([@calendar, @booking]) do |f| %>
+    <p>
+      Servicio: <br>
+      <%= collection_select :service, :service_id, @calendar.profile.services, :id, :name_with_price %>
     </p>
-    <%= collection_select :service, :service_id, @calendar.profile.services, :id, :name_with_price %>
-  <%= f.submit 'Hacer Reserva' %>
-<% end %>
+    <p>
+      <%= f.label 'start_time', 'Empieza:' %><br>
+      <%= f.datetime_select :start_time, { minute_step: 15 } %>
+    </p>
+    <p>
+      <%= f.label 'length', 'Duracion en horas:' %><br>
+      <%= f.number_field 'length', min: 1 %>
+    </p>
+
+    <%= f.submit 'Hacer Reserva', class: "btn btn btn-info" %>
+  <% end %>
+</div>

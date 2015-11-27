@@ -18,7 +18,7 @@ class BookingsController < ApplicationController
     @booking =  Booking.new(params[:booking].permit(:calendar_id, :start_time, :length))
     @booking.calendar = @calendar
     if @booking.save
-      redirect_to calendar_bookings_path(@calendar, method: :get)
+      redirect_to keeper_users_path
     else
       render 'new'
     end

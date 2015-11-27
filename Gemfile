@@ -54,3 +54,5 @@ gem 'bookable', '~> 0.0.52'
 gem 'ransack'
 # autocomplete jquery
 gem 'rails4-autocomplete'
+# rayrate gem para calificar usuarios
+gem 'ratyrate'

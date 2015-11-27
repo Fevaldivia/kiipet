@@ -15,7 +15,8 @@
 //= require fullcalendar
 //= require bootstrap-datepicker
 //= require jquery_ujs
-//= require turbolinks
+//= require jquery.raty
+//= require ratyrate
 //= require_tree .
 
 $(document).on('ready page:change', function() {

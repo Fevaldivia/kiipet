@@ -95,14 +95,19 @@
       </div><!--container-->
   </div><!--navbar-default-->
 
-    <%= render 'layouts/facebook_sdk' %>
+  <%= render 'layouts/facebook_sdk' %>
+  <div class="container">
     <%- if notice %>
-      <p class="notice"><%= notice %></p>
+      <p class="alert-info alert">
+        <%= notice %>
+        <button type="button" class="close" data-dismiss="alert">×</button>
+      </p>
     <% end %>
     <%- if alert %>
-      <p class="alert"><%= alert %></p>
+      <p class="alert-danger alert"><%= alert %></p>
     <% end %>
-    
+  </div>
+
     <%= yield %>
 
 

@@ -1,24 +1,62 @@
 <div class="container">
-  <br>
   <h3>Te ha reservado:</h3>
-  <table>
-    <tr>
-      <th>Nombre</th>
-      <th>Email</th>
-      <th>Direccion</th>
-      <th>Comuna</th>
-      <th>Servicio</th>
-      <th>Inicio</th>
-      <th>Termino</th>
-    </tr>
-    <tr>
-      <td>Test</td>
-      <td>Testenado</td>
-      <td>Testeando</td>
-      <td>Testeando</td>
-      <td>Testeando</td>
-      <td><%= @booking.start_time.strftime('%e %b %Y %H:%M%p') %></td>
-      <td><%= (@booking.calculate_end_time + 60).strftime('%e %b %Y %H:%M%p') %></td>
-    </tr>
-  </table>
+  <div class="col-md-2">
+
+  </div>
+  <div class="col-md-10">
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+      <%= image_tag @booking.profile.avatar, :size => "120x120" %>
+      <h4><%= @booking.profile.name.capitalize %></h4>
+      <h6><%= @booking.profile.county.name %></h6>
+    </div>
+    <div class="col-md-3"></div>
+  </div>
+  <div class="col-md-2"></div>
+  <div class="col-md-10">
+    <br>
+    <div class="col-md-4">
+      <p>Email:</p>
+      <%= @booking.profile.user.email %>
+    </div>
+    <div class="col-md-4">
+      <p>Servicio:</p>
+      <%= @booking.service.name %>
+    </div>
+    <div class="col-md-4">
+      <p>Telefono:</p>
+      <% if @booking.profile.cellphone.present?%>
+      <%= @booking.profile.cellphone%>
+      <% else %>
+        <p>
+          No Definido
+        </p>
+      <% end %>
+    </div>
+<br>
+    <div class="col-md-4">
+      <p>Direccion:</p>
+      <%if @booking.profile.address.present?%>
+      <%= @booking.profile.address %>
+      <% else %>
+      <p>No Definido</p>
+      <% end %>
+    </div>
+    <div class="col-md-4">
+      <p>Inicio:</p>
+      <%= @booking.start_time.strftime('%e %b %Y %H:%M%p') %>
+    </div>
+    <div class="col-md-4">
+      <p>Final:</p>
+      <%= (@booking.calculate_end_time + 60).strftime('%e %b %Y %H:%M%p') %>
+    </div>
 </div>
+</div>
+<br>
+<br>
+<hr>
+<div class="col-md-5"></div>
+<div class="col-md-2">
+  <%= mail_to @booking.profile.user.email, "Enviar Email", class: "btn btn-info btn-lg"%>
+</div>
+<div class="col-md-5"></div>

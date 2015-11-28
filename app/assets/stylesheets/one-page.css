@@ -1,4 +1,4 @@
-/* 
+/*
     Document   : assan
     Author     : Design_mylife
     Description:assan multi-page for Multipurpose use
@@ -8,7 +8,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -webkit-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%;
-  font-family: "Dosis", sans-serif !important;
+  font-family: 'Raleway', sans-serif !important;
   color: #424242;
   font-size: 14px;
   line-height: 24px;
@@ -43,14 +43,14 @@ iframe {
   color: #555555; }
 
 strong, b, span {
-  font-family: "Dosis", sans-serif;
+  font-family: 'Raleway', sans-serif;
   font-weight: 400; }
 
 input,
 button,
 select,
 textarea {
-  font-family: "Dosis", sans-serif;
+  font-family: 'Raleway', sans-serif;
   font-size: 14px;
   font-weight: 400; }
 
@@ -76,14 +76,14 @@ p {
   font-family: "Dosis", sans-serif; }
 
 ul, ul li, ul li a {
-  font-family: "Dosis", sans-serif; }
+  font-family: 'Raleway', sans-serif;}
 
 /* Headings */
 h1, h2, h3, h4, h5, h6 {
   color: #060606;
   font-weight: 400;
   margin: 0;
-  font-family: "Dosis", sans-serif !important; }
+  font-family: 'Raleway', sans-serif !important; }
 
 h1 {
   font-size: 3.2em;
@@ -273,7 +273,7 @@ p {
 
 /***********bootstrap navigation default overrides--*/
 .navbar-default {
-  font-family: "Dosis", sans-serif;
+  font-family: 'Raleway', sans-serif;
   border: none;
   -webkit-border-radius: 0;
   -moz-border-radius: 0;
@@ -313,7 +313,7 @@ p {
   color: #060606;
   font-weight: 500;
   font-size: 12px;
-  font-family: "Dosis", sans-serif;
+  font-family: 'Raleway', sans-serif;
   text-transform: uppercase;
   letter-spacing: 1px; }
 
@@ -364,7 +364,7 @@ p {
 .btn {
   font-weight: 400;
   letter-spacing: 2px;
-  font-family: "Dosis", sans-serif;
+  font-family: 'Raleway', sans-serif;
   font-size: 12px;
   text-transform: uppercase;
   -webkit-border-radius: 2px;
@@ -553,7 +553,7 @@ input[type="color"]:focus,
 .intro-text h2 {
   font-weight: 400;
   margin-bottom: 15px;
-  font-family: "Dosis", sans-serif; }
+  font-family: 'Raleway', sans-serif; }
 
 .intro-text a {
   margin: 7px; }
@@ -1121,12 +1121,12 @@ label span {
   text-align: center;
   font-size: 24px;
   color: #fff !important;
-  font-family: "Dosis", sans-serif;
+  font-family: 'Raleway', sans-serif;
   font-weight: 300;
   line-height: 30px; }
 
 .rev-title-v1 {
-  font-family: "Dosis", sans-serif;
+  font-family: 'Raleway', sans-serif;
   font-weight: 800 !important;
   text-transform: uppercase; }
 
@@ -1141,7 +1141,7 @@ label span {
   color: #333; }
 
 .tp-caption.modern_big_redbg {
-  font-family: "Dosis", sans-serif !important; }
+  font-family: 'Raleway', sans-serif !important; }
 
 .slider-text-title {
   font-size: 50px;

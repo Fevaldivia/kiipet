@@ -4,7 +4,7 @@
             <div class="col-md-2">
 
             </div>
-            <div class="col-md-10">
+          <div class="col-md-10">
             <div class="caption title-2 sft animated slideInLeft">
             Encuentra a los mejores Cuidadores
             </div>
@@ -17,6 +17,12 @@
                 <i class="fa fa-search top-search"> Buscar Cuidadores</i>
               <% end -%>
             <% end %>
+            <br>
+            <br>
+            <div class="register-button">
+              <h4 class="font">¿Aun no estas registrado? ¡ Registrate ahora !</h4>
+              <%= link_to "¡Registrate!", new_user_registration_path, class: "register btn btn-info btn-lg"%>
+            </div>
         </div>
         </div>
   </div>
@@ -86,66 +92,66 @@
             </div>
         </div><!--services container-->
 
-        <section class="fun-fact-wrap fun-facts-bg">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-3 margin20 facts-in">
-                        <h3><span class="counter">1000</span> +</h3>
-                        <h4>Alojamiento</h4>
-                    </div><!--facts in-->
-                    <div class="col-md-3 margin20 facts-in">
-                        <h3><span class="counter">2300</span></h3>
-                        <h4>Paseo</h4>
-                    </div><!--facts in-->
-                    <div class="col-md-3 margin20 facts-in">
-                        <h3><span class="counter">80</span> +</h3>
-                        <h4>Cuidado diario</h4>
-                    </div><!--facts in-->
-                    <div class="col-md-3 margin20 facts-in">
-                        <h3><span class="counter">3000</span></h3>
-                        <h4>Premios</h4>
-                    </div><!--facts in-->
+        <section class="parallax bg-secundario" data-stellar-background-ratio="0.5">
+            <div class="container text-left">
+              <div class="col-md-10 buscador">
+                <h4 class="font">¿Te vas de vacaciones y no tienes con quien dejar a tu mascota?</h4>
+                <div class="col-md-4">
+                  <br>
+                  <%= link_to "Busca Cuidadores!", keeper_users_path ,class: "btn btn-info btn-lg"%>
                 </div>
+              </div>
+          </div>
             </div>
-        </section><!--fun facts-->
-
+        </section><!--me intro parallax-->
 
         <div class="testimonials-v-2 wow animated fadeInUp" data-wow-duration="700ms" data-wow-delay="100ms">
             <div class="container">
                 <div class="row">
                     <div class="col-sm-8 col-sm-offset-2">
                         <div class="center-heading">
-                            <h2><strong>Recomendaciones</strong></h2>
+                            <h2><strong>Servicios</strong></h2>
                             <span class="center-line"></span>
 
                         </div>
                     </div>
                 </div><!--center heading end-->
-
+                <br>
                 <div class="row">
-
-                    <div class="col-sm-8 col-sm-offset-2">
-                        <div class="testi-slide">
-                            <ul class="slides">
-                                <li>
-                                    <%= image_tag("comentarios.jpg")%>
-                                    <p>
-                                        <i class="ion-quote"></i>
-                                        Con Kiipet tus mascotas estaran en manos de profesionales y por sobre todo PetLovers como yo,
-                                        recomendada totalmente, digamos no al abandono de nuestras mascotas.
-                                    </p>
-                                    <h4 class="test-author">
-                                        Sebastian Jimenez
-                                    </h4>
-                                </li><!--testi item-->
-                            </ul>
-                        </div><!--flex slider testimonials end here-->
-                    </div>
+                  <div class="col-md-3 ">
+                    <p>
+                      <i class="fa fa-home fa-5x"></i>
+                    </p>
+                      <h4>Alojamiento</h4>
+                      <p>
+                        Cuida perros en tu propia casa durante el día y la noche. En el horario que mas te acomode.
+                      </p>
+                  </div><!--facts in-->
+                  <div class="col-md-3 ">
+                    <p>
+                      <i class="fa fa-paw fa-5x"></i>
+                    </p>
+                      <h4>Paseo</h4>
+                      <p>
+                        Pasea perros durante 1 hora. La recogida y entrega será siempre en el domicilio del propietario.
+                      </p>
+                  </div><!--facts in-->
+                  <div class="col-md-3 ">
+                    <p>
+                      <i class="fa fa-calendar fa-5x"></i>
+                    </p>
+                      <h4>Cuidado diario</h4>
+                      <p>
+                        Cuida perros en tu propia casa sólo durante el día y por un máximo de 10 horas al día.
+                      </p>
+                  </div><!--facts in-->
+                  <div class="col-md-3 ">
+                      <h3>¡Contrata alguno de los servicios ahora!</h3>
+                  </div><!--facts in-->
                 </div><!--testi slider row end-->
 
             </div>
         </div><!--testimonials v-2 end-->
-
 
 
           <div class="divide40"></div>
@@ -160,11 +166,8 @@
                         </p>
                     </div>
                     <div class="col-sm-4">
-                        <%= link_to "Registrate ahora",  new_user_registration_path, class: "btn border-theme btn-lg"%>
+                        <%= link_to "Registrate ahora",  new_user_registration_path, class: "btn btn-info btn-lg"%>
                     </div>
                 </div>
             </div>
         </div> <!--intro text end-->
-
-
-

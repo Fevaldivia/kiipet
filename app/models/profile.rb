@@ -12,6 +12,8 @@ class Profile < ActiveRecord::Base
   has_one :bank_account, inverse_of: :profile, dependent: :destroy
   has_many :calendars, inverse_of: :profile, dependent: :destroy
 
+  has_many :bookings
+
   accepts_nested_attributes_for :bank_account
   accepts_nested_attributes_for :calendars
   accepts_nested_attributes_for :profile_services

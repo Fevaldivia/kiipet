@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151127013046) do
+ActiveRecord::Schema.define(version: 20151128192013) do
 
   create_table "available_accounts", force: :cascade do |t|
     t.integer  "bank_id"
@@ -62,9 +62,13 @@ ActiveRecord::Schema.define(version: 20151127013046) do
     t.datetime "end_time"
     t.integer  "length"
     t.integer  "calendar_id"
+    t.integer  "profile_id"
+    t.integer  "service_id"
   end
 
   add_index "bookings", ["calendar_id"], name: "index_bookings_on_calendar_id"
+  add_index "bookings", ["profile_id"], name: "index_bookings_on_profile_id"
+  add_index "bookings", ["service_id"], name: "index_bookings_on_service_id"
 
   create_table "calendars", force: :cascade do |t|
     t.string  "name"
@@ -184,6 +188,16 @@ ActiveRecord::Schema.define(version: 20151127013046) do
   end
 
   add_index "rating_caches", ["cacheable_id", "cacheable_type"], name: "index_rating_caches_on_cacheable_id_and_cacheable_type"
+
+  create_table "ratings", force: :cascade do |t|
+    t.integer  "quality"
+    t.text     "comment"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "ratings", ["user_id"], name: "index_ratings_on_user_id"
 
   create_table "regions", force: :cascade do |t|
     t.string   "name"

@@ -16,6 +16,8 @@ class BookingsController < ApplicationController
 
   def create
     @booking =  Booking.new(params[:booking].permit(:calendar_id, :start_time, :length))
+    @booking.profile_id = current_user.id
+    @booking.service_id = params[:service][:service_id]
     @booking.calendar = @calendar
     if @booking.save
       redirect_to keeper_users_path

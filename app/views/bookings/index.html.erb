@@ -12,12 +12,15 @@
       <tr>
         <td>
           <%= booking.start_time.strftime('%e %b %Y %H:%M%p') %>
+          <hr>
         </td>
         <td>
           <%= (booking.calculate_end_time + 60).strftime('%e %b %Y %H:%M%p') %>
+          <hr>
         </td>
           <td>
             <%= link_to "Ver Reserva", calendar_booking_path(@calendar, booking) %>
+            <hr>
           </td>
       </tr>
       <% end %>

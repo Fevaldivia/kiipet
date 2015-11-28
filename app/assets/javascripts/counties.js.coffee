@@ -1,5 +1,7 @@
 $(document).ready ->
-
+  $("#q_county_name_cont").autocomplete
+    source: $("#q_county_name_cont").data('autocomplete-source')
+  
   $("#q_county_region_name_cont").autocomplete
     source: $("#q_county_region_name_cont").data('autocomplete-source')
   

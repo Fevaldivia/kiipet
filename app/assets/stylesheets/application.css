@@ -26,6 +26,13 @@
   font-family: "Raleway", Arial, sans-serif;
 }
 
+.message-alert{
+  position: absolute;
+  margin-left: 4%;
+  margin-top: 0;
+  z-index: 99;
+}
+
 .show-profile{
   margin-bottom: 15px;
 }

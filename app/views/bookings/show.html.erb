@@ -1,5 +1,24 @@
-<h3>Mis reservas</h3>
-<p>Tu reserva esta confirmada para:
-  <%= @booking.start_time.strftime('%e %b %Y %H:%M%p') %>
-  Hasta
-  <%= (@booking.calculate_end_time + 60).strftime('%e %b %Y %H:%M%p') %>
+<div class="container">
+  <br>
+  <h3>Te ha reservado:</h3>
+  <table>
+    <tr>
+      <th>Nombre</th>
+      <th>Email</th>
+      <th>Direccion</th>
+      <th>Comuna</th>
+      <th>Servicio</th>
+      <th>Inicio</th>
+      <th>Termino</th>
+    </tr>
+    <tr>
+      <td>Test</td>
+      <td>Testenado</td>
+      <td>Testeando</td>
+      <td>Testeando</td>
+      <td>Testeando</td>
+      <td><%= @booking.start_time.strftime('%e %b %Y %H:%M%p') %></td>
+      <td><%= (@booking.calculate_end_time + 60).strftime('%e %b %Y %H:%M%p') %></td>
+    </tr>
+  </table>
+</div>

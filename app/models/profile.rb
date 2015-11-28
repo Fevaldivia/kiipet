@@ -19,8 +19,6 @@ class Profile < ActiveRecord::Base
 
   enum gender: [:masculino, :femenino]
 
-  validates :name, :cellphone, :county, :region_id, :address, presence: true
-
   # scope :by_commune, ->(commune) {
   #   joins(:county).where("counties.name = ?", commune)
   # }

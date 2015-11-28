@@ -37,6 +37,7 @@ gem 'country_select'
 gem 'globalid'#, github: 'rails/globalid', tag: 'v0.2.2'
 gem "paperclip", "~> 4.2"
 gem 'jquery-rails'
+gem 'jquery-ui-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'
 gem 'sdoc', '~> 0.4.0',          group: :doc

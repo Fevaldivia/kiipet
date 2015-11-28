@@ -15,6 +15,7 @@
 //= require fullcalendar
 //= require bootstrap-datepicker
 //= require jquery_ujs
+//= require jquery-ui/autocomplete
 //= require jquery.raty
 //= require ratyrate
 //= require_tree .

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   post '/rate' => 'rater#create', :as => 'rate'
   resources :calendars do
 	  resources :bookings
@@ -31,6 +32,7 @@ Rails.application.routes.draw do
     scope module: :v1 do
       #routes
       resources :calendars, only: [:index, :create]
+      resources :searches, only: [:index]
     end
   end
 end

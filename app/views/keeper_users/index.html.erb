@@ -30,7 +30,7 @@
                         <h4>Busca por comuna</h4>
                         <%= search_form_for @search, url: keeper_users_url do |f| %>
                             <div class="field">
-                              <%= f.text_field :county_name_cont, input_html: { class: 'form-control large' }, placeholder: "Escribe tu comuna.." %>
+                              <%= f.text_field :county_name_cont, data: { autocomplete_source: api_searches_path }, input_html: { class: 'form-control large' }, placeholder: "Escribe tu comuna.." %>
                             </div>
                             <div class="actions">
                             <br>

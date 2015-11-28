@@ -16,6 +16,15 @@
  *= require_tree .
  *= require_self
  */
+ @import url(https://fonts.googleapis.com/css?family=Raleway:300);
+
+ body{
+  font-family: "Raleway", Arial, sans-serif;
+}
+.title{
+  font-family: "Raleway", Arial, sans-serif;
+}
+
 .show-profile{
   margin-bottom: 15px;
 }
@@ -66,9 +75,6 @@ li.services
   color: #0095c5;
   border-color: #0095c5;
 }
-.fun-fact-wrap.fun-facts-bg{
-  background-color: #0095c5;
-}
 
 .bg-secundario{
  background: 50% 50% url("bg-secundario.jpg");
@@ -77,4 +83,10 @@ li.services
 }
 .buscador{
   margin-top: -120px;
+}
+.button{
+  background-color: #0095c5;
+}
+.registrate{
+  float: right;
 }

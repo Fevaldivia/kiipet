@@ -1,6 +1,7 @@
 class Api::V1::SearchesController < ApplicationController
+  respond_to :json, :js
   def index
-    @results = County.ransack(params[:term])
-    render json: @results.result.limit(10)
+    @q = County.ransack(name_cont: params[:term])
+    respond_with @q.result.limit(8).map(&:name)
   end
 end

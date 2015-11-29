@@ -57,3 +57,5 @@ gem 'ransack'
 gem 'rails4-autocomplete'
 # rayrate gem para calificar usuarios
 gem 'ratyrate'
+# mail form gem for send contact email
+gem 'mail_form'

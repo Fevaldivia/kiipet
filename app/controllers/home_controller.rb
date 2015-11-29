@@ -5,4 +5,6 @@ class HomeController < ApplicationController
   end
   def contact
   end
+  def terms
+  end
 end

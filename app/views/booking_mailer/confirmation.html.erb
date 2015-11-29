@@ -1,0 +1,41 @@
+<h1>¡Felicitaciones <%= @user.profile.name.capitalize %>! ¡Tu pago ha sido realizado y tu reserva ha sido confirmada!</h1>
+
+<%= link_to 'Descargar comprobante', '#', class: '' %>
+
+<hr />
+
+<u>Detalles del Servicio: </u> <br />
+
+Cuidador / paseador: <br />
+Dirección: <br />
+Celular: <br />
+
+<hr />
+
+<u>Tu reserva</u><br />
+
+Servicio: <br />
+Duración: <br />
+Desde: Hasta: <br />
+
+<hr />
+
+Precio Reserva:  - $xxxxx [horas, dias, noche] <br />
+Precio Total: - $xxxxx
+
+<hr />
+
+Comentarios adicionales de [Nombre apellido] para el cuidador/paseador:
+
+<hr>
+
+<%= link_to "Descargar Comprobante", "#" %>
+
+<u>Condiciones: </u>
+<ul>
+  <li>Puedes cancelar el servicio sin costo hasta xx horas antes de tu servicio. Pasado este plazo, no se reembolsará el importe de la reserva.</li>
+  <li>Para los servicios de cuidado de día o noche, es necesario que lleves la comida de tu mascota por el tiempo de la duración del servicio, además de algún juguete u objeto de está.</li>
+  <li>Recuerda imprimir esta reserva y presentarla en alguno de nuestros centros veterinarios asociados para el diagnóstico gratuito en caso de emergencia. (conoce nuestros centros veterinarios asociados aquí)</li>
+</ul>
+
+<h1>¡Muchas gracias por confiar en Kiipet.com!</h1>

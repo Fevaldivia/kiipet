@@ -26,7 +26,9 @@ group :assets do
   # Use CoffeeScript for .coffee assets and views
   gem 'coffee-rails', '~> 4.1.0'
 end
-
+#gem 'khipu-api-ruby-client', :path => '/Users/nelsonjimenez/App/khipu-api-ruby-client'
+#gem 'khipu_api_gem_client', :path => '/Users/nelsonjimenez/App/khipu_api_gem_client'
+gem 'khipu-api-ruby-client', github: 'patojimenez/khipu-api-ruby-client', :branch => '2-fix-could-not-find-gem'
 gem 'pry-rails'
 gem 'devise'
 gem 'omniauth'

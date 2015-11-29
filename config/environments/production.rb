@@ -79,4 +79,14 @@ Rails.application.configure do
 
   config.default_url_options = { host: 'localhost:3000' }
   config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+
+  ActionMailer::Base.smtp_settings = {
+    :user_name => ENV['SMTP_USERNAME'],
+    :password => ENV['SMTP_PASSWORD'],
+    :domain => 'kiipet.com',
+    :address => 'smtp.sendgrid.net',
+    :port => 587,
+    :authentication => :plain,
+    :enable_starttls_auto => true
+  }
 end

@@ -7,4 +7,6 @@ class HomeController < ApplicationController
   end
   def terms
   end
+  def works
+  end
 end

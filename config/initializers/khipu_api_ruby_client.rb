@@ -1,3 +1,5 @@
+require 'khipu-api-client'
+
 Khipu.configure do  |c|
   c.secret           = ENV['KHIPU_SECRET']
   c.receiver_id      = ENV['KHIPU_RECEIVER_ID']

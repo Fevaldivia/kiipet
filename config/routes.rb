@@ -26,6 +26,7 @@ Rails.application.routes.draw do
 
   get "contact", to: "home#contact"
   get "terms", to: "home#terms"
+  get "works", to: "home#works"
 
   get '/regions/:region_id/counties', to: 'counties#index', as: :counties
 

@@ -24,7 +24,8 @@ Rails.application.routes.draw do
 
   root 'home#index'
 
-  get "contact", to: "home#contact"
+  match '/contacts',     to: 'contacts#new',             via: 'get'
+  resources "contacts", only: [:new, :create]
   get "terms", to: "home#terms"
   get "works", to: "home#works"
 

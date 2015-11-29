@@ -98,3 +98,9 @@ li.services
 .registrate{
   float: right;
 }
+
+.bg-2{
+ background: 50% 50% url("bg-2.jpg");
+ padding: 200px 0;
+ background-size: cover;
+}

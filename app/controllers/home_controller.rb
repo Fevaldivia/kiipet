@@ -3,8 +3,6 @@ class HomeController < ApplicationController
     @search = Profile.where(type: "KeeperProfile").ransack(params[:q])
     @keepers = @search.result.includes(:county)
   end
-  def contact
-  end
   def terms
   end
   def works

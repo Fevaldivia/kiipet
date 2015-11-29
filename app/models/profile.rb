@@ -1,4 +1,5 @@
 class Profile < ActiveRecord::Base
+  include TranslatedAttributeValue::Base
   ratyrate_rateable "quality"
 
   after_create :assign_calendar
@@ -19,7 +20,7 @@ class Profile < ActiveRecord::Base
   accepts_nested_attributes_for :profile_services
   accepts_nested_attributes_for :county
 
-  enum gender: [:masculino, :femenino]
+  enum gender: [:male, :female]
 
   # scope :by_commune, ->(commune) {
   #   joins(:county).where("counties.name = ?", commune)

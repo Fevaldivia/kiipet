@@ -59,3 +59,5 @@ gem 'rails4-autocomplete'
 gem 'ratyrate'
 # mail form gem for send contact email
 gem 'mail_form'
+# Gem for translate attribute values
+gem 'translated_attribute_value'

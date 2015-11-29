@@ -1,11 +1,17 @@
 es:
   activerecord:
     attributes:
+      pet:
+        size_translation:
+          small: Ticketek
+          medium: Punto Ticket
+          large: Hola mundo
+          
       profile: &profile_enums
         gender_translation:
           male: Masculino
           female: Femenino
-      investor_profile:
+      keeper_profile:
         <<: *profile_enums
-      producer_profile:
+      prospector_profile:
         <<: *profile_enums

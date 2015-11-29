@@ -67,13 +67,14 @@
 
                             <fieldset>
                                 <section>
+                                  <p>Escoge que tipo de usuario eres cuidador y/o paseador, o dueño de una mascota.</p>
                                     <%= f.simple_fields_for :profile_attributes, KeeperProfile.new do |f| %>
                                     <%= f.input :type, as: :select, collection: [[KeeperProfile.model_name.human, KeeperProfile.to_s], [ProspectorProfile.model_name.human, ProspectorProfile.to_s]], label: false%>
                                     <% end %>
                                 </section>
 
                                 <section>
-                                    <label class="checkbox"><input type="checkbox" name="terms" id="terms"><i></i>
+                                    <%= f.check_box :terms_of_service %>
                                     <%= link_to "Estoy de acuerdo con los terminos y condiciones", terms_path %>
                                 </section>
                             </fieldset>

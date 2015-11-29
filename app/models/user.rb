@@ -9,6 +9,10 @@ class User < ActiveRecord::Base
   has_many :pets, dependent: :destroy
   validates :profile, presence: true
 
+  attr_accessor :terms_of_service
+
+  validates :terms_of_service, acceptance: true
+
   accepts_nested_attributes_for :profile
 
   def display_image

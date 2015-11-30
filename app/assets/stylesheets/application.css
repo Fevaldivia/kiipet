@@ -98,3 +98,12 @@ li.services
 .registrate{
   float: right;
 }
+
+.image-thanks-payment{
+  width: 22%;
+  height: auto;
+  margin-bottom: 20px;
+}
+.panel-thanks{
+  margin-left: 250px;
+}

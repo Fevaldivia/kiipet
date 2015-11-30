@@ -1,0 +1,43 @@
+<div class="container">
+  <!-- Tab panes -->
+  <div class="tab-content">
+    <div role="tabpanel" class="tab-pane active" id="profile">
+      <dl class="dl-horizontal">
+        <dt><%= Profile.human_attribute_name :avatar%></dt>
+        <dd><%= image_tag @profile.user.display_image%></dd>
+
+        <dt><%= Profile.human_attribute_name :name %></dt>
+        <dd><%= @profile.name %></dd>
+
+        <dt><%= User.human_attribute_name :email%></dt>
+        <dd><%= @profile.user.email%></dd>
+
+        <dt><%= Profile.human_attribute_name :rut %></dt>
+        <dd><%= @profile.rut %></dd>
+
+        <dt><%= Profile.human_attribute_name :gender%></dt>
+        <dd><%= @profile.gender_translated %></dd>
+
+        <dt><%= Profile.human_attribute_name :birthday%></dt>
+        <dd><%= @profile.birthday ? l(@profile.birthday) : '' %></dd>
+
+        <dt><%= Profile.human_attribute_name :address %></dt>
+        <dd><%= @profile.address%></dd>
+
+        <dt><%= Profile.human_attribute_name :phone %></dt>
+        <dd><%= @profile.phone %></dd>
+
+        <dt><%= Profile.human_attribute_name :cellphone%></dt>
+        <dd><%= @profile.cellphone %></dd>
+      </dl>
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="row">
+    <div class="col-sm-12 text-right">
+      <%= link_to "Volver", admin_profiles_path, class: 'btn btn-default btn-lg'%>
+    </div>
+  </div>
+</div>

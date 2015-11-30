@@ -21,8 +21,8 @@ class Booking < ActiveRecord::Base
       #notify_url: 'http://mi-ecomerce.com/backend/notify',
       notify_api_version: '1.3'
    })
-   
-    #agregar id de pago en booking, payment_id 
+    self.payment_id response.payment_id if response 
+    self.save
 
     return response 
   end

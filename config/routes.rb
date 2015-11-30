@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'payments/thanks'
+  get 'payments/cancel'
 
   post '/rate' => 'rater#create', :as => 'rate'
   resources :calendars do

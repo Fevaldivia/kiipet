@@ -1,22 +1,29 @@
-<table>
-  <thead>
-    <th><%= Profile.human_attribute_name(:avatar)%></th>
-    <th><%= Profile.human_attribute_name(:type)%></th>
-    <th><%= Profile.human_attribute_name(:name)%></th>
-    <th><%= User.human_attribute_name(:email)%></th>
-    <th><%= User.human_attribute_name(:facebook)%></th>
-  </thead>
-  <tbody>
-    <% if @profiles.any?%>
-    <%- @profiles.each do |profile| %>
-    <tr>
-      <td><%= image_tag profile.user.display_image, :size => "40x40"%></td>
-      <td><%= profile.model_name.human%></td>
-      <td><%= profile.name%></td>
-      <td><%= profile.user.email%></td>
-      <td><%= link_to "ver", admin_profile_path(profile), class: 'btn btn-default'%></td>
-    </tr>
-    <% end %>
-    <% end %>
-  </tbody>
-</table>
+<div class="container">
+  <div class="row">
+    <br>
+    <div class="col-md-12">
+      <table class="table-bordered admin-tables">
+        <thead>
+          <th><%= Profile.human_attribute_name(:avatar)%></th>
+          <th><%= Profile.human_attribute_name(:type)%></th>
+          <th><%= Profile.human_attribute_name(:name)%></th>
+          <th><%= User.human_attribute_name(:email)%></th>
+          <th></th>
+        </thead>
+        <tbody>
+          <% if @profiles.any?%>
+            <%- @profiles.each do |profile| %>
+            <tr>
+              <td><%= image_tag profile.user.display_image, :size => "40x40"%></td>
+              <td><%= profile.model_name.human%></td>
+              <td><%= profile.name%></td>
+              <td><%= profile.user.email%></td>
+              <td><%= link_to "ver", admin_profile_path(profile), class: 'btn btn-default'%></td>
+            </tr>
+            <% end %>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

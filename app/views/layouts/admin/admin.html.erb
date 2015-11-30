@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Kiipet</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <div class="navbar navbar-default navbar-static-top yamm sticky" role="navigation">
+      <div class="container">
+          <div class="navbar-collapse collapse">
+              <ul class="nav navbar-nav navbar-right">
+                  <li><%= link_to "Profiles", admin_profiles_path%></li>
+                  <!--menu home li end here-->
+                  <li><%= link_to "En construccion"%></li>
+                  <!--menu blog li end here-->
+                  <li><%= link_to "En construccion"%></li>
+                  <!--menu pages li end here-->
+                  <li><%= link_to "En construccion"%></li>
+                  <!--mega menu-->
+                  <li><%= link_to "En construccion"%></li> <!--menu Features li end here-->
+                  <!--mega menu end-->
+              </ul>
+          </div><!--/.nav-collapse -->
+      </div><!--container-->
+  </div><!--navbar-default-->
+
+  <%= render 'layouts/facebook_sdk' %>
+  <%= render 'layouts/alerts' %>
+  <%= yield %>
+
+
+  </body>
+</html>

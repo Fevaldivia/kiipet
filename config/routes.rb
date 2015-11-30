@@ -38,4 +38,8 @@ Rails.application.routes.draw do
       resources :searches, only: [:index]
     end
   end
+
+  namespace :admin do
+    resources :profiles, only: [:index, :show]
+  end
 end

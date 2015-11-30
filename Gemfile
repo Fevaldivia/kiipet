@@ -61,3 +61,5 @@ gem 'ratyrate'
 gem 'mail_form'
 # Gem for translate attribute values
 gem 'translated_attribute_value'
+# Adds support for creating state machines for attributes on any Ruby class
+gem 'state_machine'

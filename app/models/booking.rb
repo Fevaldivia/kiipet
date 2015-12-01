@@ -6,11 +6,12 @@ class Booking < ActiveRecord::Base
   belongs_to :profile
   belongs_to :service
 
-  def payment!
+  def payment!(current_user)
    amount = 1
    client = Khipu::PaymentsApi.new
-   amount = self.service.price.to_i if self.service.price.to_i > 0
-
+   profile_service = self.service.profile_services.where(profile_id: current_user.profile.id).first
+   amount = profile_service.price.to_i if profile_service.price.to_i > 0
+   binding.pry
    response = client.payments_post("Kiipet - Pagar resevar", 'CLP', amount, {
       transaction_id: self.id,
       expires_date: DateTime.new(2016, 4, 4),
@@ -22,7 +23,7 @@ class Booking < ActiveRecord::Base
       notify_api_version: '1.3'
    })
    self.payment_id = response.payment_id if response 
-    self.save
+   self.save
 
     return response 
   end

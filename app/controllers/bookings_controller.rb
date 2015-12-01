@@ -20,7 +20,7 @@ class BookingsController < ApplicationController
     @booking.service_id = params[:service][:service_id]
     @booking.calendar = @calendar
     if @booking.save
-      payment_url = @booking.payment!
+      payment_url = @booking.payment!(current_user)
       redirect_to payment_url.payment_url
     else
       render 'new'

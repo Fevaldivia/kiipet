@@ -104,3 +104,22 @@ li.services
  padding: 200px 0;
  background-size: cover;
 }
+
+.image-payment{
+  width: 22%;
+  height: auto;
+  margin-bottom: 20px;
+}
+.panel-thanks{
+  margin-left: 250px;
+}
+
+/* logos en el booking*/
+.khipu-logo{
+  width: 90px;
+  height: auto;
+}
+.ssl-logo{
+  width: 90px;
+  height: auto;
+}

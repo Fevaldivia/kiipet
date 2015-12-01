@@ -121,6 +121,10 @@ GEM
       addressable
       faraday
       multi_json
+    launchy (2.4.3)
+      addressable (~> 2.3)
+    letter_opener (1.4.1)
+      launchy (~> 2.2)
     loofah (2.0.1)
       nokogiri (>= 1.5.9)
     mail (2.6.3)
@@ -238,6 +242,7 @@ GEM
       activesupport (>= 3.0)
       sprockets (>= 2.8, < 4.0)
     sqlite3 (1.3.10)
+    state_machine (1.2.0)
     thor (0.19.1)
     thread_safe (0.3.5)
     tilt (1.4.1)
@@ -278,6 +283,7 @@ DEPENDENCIES
   jquery-rails
   jquery-ui-rails
   koala (~> 2.2)
+  letter_opener
   mail_form
   momentjs-rails
   omniauth
@@ -293,6 +299,7 @@ DEPENDENCIES
   sdoc (~> 0.4.0)
   simple_form
   sqlite3
+  state_machine
   translated_attribute_value
   turbolinks
   uglifier (>= 1.3.0)

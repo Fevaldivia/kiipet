@@ -121,6 +121,10 @@ GEM
       addressable
       faraday
       multi_json
+    launchy (2.4.3)
+      addressable (~> 2.3)
+    letter_opener (1.4.1)
+      launchy (~> 2.2)
     loofah (2.0.1)
       nokogiri (>= 1.5.9)
     mail (2.6.3)
@@ -279,6 +283,7 @@ DEPENDENCIES
   jquery-rails
   jquery-ui-rails
   koala (~> 2.2)
+  letter_opener
   mail_form
   momentjs-rails
   omniauth

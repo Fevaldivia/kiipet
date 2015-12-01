@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151130054504) do
+ActiveRecord::Schema.define(version: 20151201045741) do
 
   create_table "available_accounts", force: :cascade do |t|
     t.integer  "bank_id"
@@ -65,10 +65,12 @@ ActiveRecord::Schema.define(version: 20151130054504) do
     t.integer  "profile_id"
     t.integer  "service_id"
     t.string   "payment_id"
+    t.integer  "profile_service_id"
   end
 
   add_index "bookings", ["calendar_id"], name: "index_bookings_on_calendar_id"
   add_index "bookings", ["profile_id"], name: "index_bookings_on_profile_id"
+  add_index "bookings", ["profile_service_id"], name: "index_bookings_on_profile_service_id"
   add_index "bookings", ["service_id"], name: "index_bookings_on_service_id"
 
   create_table "calendars", force: :cascade do |t|

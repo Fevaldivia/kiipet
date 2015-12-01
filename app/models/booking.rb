@@ -4,14 +4,13 @@ class Booking < ActiveRecord::Base
   include Bookable
 
   belongs_to :profile
-  belongs_to :service
+  belongs_to :profile_service
 
-  def payment!(current_user)
+  def payment!
    amount = 1
    client = Khipu::PaymentsApi.new
-   profile_service = self.service.profile_services.where(profile_id: current_user.profile.id).first
+   profile_service = self.profile_service
    amount = profile_service.price.to_i if profile_service.price.to_i > 0
-   binding.pry
    response = client.payments_post("Kiipet - Pagar resevar", 'CLP', amount, {
       transaction_id: self.id,
       expires_date: DateTime.new(2016, 4, 4),

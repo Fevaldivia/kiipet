@@ -10,8 +10,4 @@ class Service < ActiveRecord::Base
       :name, :description
     ]
   end
-
-  def name_with_price
-    "#{name} - #{profile_services.first.price}"
-  end
 end

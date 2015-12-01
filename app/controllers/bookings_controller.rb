@@ -17,10 +17,10 @@ class BookingsController < ApplicationController
   def create
     @booking =  Booking.new(params[:booking].permit(:calendar_id, :start_time, :length))
     @booking.profile_id = current_user.id
-    @booking.service_id = params[:service][:service_id]
+    @booking.profile_service_id = params[:service][:profile_service_id]
     @booking.calendar = @calendar
     if @booking.save
-      payment_url = @booking.payment!(current_user)
+      payment_url = @booking.payment!
       redirect_to payment_url.payment_url
     else
       render 'new'

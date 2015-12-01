@@ -50,7 +50,11 @@
                         <%= image_tag kp.avatar.url , :size => "100x100", class: "img-circle"%>
                       </div>
                       <div class="col-md-10">
+                        <% if kp.slogan %>
                         <h3><%= link_to kp.slogan, profile_path(kp) %></h3>
+                        <% else %>
+                        <h3>Este usuario no presta servicios aun</h3>
+                        <% end %>
                         <% if current_user%>
                         <%= rating_for kp, "quality", current_user %>
                         <% end %>
@@ -62,7 +66,11 @@
                             <% end -%>
                         </ul>
                         <p>
+                          <% if kp.bio %>
                             <%= kp.bio.truncate_words(20) %>
+                          <% else %>
+                            <p>Este Usuario no posee una biografia</p>
+                          <% end %>
                         </p>
                         <hr>
                       </div>

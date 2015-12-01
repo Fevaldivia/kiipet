@@ -5,7 +5,9 @@ class ApplicationController < ActionController::Base
   protected
   before_action :configure_permitted_parameters, if: :devise_controller?
     def configure_permitted_parameters
-      devise_parameter_sanitizer.for(:sign_up) << {profile_attributes: [:type]}
+      devise_parameter_sanitizer.for(:sign_up)  { |u| u.permit(:terms_of_service, :email, :password, :password_confirmation,
+                                                profile_attributes: [:type]) }
+
       devise_parameter_sanitizer.for(:account_update) << :newsletter
     end
   def after_sign_in_path_for(user)
@@ -14,7 +16,7 @@ class ApplicationController < ActionController::Base
       edit_profile_path(current_user.profile)
     else
       sign_in user
-      step_1_wizards_path 
+      step_1_wizards_path
     end
   end
 end

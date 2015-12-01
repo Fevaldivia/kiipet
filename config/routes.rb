@@ -26,8 +26,10 @@ Rails.application.routes.draw do
 
   root 'home#index'
 
-  get "contact", to: "home#contact"
+  match '/contacts',     to: 'contacts#new',             via: 'get'
+  resources "contacts", only: [:new, :create]
   get "terms", to: "home#terms"
+  get "works", to: "home#works"
 
   get '/regions/:region_id/counties', to: 'counties#index', as: :counties
 
@@ -37,5 +39,9 @@ Rails.application.routes.draw do
       resources :calendars, only: [:index, :create]
       resources :searches, only: [:index]
     end
+  end
+
+  namespace :admin do
+    resources :profiles, only: [:index, :show]
   end
 end

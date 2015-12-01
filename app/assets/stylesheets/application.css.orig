@@ -98,9 +98,29 @@ li.services
 .registrate{
   float: right;
 }
+<<<<<<< HEAD
+/*thanks and cancel styleeshet payments*/
+.image-payment{
+  width: 22%;
+  height: auto;
+  margin-bottom: 20px;
+}
+.panel-thanks{
+  margin-left: 250px;
+}
+/* logos en el booking*/
+.khipu-logo{
+  width: 90px;
+  height: auto;
+}
+.ssl-logo{
+  width: 90px;
+  height: auto;
+=======
 
 .bg-2{
  background: 50% 50% url("bg-2.jpg");
  padding: 200px 0;
  background-size: cover;
+>>>>>>> master
 }

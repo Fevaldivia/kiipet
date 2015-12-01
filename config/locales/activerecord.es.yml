@@ -72,6 +72,7 @@ es:
         bio: Descripcion
         breed: Raza
         pet_image: Foto
+        size: Tamaño
       category:
         name: Nombre
     errors:
@@ -84,7 +85,7 @@ es:
               invalid: "Este email no es válido"
               blank: "El email no puede estar en blanco"
             password:
-              too_short: "La contraseña que eligió es demasiado corto"
+              too_short: "La contraseña que eligió es demasiado corta"
               confirmation: "La contraseña y la confirmación de contraseña cumplido no son iguales"
               blank: "La contraseña no puede estar en blanco"
             reset_password_token:

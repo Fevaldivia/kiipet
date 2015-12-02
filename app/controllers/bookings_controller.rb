@@ -29,6 +29,11 @@ class BookingsController < ApplicationController
 
   def show
     @booking = Booking.find(params[:id])
+=begin para mostrar el servicio que fue reservado
+sin tener que hacer tantas consultas en la vista. 
+=end
+    @profile_service = @booking.profile_service
+    @service = @profile_service.service
   end
 
   def destroy

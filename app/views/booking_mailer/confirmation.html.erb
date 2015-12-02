@@ -6,21 +6,21 @@
 
 <u>Detalles del Servicio: </u> <br />
 
-Cuidador / paseador: <br />
-Dirección: <br />
-Celular: <br />
+Cuidador / paseador: <%= @booking.profile_service.profile.name.capitalize%><br />
+Dirección: <%= @booking.profile_service.profile.address %><br />
+Celular: <%= @booking.profile_service.profile.cellphone%><br />
 
 <hr />
 
 <u>Tu reserva</u><br />
 
-Servicio: <br />
-Duración: <br />
-Desde: Hasta: <br />
+Servicio: <%= @booking.profile_service.service.name%> <br />
+Duración: <%= @booking.length%> hrs<br />
+Desde: <%= @booking.start_time %> Hasta: <%= @booking.end_time %><br />
 
 <hr />
 
-Precio Reserva:  - $xxxxx [horas, dias, noche] <br />
+Precio Reserva:  <%= @booking.profile_service.price %>  [horas, dias, noche] <br />
 Precio Total: - $xxxxx
 
 <hr />

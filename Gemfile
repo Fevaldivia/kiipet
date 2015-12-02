@@ -29,6 +29,8 @@ group :assets do
   # Use CoffeeScript for .coffee assets and views
   gem 'coffee-rails', '~> 4.1.0'
 end
+
+gem 'kaminari'
 gem 'khipu-api-client'
 gem 'pry-rails'
 gem 'devise'

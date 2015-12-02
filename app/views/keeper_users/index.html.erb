@@ -42,7 +42,7 @@
                 </div><!--search sidebar col end-->
                 <div class="col-sm-9">
                 <% if @keepers.present? %>
-                    <span class="results-number">Cerca 230,000 results (in 0.40 seconds)</span>
+                  <span class="results-number">Cerca <%= @keepers.total_count %> resultados</span>
 
                 <% @keepers.each do |kp|%>
                     <div class="results-box">
@@ -78,24 +78,7 @@
                     </div><!--result box-->
 
                 <% end %>
-
-                    <ul class="pagination">
-                        <li>
-                            <a href="search-results.html#" aria-label="Previous">
-                                <span aria-hidden="true">«</span>
-                            </a>
-                        </li>
-                        <li class="active"><a href="search-results.html#">1</a></li>
-                        <li><a href="search-results.html#">2</a></li>
-                        <li><a href="search-results.html#">3</a></li>
-                        <li><a href="search-results.html#">4</a></li>
-                        <li><a href="search-results.html#">5</a></li>
-                        <li>
-                            <a href="search-results.html#" aria-label="Next">
-                                <span aria-hidden="true">»</span>
-                            </a>
-                        </li>
-                    </ul>
+                   <%= paginate @keepers %>
                     <% else %>
                     <p>No se han econtrado resultados...</p>
                     <% end -%>

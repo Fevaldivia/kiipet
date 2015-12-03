@@ -19,15 +19,16 @@ class ProfilesController < ApplicationController
   # PATCH/PUT /profiles/1
   # PATCH/PUT /profiles/1.json
   def update
+    @profile = Profile.find(params[:id])
+    @profile.state = :in_analysis
+
     @profile = current_user.profile
-
-
 
     respond_to do |format|
       if @profile.update(profile_params)
 
         # send mail to admin when a profile is created
-        # ProfileMailer.send_to_revision(@profile).deliver_later
+        # ProfileMailer.send_to_revision(@profile).deliver
 
         format.html { redirect_to edit_profile_path(@profile), notice: t(:update, scope: [:messages, :controllers, :profiles, :successfully]) }
         format.json { render :show, status: :ok, location: edit_profile_path(@profile) }

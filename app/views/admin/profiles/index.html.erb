@@ -19,6 +19,11 @@
               <td><%= profile.name%></td>
               <td><%= profile.user.email%></td>
               <td><%= link_to "ver", admin_profile_path(profile), class: 'btn btn-default'%></td>
+              <td>
+                <%- if profile.in_analysis? %>
+                  <%= link_to "Aprobar", approve_admin_profile_path(profile), class: 'btn btn-primary'%>
+               <% end %>
+              </td>
             </tr>
             <% end %>
           <% end %>

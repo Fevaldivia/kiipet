@@ -42,6 +42,13 @@ Rails.application.routes.draw do
   end
 
   namespace :admin do
-    resources :profiles, only: [:index, :show]
+    resources :profiles, only: [:index, :show, :edit, :update] do
+      member do
+        get :approve
+        get :reject
+      end
+    end
+    
   end
+
 end

@@ -45,6 +45,7 @@
                   <span class="results-number">Cerca <%= @keepers.total_count %> resultados</span>
 
                 <% @keepers.each do |kp|%>
+                  <% if kp.state == "approved"%>
                     <div class="results-box">
                       <div class="col-md-2">
                         <%= image_tag kp.avatar.url , :size => "100x100", class: "img-circle"%>
@@ -74,7 +75,7 @@
                         </p>
                         <hr>
                       </div>
-
+                      <% end %>
                     </div><!--result box-->
 
                 <% end %>

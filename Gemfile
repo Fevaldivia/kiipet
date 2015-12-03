@@ -30,6 +30,7 @@ group :assets do
   gem 'coffee-rails', '~> 4.1.0'
 end
 
+gem 'pundit'
 gem 'kaminari'
 gem 'khipu-api-client'
 gem 'pry-rails'

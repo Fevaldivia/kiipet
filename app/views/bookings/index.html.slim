@@ -2,8 +2,9 @@
   br
   .col-md-4
     h3 Disponibilidad en mi #{@calendar.name}
+    #booking-form
     - if @bookings.count > 0
-      table.bookings_table.table.table-striped
+      table#bookings.bookings_table.table.table-striped
         tr
           th Inicio
           th Termino
@@ -19,9 +20,9 @@
             hr
             td = link_to "Ver Reserva", calendar_booking_path(@calendar, booking)
     - else
-      .jumbotron
+      #booking-void.jumbotron
         p No tiene disponibilidad en su horario
-        =link_to 'Agregar hora disponible', new_calendar_booking_path(@calendar) , class: 'btn btn-sm btn-success'
+        =link_to 'Agregar hora disponible', new_calendar_booking_path(@calendar), remote: true, class: 'btn btn-sm btn-success'
       
   .col-md-8
     .calendar_container

@@ -27,6 +27,21 @@ class Admin::ProfilesController < Admin::AdminController
   end
 
 
+  def reject
+    if @profile.reject
+      # CompanyMailer.rejected(@company, params[:message]).deliver_later
+
+      flash[:notice] = t(:rejected, scope: [:messages, :controllers, :profiles, :successfully])
+    else
+      flash[:error] = @profile.errors.full_messages.join(', ')
+    end
+
+    respond_to do |format|
+      format.html { redirect_to admin_profile_path(@profile) }
+    end
+  end
+
+
   private
     def set_profile
       @profile = Profile.find(params[:id])

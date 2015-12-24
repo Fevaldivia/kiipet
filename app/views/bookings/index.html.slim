@@ -3,26 +3,19 @@
   .col-md-4
     h3 Disponibilidad en mi #{@calendar.name}
     #booking-form
+    table.bookings_table.table.table-striped
+      tr
+        th Inicio
+        th Termino
+        th Estado
+        th
     - if @bookings.count > 0
-      table#bookings.bookings_table.table.table-striped
-        tr
-          th Inicio
-          th Termino
-          th Estado
-          th
-        - @bookings.each do |booking|
-          tr
-            td = booking.start_time.strftime('%e %b %Y %H:%M%p')
-            hr
-            td = (booking.calculate_end_time + 60).strftime('%e %b %Y %H:%M%p')
-            hr
-            th Estado (Ocupado - Libre)
-            hr
-            td = link_to "Ver Reserva", calendar_booking_path(@calendar, booking)
+      = render 'bookings'
     - else
       #booking-void.jumbotron
-        p No tiene disponibilidad en su horario
-        =link_to 'Agregar hora disponible', new_calendar_booking_path(@calendar), remote: true, class: 'btn btn-sm btn-success'
+        h3 Agrega tu disponibilidad
+        p Presiona el calendario para agregar horas disponibles paras tus clientes
+        =link_to 'Agregar', new_calendar_booking_path(@calendar), remote: true, class: 'btn btn-sm btn-success'
       
   .col-md-8
     .calendar_container

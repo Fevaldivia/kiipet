@@ -1,16 +1,17 @@
-.col-md-6
-  = form_for([@calendar, @booking], :remote => true) do |f|
-    p
-      Servicio
-      br
-      = collection_select :service, :profile_service_id, @calendar.profile.profile_services, :id, :name_with_price
-    p
-      = f.label 'start_time', 'Empieza:'
-      br
-      = f.datetime_select :start_time, { minute_step: 15 }
-    p
-      = f.label 'length', 'Duracion en horas: '
-      br
-      = f.number_field 'length', min: 1
-    = f.submit 'Agregar disponibilidad', class: 'btn btn-info'
+.col-md-12
+  = form_for([@calendar, @booking], :remote => true, html: { class: 'jumbotron' } ) do |f|
+    .row
+      .col-md-12
+        = f.label 'start_time', 'Marcar disponibilidad'
+        = f.text_field :start_time, id: 'calendar-date'
+        hr
+      .col-md-6
+        = f.label 'length', 'Cantidad de horas disponibles'
+        = f.number_field 'length', min: 1
+      .col-md-6
+        = f.label 'Servicio'
+        = collection_select :service, :profile_service_id, @calendar.profile.profile_services, :id, :name_with_price
+      .col-md-12
+        br
+        = f.submit 'Agregar disponibilidad', class: 'btn btn-info'
 

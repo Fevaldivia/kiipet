@@ -15,6 +15,7 @@ class BookingsController < ApplicationController
   end
 
   def create
+    binding.pry
     @booking =  Booking.new(params[:booking].permit(:calendar_id, :start_time, :length))
     @booking.profile_id = current_user.id
     @booking.profile_service_id = params[:service][:profile_service_id]

@@ -1,17 +1,21 @@
 .col-md-12
-  = form_for([@calendar, @booking], :remote => true, html: { class: 'jumbotron' } ) do |f|
+  p.text-center Es importate que indiques tu disponibilidad para que tus clientes puedan reservar en tu calendario
+
+  = form_for([@calendar, @booking], :remote => true, html: { class: 'jumbotron add-availability-form' } ) do |f|
     .row
+      .col-md-6
+        .form-group
+          = f.label 'start_time', 'Desde'
+          = f.text_field :start_time, id: 'calendar-date', class: 'form-control dtp-desde'
+      .col-md-6
+        .form-group
+          = f.label 'end_time', 'Hasta'
+          = f.text_field :start_time, id: 'calendar-date', class: 'form-control dtp-hasta'
       .col-md-12
-        = f.label 'start_time', 'Marcar disponibilidad'
-        = f.text_field :start_time, id: 'calendar-date'
-        hr
-      .col-md-6
-        = f.label 'length', 'Cantidad de horas disponibles'
-        = f.number_field 'length', min: 1
-      .col-md-6
-        = f.label 'Servicio'
-        = collection_select :service, :profile_service_id, @calendar.profile.profile_services, :id, :name_with_price
+        .form-group
+          = f.label 'Servicio'
+          = collection_select :service, :profile_service_id, @calendar.profile.profile_services, :id, :name_with_price, {}, {class: "form-control"}
       .col-md-12
         br
-        = f.submit 'Agregar disponibilidad', class: 'btn btn-info'
+        = f.submit 'Agregar', class: 'btn btn-info btn-block'
 

@@ -1,0 +1,6 @@
+tr
+  td = booking.start_time.strftime('%e %b %Y %H:%M%p')
+  td = booking.end_time.strftime('%e %b %Y %H:%M%p')
+  th Estado (Ocupado - Libre)
+  td = link_to "Ver Reserva", calendar_booking_path(@calendar, booking)
+

@@ -10,13 +10,11 @@ class BookingsController < ApplicationController
   end
 
   def new
-    binding.pry
     @profiles = @calendar.profile
     @booking = Booking.new(calendar_id: @calendar.id)
   end
 
   def create
-    binding.pry
     @booking =  Booking.new(params[:booking].permit(:calendar_id, :start_time, :end_time))
     @booking.profile_id = current_user.id
     @booking.profile_service_id = params[:service][:profile_service_id]
@@ -24,13 +22,11 @@ class BookingsController < ApplicationController
   
     respond_to do |format|  
       if @booking.save
-        binding.pry
         flash[:success] = "Se ha creado exitosamente"
         format.js { render action: "create" }
         #payment_url = @booking.payment!
         #redirect_to payment_url.payment_url
       else
-        binding.pry
         render 'new'
       end
     end

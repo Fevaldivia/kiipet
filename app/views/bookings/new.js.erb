@@ -1,6 +1,7 @@
 $("#booking-form").html("<%= j render 'form' %>");
 //$('.datetimepicker').datepicker(); 
 $("#booking-void").hide();
+$("#booking-items").hide();
 
 var $fp = $( ".dtp-desde" ),
         now = moment( ).subtract( "seconds", 1 );

@@ -1,6 +1,6 @@
 class BookingsController < ApplicationController
   before_action :authenticate_user!
-  respond_to :html, :xml, :json
+  respond_to :html, :xml, :json, :js
 
   before_action :find_calendar
 
@@ -10,21 +10,29 @@ class BookingsController < ApplicationController
   end
 
   def new
+    binding.pry
     @profiles = @calendar.profile
     @booking = Booking.new(calendar_id: @calendar.id)
   end
 
   def create
     binding.pry
-    @booking =  Booking.new(params[:booking].permit(:calendar_id, :start_time, :length))
+    @booking =  Booking.new(params[:booking].permit(:calendar_id, :start_time, :end_time))
     @booking.profile_id = current_user.id
     @booking.profile_service_id = params[:service][:profile_service_id]
     @booking.calendar = @calendar
-    if @booking.save
-      payment_url = @booking.payment!
-      redirect_to payment_url.payment_url
-    else
-      render 'new'
+  
+    respond_to do |format|  
+      if @booking.save
+        binding.pry
+        flash[:success] = "Se ha creado exitosamente"
+        format.js { render action: "create" }
+        #payment_url = @booking.payment!
+        #redirect_to payment_url.payment_url
+      else
+        binding.pry
+        render 'new'
+      end
     end
   end
 
@@ -55,7 +63,7 @@ sin tener que hacer tantas consultas en la vista.
     @booking = Booking.find(params[:id])
     # @booking.calendar = @calendar
 
-    if @booking.update(params[:booking].permit(:calendar_id, :start_time, :length))
+    if @booking.update(params[:booking].permit(:calendar_id, :start_time, :end_time))
       flash[:notice] = 'Your booking was updated succesfully'
 
       if request.xhr?

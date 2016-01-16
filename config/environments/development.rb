@@ -36,23 +36,12 @@ Rails.application.configure do
   # Raises helpful error messages.
   config.assets.raise_runtime_errors = true
 
+  config.default_url_options = { host: 'localhost:3000' }
+  config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+
   config.action_mailer.delivery_method = :letter_opener
 
-  config.default_url_options = { host: 'localhost:3000' }
-  config.action_mailer.delivery_method = :smtp
-  config.action_mailer.perform_deliveries = true
-  config.action_mailer.raise_delivery_errors = true
-
-  config.action_mailer.default_url_options = { :host => 'localhost:3000' }
-  ActionMailer::Base.smtp_settings = {
-    :user_name => ENV['SMTP_USERNAME'],
-    :password => ENV['SMTP_PASSWORD'],
-    :domain => 'localhost:3000',
-    :address => 'smtp.sendgrid.net',
-    :port => 587,
-    :authentication => :plain,
-    :enable_starttls_auto => true
-  }
+  config.action_mailer.asset_host = "http://localhost:3000"
 
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true

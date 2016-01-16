@@ -45,36 +45,29 @@
                   <span class="results-number">Cerca <%= @keepers.total_count %> resultados</span>
 
                 <% @keepers.each do |kp|%>
+                  <% if kp.state == "approved"%>
                     <div class="results-box">
                       <div class="col-md-2">
                         <%= image_tag kp.avatar.url , :size => "100x100", class: "img-circle"%>
                       </div>
                       <div class="col-md-10">
-                        <% if kp.slogan %>
                         <h3><%= link_to kp.slogan, profile_path(kp) %></h3>
-                        <% else %>
-                        <h3>Este usuario no presta servicios aun</h3>
-                        <% end %>
                         <% if current_user%>
                         <%= rating_for kp, "quality", current_user %>
                         <% end %>
+                        <% if kp.county %>
                         <ul class="list-inline link-ul">
-                            <% if kp.county %>
-                              <li><%= kp.county.name %></li>
-                            <% else %>
-                              <li>Sin Comuna</li>
-                            <% end -%>
+                          <li><%= kp.county.name %></li>
                         </ul>
+                        <% end %>
+                        <% if kp.bio %>
                         <p>
-                          <% if kp.bio %>
-                            <%= kp.bio.truncate_words(20) %>
-                          <% else %>
-                            <p>Este Usuario no posee una biografia</p>
-                          <% end %>
+                          <%= kp.bio.truncate_words(20) %>
                         </p>
+                        <% end %>
                         <hr>
                       </div>
-
+                      <% end %>
                     </div><!--result box-->
 
                 <% end %>

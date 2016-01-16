@@ -6,10 +6,13 @@ gem 'rails', '4.2.0'
 
 group :production do
   gem 'pg'
+  gem 'passenger'
 end
 
 
 group :development, :test do
+  # testing emails to locally
+  gem "letter_opener"
   # gem for sqlite
   gem 'sqlite3'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -17,8 +20,6 @@ group :development, :test do
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
   gem 'dotenv-rails'
-  # testing emails to locally
-  gem "letter_opener"
 end
 
 group :assets do
@@ -68,3 +69,5 @@ gem 'mail_form'
 gem 'translated_attribute_value'
 # Adds support for creating state machines for attributes on any Ruby class
 gem 'state_machine'
+# add gem for amazon web services
+gem 'aws-sdk'

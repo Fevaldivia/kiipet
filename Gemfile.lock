@@ -179,9 +179,6 @@ GEM
       cocaine (~> 0.5.5)
       mime-types
       mimemagic (= 0.3.0)
-    passenger (5.0.23)
-      rack
-      rake (>= 0.8.1)
     pg (0.18.4)
     polyamorous (1.2.0)
       activerecord (>= 3.0)
@@ -313,7 +310,6 @@ DEPENDENCIES
   omniauth
   omniauth-facebook
   paperclip (~> 4.2)
-  passenger
   pg
   pry-rails
   rails (= 4.2.0)

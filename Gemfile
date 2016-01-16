@@ -6,7 +6,6 @@ gem 'rails', '4.2.0'
 
 group :production do
   gem 'pg'
-  gem 'passenger'
 end
 
 

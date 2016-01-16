@@ -55,12 +55,16 @@
                         <% if current_user%>
                         <%= rating_for kp, "quality", current_user %>
                         <% end %>
+                        <% if kp.county %>
                         <ul class="list-inline link-ul">
                           <li><%= kp.county.name %></li>
                         </ul>
+                        <% end %>
+                        <% if kp.bio %>
                         <p>
-                            <%= kp.bio.truncate_words(20) %>
+                          <%= kp.bio.truncate_words(20) %>
                         </p>
+                        <% end %>
                         <hr>
                       </div>
                       <% end %>

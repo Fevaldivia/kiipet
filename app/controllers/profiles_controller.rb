@@ -1,6 +1,7 @@
 class ProfilesController < ApplicationController
   before_action :authenticate_user!
   # before_action :check_current_profile, only: [:edit, :update]
+  before_action :set_profile, only: [:edit, :update, :destroy]
 
   def show
     @profile = Profile.find params[:id]
@@ -21,13 +22,12 @@ class ProfilesController < ApplicationController
   def update
     @profile = current_user.profile
 
-
+    @profile.state = :in_analysis
 
     respond_to do |format|
       if @profile.update(profile_params)
-
         # send mail to admin when a profile is created
-        # ProfileMailer.send_to_revision(@profile).deliver_later
+        # ProfileMailer.send_to_revision(@profile).deliver
 
         format.html { redirect_to edit_profile_path(@profile), notice: t(:update, scope: [:messages, :controllers, :profiles, :successfully]) }
         format.json { render :show, status: :ok, location: edit_profile_path(@profile) }
@@ -39,6 +39,14 @@ class ProfilesController < ApplicationController
   end
 
   private
+    def set_profile
+      @profile = Profile.find(params[:id])
+    end
+
+    def set_state
+      @profile
+    end
+
     # Never trust parameters from the scary internet, only allow the white list through.
     def profile_params
       params.require(:profile).permit(Profile.allowed_attributes,

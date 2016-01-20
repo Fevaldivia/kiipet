@@ -3,6 +3,7 @@ class Profile < ActiveRecord::Base
   ratyrate_rateable "quality"
 
   after_create :assign_calendar
+  after_initialize :set_initial_status
 
   has_many :profile_services
   has_many :services, through: :profile_services
@@ -22,11 +23,28 @@ class Profile < ActiveRecord::Base
 
   enum gender: [:male, :female]
 
-  # scope :by_commune, ->(commune) {
-  #   joins(:county).where("counties.name = ?", commune)
-  # }
+  validates :user, presence: true
 
-  # validate :services_quantity
+  has_attached_file :avatar, styles: {original: '200x200!'}
+  validates_attachment_content_type :avatar, :content_type => /^image\/(jpg|jpeg|pjpeg|png|x-png|gif)$/
+  validates_attachment_size :avatar, :less_than => 5.megabytes
+
+  state_machine :state, :initial => :in_analysis do
+    state :in_analysis, :approved, :rejected
+
+    state :approved do
+      validates :name, presence: true
+    end
+
+    event :approve do
+      transition in_analysis: :approved
+    end
+
+    event :reject do
+      transition in_analysis: :rejected
+      transition approved: :rejected
+    end
+  end
 
   attr_accessor :region_id
 
@@ -34,15 +52,6 @@ class Profile < ActiveRecord::Base
     county ? county.region_id : nil
   end
 
-  # def services_quantity
-  #   errors.add(:services, 'Deben ser 3') unless services.size == 3
-  # end
-
-  validates :user, presence: true
-
-  has_attached_file :avatar, styles: {original: '200x200!'}
-  validates_attachment_content_type :avatar, :content_type => /^image\/(jpg|jpeg|pjpeg|png|x-png|gif)$/
-  validates_attachment_size :avatar, :less_than => 5.megabytes
 
   def country_name
     return if country.nil?
@@ -57,6 +66,10 @@ class Profile < ActiveRecord::Base
     if calendars.length <= 0
       calendars.create(name: "Calendario")
     end
+  end
+
+  def set_initial_status
+    self.state ||= :in_analysis
   end
 
   def self.allowed_attributes

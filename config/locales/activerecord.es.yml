@@ -8,10 +8,10 @@ es:
         one: Perfil
         other: Perfiles
       keeper_profile:
-        one: Cuidador
+        one: Cuidador y/o Paseador
         other: Cuidadores
       prospector_profile:
-        one: Buscador
+        one: Dueño de mascota
         other: Buscadores
     attributes:
       user:

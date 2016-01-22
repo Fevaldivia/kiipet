@@ -1,7 +1,15 @@
- <div class="breadcrumb-wrap">
- </div><!--breadcrumbs-->
+<div class="container">
 <br>
-    <div class="container">
+  <!-- Nav tabs -->
+  <ul class="nav nav-tabs" role="tablist">
+    <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Perfil</a></li>
+    <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Servicios y Tarifas</a></li>
+    <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">Disponibilidad</a></li>
+  </ul>
+
+  <!-- Tab panes -->
+  <div class="tab-content">
+    <div role="tabpanel" class="tab-pane active" id="home">
       <div class="panel panel-default">
       <div class="panel-body">
         <div class="results-box">
@@ -22,38 +30,42 @@
             <hr>
           </div>
 
-        </div><!--result box-->
+        </div>
       </div>
     </div>
-            <div class="row">
-              <div class="col-md-12">
-                <div class="profile-service">
-                   <% @profile.services.each do |ps| %>
-                        <div class='service'>
-                          <li class="col-md-3 services">
-                            <div class="thumbnail">
-                              <div class="caption">
-                                <h4><%= ps.name %> </h4>
-                                <p><%= ps.description%></p>
-                              </div>
-                              <span>
-                              </span>
-                              <span class="caption">
-                                <p class="price-services">Precio:
-                                  <%= ps.profile_services.get_price(@profile.id) %>
-                                </p>
-                              </span>
-                            </div>
-                          </li>
-                        </div>
-                      <% end %>
-                  </div>
-              </div>
-              </div>
-             <div class="divide30"></div>
-        </div><!--full width container-->
-        <hr>
-      <div class="form-actions text-center">
-        <%= link_to "Reservar", new_calendar_booking_path(@profile), class: "btn btn btn-info"%>
+    </div>
+
+    <div role="tabpanel" class="tab-pane" id="profile">
+      <div class="col-md-12">
+        <div class="profile-service">
+           <% @profile.services.each do |ps| %>
+                <div class='service'>
+                  <li class="col-md-3 services">
+                    <div class="thumbnail">
+                      <div class="caption">
+                        <h4><%= ps.name %> </h4>
+                        <p><%= ps.description%></p>
+                      </div>
+                      <span>
+                      </span>
+                      <span class="caption">
+                        <p class="price-services">Precio:
+                          <%= ps.profile_services.get_price(@profile.id) %>
+                        </p>
+                      </span>
+                    </div>
+                  </li>
+                </div>
+              <% end %>
+          </div>
       </div>
-      <br>
+    </div>
+
+    <div role="tabpanel" class="tab-pane" id="messages">
+      <p>
+        Aqui va el calendario rendereado con la disponibilidad
+      </p>
+    </div>
+  </div>
+
+</div>

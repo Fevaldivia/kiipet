@@ -2,6 +2,7 @@ require_relative './concerns/bookable'
 
 class Booking < ActiveRecord::Base
   include Bookable
+  after_initialize :set_initial_status
 
   belongs_to :profile
   belongs_to :profile_service
@@ -39,4 +40,9 @@ class Booking < ActiveRecord::Base
 
     return response
   end
+  
+  def set_initial_status
+    self.state ||= :available
+  end
+
 end

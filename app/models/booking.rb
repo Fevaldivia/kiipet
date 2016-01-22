@@ -19,6 +19,9 @@ class Booking < ActiveRecord::Base
     end
   end
 
+  def set_initial_status
+    self.state ||= :available
+  end
 
   def payment!
    amount = 1
@@ -40,9 +43,4 @@ class Booking < ActiveRecord::Base
 
     return response
   end
-  
-  def set_initial_status
-    self.state ||= :available
-  end
-
 end

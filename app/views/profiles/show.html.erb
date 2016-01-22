@@ -1,25 +1,68 @@
 <div class="container">
-<br>
-  <!-- Nav tabs -->
-  <ul class="nav nav-tabs" role="tablist">
-    <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Perfil</a></li>
-    <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Servicios y Tarifas</a></li>
-    <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">Disponibilidad</a></li>
-  </ul>
+  <br>
+  <div class="col-md-8">
+  <div class="panel panel-default">
+  <div class="panel-heading">Reserva</div>
+  <div class="panel-body">
+      <!-- Nav tabs -->
+      <ul class="nav nav-tabs" role="tablist">
+        <li role="presentation" class="active"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Servicios y Tarifas</a></li>
+        <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">Disponibilidad</a></li>
+      </ul>
 
-  <!-- Tab panes -->
-  <div class="tab-content">
-    <div role="tabpanel" class="tab-pane active" id="home">
+      <!-- Tab panes -->
+      <div class="tab-content">
+
+        <div role="tabpanel" class="tab-pane active" id="profile">
+          <div class="">
+            <div class="">
+               <% @profile.services.each do |ps| %>
+                    <div class='service'>
+                      <li class="col-md-3 services">
+                        <div class="thumbnail">
+                          <div class="caption">
+                            <h4><%= ps.name %> </h4>
+                            <p><%= ps.description%></p>
+                          </div>
+                          <span>
+                          </span>
+                          <span class="caption">
+                            <p class="price-services">Precio:
+                              <%= ps.profile_services.get_price(@profile.id) %>
+                            </p>
+                          </span>
+                        </div>
+                      </li>
+                    </div>
+                  <% end %>
+              </div>
+          </div>
+        </div>
+
+        <div role="tabpanel" class="tab-pane" id="messages">
+          <p>
+            Aqui va el calendario rendereado con la disponibilidad
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+  <div class="col-md-4">
       <div class="panel panel-default">
+      <div class="panel-heading">Informacion Cuidador</div>
       <div class="panel-body">
         <div class="results-box">
-          <div class="col-md-2">
+          <div class="">
             <%= image_tag @profile.avatar.url, class: 'img-circle', :size => "150x150"%>
             <% if current_user %>
               <%= rating_for @profile, "quality", :disable_after_rate => true %>
             <% end %>
           </div>
-          <div class="col-md-10">
+          <div class="">
             <h4 class="profile_name"><%= @profile.name %></h4>
             <ul class="list-inline link-ul">
               <p><%= @profile.county.name%></p>
@@ -33,39 +76,7 @@
         </div>
       </div>
     </div>
-    </div>
-
-    <div role="tabpanel" class="tab-pane" id="profile">
-      <div class="col-md-12">
-        <div class="profile-service">
-           <% @profile.services.each do |ps| %>
-                <div class='service'>
-                  <li class="col-md-3 services">
-                    <div class="thumbnail">
-                      <div class="caption">
-                        <h4><%= ps.name %> </h4>
-                        <p><%= ps.description%></p>
-                      </div>
-                      <span>
-                      </span>
-                      <span class="caption">
-                        <p class="price-services">Precio:
-                          <%= ps.profile_services.get_price(@profile.id) %>
-                        </p>
-                      </span>
-                    </div>
-                  </li>
-                </div>
-              <% end %>
-          </div>
-      </div>
-    </div>
-
-    <div role="tabpanel" class="tab-pane" id="messages">
-      <p>
-        Aqui va el calendario rendereado con la disponibilidad
-      </p>
-    </div>
   </div>
+
 
 </div>

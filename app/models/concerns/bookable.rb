@@ -5,11 +5,12 @@ module Bookable
     belongs_to :calendar
 
     validates :start_time, presence: true
-    validates :length, presence: true, numericality: { greater_than: 0 }
-    validate :start_date_cannot_be_in_the_past
-    validate :overlaps
+    validates :end_time, presence: true
+    #validates :length, presence: true, numericality: { greater_than: 0 }
+    #validate :start_date_cannot_be_in_the_past
+    #validate :overlaps
 
-    before_validation :calculate_end_time
+    #before_validation :calculate_end_time
 
 
     scope :end_during, ->(new_start_time, new_end_time) do
@@ -54,6 +55,7 @@ module Bookable
   end
 
   def overlaps
+    binding.pry
     overlapping_bookings = [
       calendar.bookings.end_during(start_time, end_time),
       calendar.bookings.start_during(start_time, end_time),
@@ -70,7 +72,7 @@ module Bookable
 
   def start_date_cannot_be_in_the_past
     if start_time && start_time < DateTime.now + (15.minutes)
-      errors.add(:start_time, 'must be at least 15 minutes from present time')
+    #  errors.add(:start_time, 'must be at least 15 minutes from present time')
     end
   end
 

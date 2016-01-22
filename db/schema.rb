@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151203031343) do
+ActiveRecord::Schema.define(version: 20160122155440) do
 
   create_table "available_accounts", force: :cascade do |t|
     t.integer  "bank_id"
@@ -66,6 +66,7 @@ ActiveRecord::Schema.define(version: 20151203031343) do
     t.integer  "service_id"
     t.string   "payment_id"
     t.integer  "profile_service_id"
+    t.string   "state"
   end
 
   add_index "bookings", ["calendar_id"], name: "index_bookings_on_calendar_id"

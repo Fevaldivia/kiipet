@@ -1,0 +1,4 @@
+$("#booking-form").empty();
+$("#booking-items").show();
+$("#booking-table > tbody:last").append("<%= j render 'booking', booking: @booking %>");
+

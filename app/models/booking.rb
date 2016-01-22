@@ -6,6 +6,19 @@ class Booking < ActiveRecord::Base
   belongs_to :profile
   belongs_to :profile_service
 
+  state_machine :state, :initial => :available do
+    state :available, :taken
+
+    event :take do
+      transition available: :taken
+    end
+
+    event :available do
+      transition taken: :available
+    end
+  end
+
+
   def payment!
    amount = 1
    client = Khipu::PaymentsApi.new

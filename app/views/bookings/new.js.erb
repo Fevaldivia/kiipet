@@ -1,0 +1,35 @@
+$("#booking-form").html("<%= j render 'form' %>");
+//$('.datetimepicker').datepicker(); 
+$("#booking-void").hide();
+$("#booking-items").hide();
+
+var $fp = $( ".dtp-desde" ),
+        now = moment( ).subtract( "seconds", 1 );
+$fp.filthypillow( { 
+    minDateTime: function( ) {
+                       return now;
+                         } 
+} );
+$fp.on( "focus", function( ) {
+    $fp.filthypillow( "show" );
+} );
+$fp.on( "fp:save", function( e, dateObj ) {
+    $fp.val( dateObj.format( "MMM DD YYYY hh:mm A" ) );
+      $fp.filthypillow( "hide" );
+} );
+
+var $fp2 = $( ".dtp-hasta" ),
+        now = moment( ).subtract( "seconds", 1 );
+$fp2.filthypillow( { 
+    minDateTime: function( ) {
+                       return now;
+                         } 
+} );
+$fp2.on( "focus", function( ) {
+    $fp2.filthypillow( "show" );
+} );
+$fp2.on( "fp:save", function( e, dateObj ) {
+    $fp2.val( dateObj.format( "MMM DD YYYY hh:mm A" ) );
+      $fp2.filthypillow( "hide" );
+} );
+

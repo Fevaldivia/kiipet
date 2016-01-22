@@ -1,0 +1,26 @@
+.container
+  br
+  .col-md-4
+    h3 Disponibilidad en mi #{@calendar.name}
+    #booking-form
+    #booking-items
+      =link_to "+", new_calendar_booking_path(@calendar), remote: true, class: 'btn btn-success pull-right'  
+      table#booking-table.bookings_table.table.table-striped
+        thead
+          tr
+            th Inicio
+            th Termino
+            th Estado
+            th
+        tbody
+          - if @bookings.count > 0
+            = render 'bookings'
+          - else
+            #booking-void.jumbotron
+              h3 Agrega tu disponibilidad
+              p Presiona el calendario para agregar horas disponibles paras tus clientes
+              =link_to 'Agregar', new_calendar_booking_path(@calendar), remote: true, class: 'btn btn-sm btn-success'
+      
+  .col-md-8
+    .calendar_container
+      #calendar

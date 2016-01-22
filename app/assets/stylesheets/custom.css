@@ -27,3 +27,8 @@
 	margin: auto;
 	width: 80%;
 }
+
+.add-availability-form{
+  padding-right: 20px !important;
+  padding-left: 20px !important;
+}

@@ -6,7 +6,8 @@
         <!-- Nav tabs -->
         <ul class="nav nav-tabs" role="tablist">
           <li role="presentation" class="active"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Servicios y Tarifas</a></li>
-          <li role="presentation"><a href="#availability" aria-controls="availability" role="tab" data-toggle="tab">Disponibilidad</a></li>
+          <li role="presentation"><a href="#schedule" aria-controls="availability" role="tab" data-toggle="tab">Reservar</a></li>
+          <li role="presentation"><a href="#availability" aria-controls="availability" role="tab" data-toggle="tab">Calendario</a></li>
         </ul>
 
         <!-- Tab panes -->
@@ -34,6 +35,10 @@
                     </div>
                   <% end %>
               </div>
+          </div>
+
+          <div role="tabpanel" class="tab-pane" id="schedule">
+            <%= render 'bookings/booking_availability' %>
           </div>
 
           <div role="tabpanel" class="tab-pane" id="availability">

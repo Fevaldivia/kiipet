@@ -1,0 +1,10 @@
+tr
+  td = booking.start_time.strftime('%e %b %Y %H:%M%p')
+  td = booking.end_time.strftime('%e %b %Y %H:%M%p')
+  th
+    span[class="#{get_status(booking.state)[1]}"]
+      =get_status(booking.state)[0]
+  -if booking.state == "available"
+    td = link_to "Reservar", "#", class: 'btn btn-success'
+  -else   
+    td = link_to "Reservado", "#", class: 'btn btn-disable'

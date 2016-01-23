@@ -1,18 +1,38 @@
 $(document).ready(function(){
   calendar();
+  tabs();
 });
 
 $(document).on('page:load', function() {
   calendar();
+  tabs();
 });
 
+
+
+var tabs = function(){
+  alert(9);
+  $('#tabs-profile').tabs({
+    activate: function(event, ui){
+      $('#calendar').fullCalendar('render');
+    }
+  });
+};
 
 var calendar = function(){
 
     // page is now ready, initialize the calendar...
 
     var current_resource = function(){
-    	return window.location.href.match(/calendars\/(\d+)\/bookings/)[1];
+      if(window.location.href.match(/profiles\/(\d+)/)){
+        var profiles = window.location.href.match(/profiles\/(\d+)/)[1];
+        var resources = '/profiles/'+profiles;
+        return resources;
+      }else{
+        var profiles = window.location.href.match(/calendars\/(\d+)\/bookings/)[1];
+        var resources = '/calendars/'+profiles+'/bookings';
+        return resources;
+      };
     };
 
     var today_or_later = function(){
@@ -32,8 +52,8 @@ var calendar = function(){
 				right: 'month,agendaWeek,agendaDay'
 			},
 
-			eventSources: [{  
-    		url: '/calendars/'+current_resource()+'/bookings/',  
+			eventSources: [{
+    		url: ''+current_resource()+'',
    		}],
 
    		selectable: {
@@ -42,7 +62,7 @@ var calendar = function(){
    	}	,
 
     editable: true,
-    eventStartEditable: true, 
+    eventStartEditable: true,
     eventDurationEditable: true,
 
     eventDrop: function(booking) {
@@ -50,10 +70,10 @@ var calendar = function(){
 
         function updateEvent(booking) {
               $.ajax(
-                '/calendars/'+current_resource()+'/bookings/'+booking.id,
+                ''+current_resource()+''+booking.id,
                 { 'type': 'PATCH',
 
-                  data: { booking: { 
+                  data: { booking: {
                            start_time: "" + booking.start,
                            length: length
                          } }
@@ -71,10 +91,10 @@ var calendar = function(){
 
         function updateEvent(booking) {
               $.ajax(
-                '/calendars/'+current_resource()+'/bookings/'+booking.id,
+                ''+current_resource()+''+booking.id,
                 { 'type': 'PATCH',
 
-                  data: { booking: { 
+                  data: { booking: {
                            start_time: "" + booking.start,
                            length: length
                          } }
@@ -88,7 +108,7 @@ var calendar = function(){
     ,
 
    	dayClick: function(date, allDay, jsEvent, view) {
-      if (view.name === "month") { 
+      if (view.name === "month") {
         alert(view.name);
         //$('#calendar').fullCalendar('gotoDate', date);
         //$('#calendar').fullCalendar('changeView', 'agendaDay');
@@ -101,7 +121,7 @@ var calendar = function(){
         if(today_or_later()) {
         	var length = (end-start)/(3600000);
 
-          $('#calendar').fullCalendar('renderEvent', 
+          $('#calendar').fullCalendar('renderEvent',
             {
               start: start,
               end: end,
@@ -110,8 +130,8 @@ var calendar = function(){
           );
 
           jQuery.post(
-            '/calendars/'+current_resource()+'/bookings',
-            
+            ''+current_resource()+'',
+
             { booking: {
               start_time: start,
               length: length,

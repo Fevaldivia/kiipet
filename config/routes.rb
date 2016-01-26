@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-  get 'payments/thanks'
-  get 'payments/cancel'
 
   post '/rate' => 'rater#create', :as => 'rate'
   resources :calendars do
@@ -13,6 +11,11 @@ Rails.application.routes.draw do
   }
 
   resources :pets
+  resources :payments, only: [:thanks, :cancel, :booking] do
+    get 'thanks', on: :collection
+    get 'cancel', on: :collection
+    put 'booking/:id', to: 'payments#booking', on: :collection, as: :book
+  end
 
   resources :profiles, only: [:show, :edit, :update]
   resources :keeper_users, only: [:index]
@@ -48,7 +51,7 @@ Rails.application.routes.draw do
         get :reject
       end
     end
-    
+
   end
 
 end

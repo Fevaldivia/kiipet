@@ -6,6 +6,16 @@ class Booking < ActiveRecord::Base
 
   after_initialize :set_initial_status
 
+  scope :get_calendar, -> (calendar_id, availability=nil) do
+    if availability == "available"
+      get_booking_with_calendar(calendar_id).status(:available)
+    elsif availability == "taken"
+      get_booking_with_calendar(calendar_id).status(:taken)
+    else
+      get_booking_with_calendar(calendar_id)
+    end
+  end
+
   scope :get_valid_bookings, -> { where("end_time >= ?", Time.now).order(:start_time) }
   scope :get_booking_with_calendar, ->(calendar_id) { where("calendar_id = ? AND end_time >= ?", calendar_id , Time.now).order(:start_time) }
   scope :status, ->(status){ where(state: status ) }

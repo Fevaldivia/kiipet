@@ -5,13 +5,7 @@ class BookingsController < ApplicationController
   before_action :find_calendar
 
   def index
-    if params[:state] == "available"
-      @bookings = Booking.get_booking_with_calendar(@calendar.id).status(:available)
-    elsif params[:state] == "taken"
-      @bookings = Booking.get_booking_with_calendar(@calendar.id).status(:taken)
-    else
-      @bookings = Booking.get_booking_with_calendar(@calendar.id)
-    end
+    @bookings = Booking.get_calendar(@calendar.id, params[:state] )
     respond_with @bookings
   end
 

@@ -5,6 +5,7 @@ class ProfilesController < ApplicationController
 
   def show
     @profile = Profile.find params[:id]
+    @bookings =  @profile.bookings.get_valid_bookings
   end
 
   # GET /profiles/1/edit

@@ -1,18 +1,38 @@
 $(document).ready(function(){
   calendar();
+  tabs();
 });
 
 $(document).on('page:load', function() {
   calendar();
+  tabs();
 });
 
+
+
+var tabs = function(){
+  $('#tabs-profile').tabs({
+    activate: function(event, ui){
+      $('#calendar').fullCalendar('render');
+    }
+  });
+};
 
 var calendar = function(){
 
     // page is now ready, initialize the calendar...
 
-    var current_resource = function(){
-    	return window.location.href.match(/calendars\/(\d+)\/bookings/)[1];
+    var current_resource = function(state){
+      if(window.location.href.match(/profiles\/(\d+)/)){
+        var profiles = window.location.href.match(/profiles\/(\d+)/)[1];
+        //var resources = '/profiles/'+profiles;
+        var resources = '/calendars/'+profiles+'/bookings?state='+state;
+        return resources;
+      }else{
+        var profiles = window.location.href.match(/calendars\/(\d+)\/bookings/)[1];
+        var resources = '/calendars/'+profiles+'/bookings?state='+state;
+        return resources;
+      };
     };
 
     var today_or_later = function(){
@@ -32,99 +52,24 @@ var calendar = function(){
 				right: 'month,agendaWeek,agendaDay'
 			},
 
-			eventSources: [{  
-    		url: '/calendars/'+current_resource()+'/bookings/',  
-   		}],
-
+			eventSources: [
+        {
+    		    url: ''+current_resource("available")+'',
+            color: '#27ae60'
+        },
+        {
+    		    url: ''+current_resource("taken")+'',
+            color: '#c0392b'
+   		 }
+    ],
    		selectable: {
       month: false,
       agenda: true
    	}	,
 
-    editable: true,
-    eventStartEditable: true, 
-    eventDurationEditable: true,
-
-    eventDrop: function(booking) {
-      var length = (booking.end-booking.start)/(3600000);
-
-        function updateEvent(booking) {
-              $.ajax(
-                '/calendars/'+current_resource()+'/bookings/'+booking.id,
-                { 'type': 'PATCH',
-
-                  data: { booking: { 
-                           start_time: "" + booking.start,
-                           length: length
-                         } }
-                }
-              );
-          };
-
-        updateEvent(booking);
-
-      }
-    ,
-
-    eventResize: function(booking) {
-      var length = (booking.end-booking.start)/(3600000);
-
-        function updateEvent(booking) {
-              $.ajax(
-                '/calendars/'+current_resource()+'/bookings/'+booking.id,
-                { 'type': 'PATCH',
-
-                  data: { booking: { 
-                           start_time: "" + booking.start,
-                           length: length
-                         } }
-                }
-              );
-          };
-
-        updateEvent(booking);
-
-      }
-    ,
-
-   	dayClick: function(date, allDay, jsEvent, view) {
-      if (view.name === "month") { 
-        alert(view.name);
-        //$('#calendar').fullCalendar('gotoDate', date);
-        //$('#calendar').fullCalendar('changeView', 'agendaDay');
-      }
-    }
-    ,
-
- 		select: function(start, end, allDay) {
-      if (window.location.href.match(/new/)) {
-        if(today_or_later()) {
-        	var length = (end-start)/(3600000);
-
-          $('#calendar').fullCalendar('renderEvent', 
-            {
-              start: start,
-              end: end,
-              allDay: false
-            }
-          );
-
-          jQuery.post(
-            '/calendars/'+current_resource()+'/bookings',
-            
-            { booking: {
-              start_time: start,
-              length: length,
-
-          	} }
-          );
-
-    	    } else {
-            // alert("help!");
-        }
-      }
-    }
-
-	});
+    editable: false,
+    eventStartEditable: false,
+    eventDurationEditable: false
+	 });
 
 };

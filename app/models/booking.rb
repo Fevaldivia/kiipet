@@ -2,6 +2,24 @@ require_relative './concerns/bookable'
 
 class Booking < ActiveRecord::Base
   include Bookable
+  attr_accessor :title
+
+  after_initialize :set_initial_status
+
+  scope :get_calendar, -> (calendar_id, availability=nil) do
+    if availability == "available"
+      get_booking_with_calendar(calendar_id).status(:available).where("end_time >= ?", Time.now)
+    elsif availability == "taken"
+      get_booking_with_calendar(calendar_id).status(:taken)
+    else
+      get_booking_with_calendar(calendar_id)
+    end
+  end
+
+  scope :get_valid_bookings, -> { where("end_time >= ?", Time.now).order(:start_time) }
+  scope :get_booking_with_calendar, ->(calendar_id) { where("calendar_id = ?", calendar_id).order(:start_time) }
+  scope :status, ->(status){ where(state: status ) }
+
 
   belongs_to :profile
   belongs_to :profile_service
@@ -18,6 +36,21 @@ class Booking < ActiveRecord::Base
     end
   end
 
+  def title
+    if self.state == "taken"
+      "Ocupado"
+    elsif self.state == "available"
+      "Disponible"
+    end
+  end
+
+  def service_name
+    profile_service.service.name
+  end
+
+  def set_initial_status
+    self.state ||= :available
+  end
 
   def payment!
    amount = 1
@@ -29,12 +62,14 @@ class Booking < ActiveRecord::Base
       expires_date: DateTime.new(2016, 4, 4),
       body: 'Estas pagando el precio del servicio que solicitaste para tu mascota',
       picture_url: 'http://beta.kiipet.com/assets/logokhipupayment-ffefb9825d678627a873db3c4299143d860333a0a8fd6d4fe711de4d23b24f8f.png',
-      return_url: ENV["RAILS_CUSTOM_ENV"]+'payments/thanks',
-      cancel_url: ENV["RAILS_CUSTOM_ENV"]+'payments/cancel',
-      #notify_url: 'http://mi-ecomerce.com/backend/notify',
+      return_url: ENV["RAILS_CUSTOM_ENV"]+'/payments/thanks',
+      cancel_url: ENV["RAILS_CUSTOM_ENV"]+'/payments/cancel',
+      notify_url: ENV["RAILS_CUSTOM_ENV"]+'/payments/cancel',
       notify_api_version: '1.3'
    })
+
    self.payment_id = response.payment_id if response
+   self.take
    self.save
 
     return response

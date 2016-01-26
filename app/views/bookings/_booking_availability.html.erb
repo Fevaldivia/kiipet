@@ -1,0 +1,17 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th>Servicio</th>
+      <th>Inicio</th>
+      <th>Termino</th>
+      <th>Estado</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <%- @bookings.each do |booking| %>
+      <%= render 'bookings/booking_public', booking: booking %>
+    <% end %>
+  </tbody>
+</table>
+<br />

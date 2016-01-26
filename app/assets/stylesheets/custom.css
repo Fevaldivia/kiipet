@@ -32,3 +32,11 @@
   padding-right: 20px !important;
   padding-left: 20px !important;
 }
+
+.fc-event-time{
+   display : none;
+}
+
+.fc-event-inner{
+  text-align: center;
+}

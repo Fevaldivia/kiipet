@@ -5,7 +5,7 @@ class BookingsController < ApplicationController
   before_action :find_calendar
 
   def index
-    @bookings = Booking.where("calendar_id = ? AND end_time >= ?", @calendar.id, Time.now).order(:start_time)
+    @bookings = Booking.get_calendar(@calendar.id, params[:state] )
     respond_with @bookings
   end
 
@@ -19,8 +19,8 @@ class BookingsController < ApplicationController
     @booking.profile_id = current_user.id
     @booking.profile_service_id = params[:service][:profile_service_id]
     @booking.calendar = @calendar
-  
-    respond_to do |format|  
+
+    respond_to do |format|
       if @booking.save
         flash[:success] = "Se ha creado exitosamente"
         format.js { render action: "create" }
@@ -35,7 +35,7 @@ class BookingsController < ApplicationController
   def show
     @booking = Booking.find(params[:id])
 =begin para mostrar el servicio que fue reservado
-sin tener que hacer tantas consultas en la vista. 
+sin tener que hacer tantas consultas en la vista.
 =end
     @profile_service = @booking.profile_service
     @service = @profile_service.service
@@ -56,6 +56,7 @@ sin tener que hacer tantas consultas en la vista.
   end
 
   def update
+    binding.pry
     @booking = Booking.find(params[:id])
     # @booking.calendar = @calendar
 

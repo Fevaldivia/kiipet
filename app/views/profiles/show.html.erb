@@ -1,24 +1,23 @@
 <div class="container">
   <br>
-  <div class="col-md-8">
-  <div class="panel panel-default">
-  <div class="panel-heading">Reserva</div>
-  <div class="panel-body">
-      <!-- Nav tabs -->
-      <ul class="nav nav-tabs" role="tablist">
-        <li role="presentation" class="active"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Servicios y Tarifas</a></li>
-        <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">Disponibilidad</a></li>
-      </ul>
+  <div class="col-md-9">
+    <div class="panel panel-default">
+      <div class="panel-body" id="tabs-profile">
+        <!-- Nav tabs -->
+        <ul class="nav nav-tabs" role="tablist">
+          <li role="presentation" class="active"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Servicios y Tarifas</a></li>
+          <li role="presentation"><a href="#schedule" aria-controls="availability" role="tab" data-toggle="tab">Reservar</a></li>
+          <li role="presentation"><a href="#availability" aria-controls="availability" role="tab" data-toggle="tab">Calendario</a></li>
+        </ul>
 
-      <!-- Tab panes -->
-      <div class="tab-content">
+        <!-- Tab panes -->
+        <div class="tab-content" style="padding: 0px;">
 
-        <div role="tabpanel" class="tab-pane active" id="profile">
-          <div class="">
-            <div class="">
+          <div role="tabpanel" class="tab-pane active" id="profile">
+            <div class="col-md-12">
                <% @profile.services.each do |ps| %>
                     <div class='service'>
-                      <li class="col-md-3 services">
+                      <li class="col-md-4 services">
                         <div class="thumbnail">
                           <div class="caption">
                             <h4><%= ps.name %> </h4>
@@ -37,23 +36,25 @@
                   <% end %>
               </div>
           </div>
+
+          <div role="tabpanel" class="tab-pane" id="schedule">
+            <%= render 'bookings/booking_availability' %>
+          </div>
+
+          <div role="tabpanel" class="tab-pane" id="availability">
+            <div class="calendar_container">
+              <div id="calendar"></div>
+            </div>
+          </div>
         </div>
 
-        <div role="tabpanel" class="tab-pane" id="messages">
-          <p>
-            Aqui va el calendario rendereado con la disponibilidad
-          </p>
-        </div>
       </div>
     </div>
+
   </div>
-</div>
 
-
-
-  <div class="col-md-4">
+  <div class="col-md-3 text-center">
       <div class="panel panel-default">
-      <div class="panel-heading">Informacion Cuidador</div>
       <div class="panel-body">
         <div class="results-box">
           <div class="">
@@ -77,6 +78,5 @@
       </div>
     </div>
   </div>
-
 
 </div>

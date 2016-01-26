@@ -16,6 +16,7 @@
 //= require bootstrap-datepicker
 //= require jquery_ujs
 //= require jquery-ui/autocomplete
+//= require jquery-ui/tabs
 //= require jquery.raty
 //= require ratyrate
 //= require_tree .

@@ -62,12 +62,14 @@ class Booking < ActiveRecord::Base
       expires_date: DateTime.new(2016, 4, 4),
       body: 'Estas pagando el precio del servicio que solicitaste para tu mascota',
       picture_url: 'http://beta.kiipet.com/assets/logokhipupayment-ffefb9825d678627a873db3c4299143d860333a0a8fd6d4fe711de4d23b24f8f.png',
-      return_url: ENV["RAILS_CUSTOM_ENV"]+'payments/thanks',
-      cancel_url: ENV["RAILS_CUSTOM_ENV"]+'payments/cancel',
-      #notify_url: 'http://mi-ecomerce.com/backend/notify',
+      return_url: ENV["RAILS_CUSTOM_ENV"]+'/payments/thanks',
+      cancel_url: ENV["RAILS_CUSTOM_ENV"]+'/payments/cancel',
+      notify_url: ENV["RAILS_CUSTOM_ENV"]+'/payments/cancel',
       notify_api_version: '1.3'
    })
+
    self.payment_id = response.payment_id if response
+   self.take
    self.save
 
     return response

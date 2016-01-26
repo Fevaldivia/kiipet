@@ -6,6 +6,6 @@ tr
     span[class="#{get_status(booking.state)[1]}"]
       =get_status(booking.state)[0]
   -if booking.state == "available"
-    td = link_to "Reservar", "#", class: 'btn btn-success'
+    td = link_to "Reservar", book_payments_path(booking.id), method: :put, class: 'btn btn-success'
   -else   
     td = link_to "Reservado", "#", class: 'btn btn-disable'

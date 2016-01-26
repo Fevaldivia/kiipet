@@ -8,7 +8,7 @@ class Booking < ActiveRecord::Base
 
   scope :get_calendar, -> (calendar_id, availability=nil) do
     if availability == "available"
-      get_booking_with_calendar(calendar_id).status(:available)
+      get_booking_with_calendar(calendar_id).status(:available).where("end_time >= ?", Time.now)
     elsif availability == "taken"
       get_booking_with_calendar(calendar_id).status(:taken)
     else
@@ -17,7 +17,7 @@ class Booking < ActiveRecord::Base
   end
 
   scope :get_valid_bookings, -> { where("end_time >= ?", Time.now).order(:start_time) }
-  scope :get_booking_with_calendar, ->(calendar_id) { where("calendar_id = ? AND end_time >= ?", calendar_id , Time.now).order(:start_time) }
+  scope :get_booking_with_calendar, ->(calendar_id) { where("calendar_id = ?", calendar_id).order(:start_time) }
   scope :status, ->(status){ where(state: status ) }
 
 

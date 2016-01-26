@@ -44,6 +44,10 @@ class Booking < ActiveRecord::Base
     end
   end
 
+  def service_name
+    profile_service.service.name
+  end
+
   def set_initial_status
     self.state ||= :available
   end

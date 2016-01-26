@@ -23,14 +23,15 @@ var calendar = function(){
 
     // page is now ready, initialize the calendar...
 
-    var current_resource = function(){
+    var current_resource = function(state){
       if(window.location.href.match(/profiles\/(\d+)/)){
         var profiles = window.location.href.match(/profiles\/(\d+)/)[1];
-        var resources = '/profiles/'+profiles;
+        //var resources = '/profiles/'+profiles;
+        var resources = '/calendars/'+profiles+'/bookings?state='+state;
         return resources;
       }else{
         var profiles = window.location.href.match(/calendars\/(\d+)\/bookings/)[1];
-        var resources = '/calendars/'+profiles+'/bookings';
+        var resources = '/calendars/'+profiles+'/bookings?='+state;
         return resources;
       };
     };
@@ -52,10 +53,16 @@ var calendar = function(){
 				right: 'month,agendaWeek,agendaDay'
 			},
 
-			eventSources: [{
-    		url: ''+current_resource()+'',
-   		}],
-
+			eventSources: [
+        {
+    		    url: ''+current_resource("available")+'',
+            color: '#27ae60'
+        },
+        {
+    		    url: ''+current_resource("taken")+'',
+            color: '#c0392b'
+   		 }
+    ],
    		selectable: {
       month: false,
       agenda: true

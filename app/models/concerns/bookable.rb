@@ -55,7 +55,6 @@ module Bookable
   end
 
   def overlaps
-    binding.pry
     overlapping_bookings = [
       calendar.bookings.end_during(start_time, end_time),
       calendar.bookings.start_during(start_time, end_time),
@@ -91,7 +90,8 @@ module Bookable
     :start => self.start_time,
     :end => self.end_time + 60,
     :recurring => false,
-    :allDay => false
+    :allDay => false,
+    :title => self.title
    }
   end
 

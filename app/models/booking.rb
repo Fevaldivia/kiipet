@@ -2,7 +2,14 @@ require_relative './concerns/bookable'
 
 class Booking < ActiveRecord::Base
   include Bookable
+  attr_accessor :title
+
   after_initialize :set_initial_status
+
+  scope :get_valid_bookings, -> { where("end_time >= ?", Time.now).order(:start_time) }
+  scope :get_booking_with_calendar, ->(calendar_id) { where("calendar_id = ? AND end_time >= ?", calendar_id , Time.now).order(:start_time) }
+  scope :status, ->(status){ where(state: status ) }
+
 
   belongs_to :profile
   belongs_to :profile_service
@@ -16,6 +23,14 @@ class Booking < ActiveRecord::Base
 
     event :available do
       transition taken: :available
+    end
+  end
+
+  def title
+    if self.state == "taken"
+      "Ocupado"
+    elsif self.state == "available"
+      "Disponible"
     end
   end
 

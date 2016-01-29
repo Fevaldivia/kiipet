@@ -16,10 +16,14 @@ class PaymentsController < ApplicationController
 
     if response.status == "done"
       #alfanumerico
+      puts "debugger: #{response}"
       #booking_id, #profile_id, state, payment_id, cantidad
       booking = Booking.where(payment_id: response.payment_id).last
       payment = Payment.where(payment_id: response.payment_id).last
-      if booking and payment
+      puts "debugger: #{booking}"
+      puts "debugger: #{payment}"
+
+      unless booking.nil? and payment.nil?
           payment.paid
           payment.save
           if booking.save

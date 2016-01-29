@@ -1,0 +1,22 @@
+
+table.table
+  thead
+    tr 
+      th Khipu Token
+      th Nombre Cuidador
+      th Nombre Pagador
+      th Booking ID
+      th Estado
+      th Servicio
+      th Precio
+  tbody
+    -@payments.each do |payment|
+      tr
+        td=payment.payment_id 
+        td=get_cuidador(payment.booking_id)
+        td=get_pagador(payment.profile_id) 
+        td=payment.booking_id
+        td=payment.state
+        td=get_servicio(payment.booking_id)
+        td=payment.amount
+        

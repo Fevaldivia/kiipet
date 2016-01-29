@@ -1,5 +1,8 @@
 class PaymentsController < ApplicationController
   before_action :get_booking, only: [:booking]
+  def details
+    @payments = Payment.all
+  end
 
   def thanks
     @booking = current_user.profile.bookings.last
@@ -19,7 +22,6 @@ class PaymentsController < ApplicationController
       if booking and payment
           payment.paid
           payment.save
-
           if booking.save
             render json: true, status: 200
           end

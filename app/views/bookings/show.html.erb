@@ -45,11 +45,11 @@
     </div>
     <div class="col-md-4">
       <p>Inicio:</p>
-      <%= @booking.start_time.strftime('%e %b %Y %H:%M%p') %>
+      <%= @booking.start_time.strftime('%e %b %Y %H:%M%p')%>
     </div>
     <div class="col-md-4">
       <p>Final:</p>
-      <%= (@booking.calculate_end_time + 60).strftime('%e %b %Y %H:%M%p') %>
+      <%= @booking.end_time.strftime('%e %b %Y %H:%M%p') %>
     </div>
 </div>
 </div>

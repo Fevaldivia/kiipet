@@ -72,3 +72,4 @@ gem 'translated_attribute_value'
 gem 'state_machine'
 # add gem for amazon web services
 gem 'aws-sdk'
+gem "sentry-raven"

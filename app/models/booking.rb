@@ -52,7 +52,7 @@ class Booking < ActiveRecord::Base
     self.state ||= :available
   end
 
-  def payment!
+  def payment!(return_url, cancel_url, notify_url)
    amount = 1
    client = Khipu::PaymentsApi.new
    profile_service = self.profile_service
@@ -62,15 +62,15 @@ class Booking < ActiveRecord::Base
       expires_date: DateTime.new(2016, 4, 4),
       body: 'Estas pagando el precio del servicio que solicitaste para tu mascota',
       picture_url: 'http://beta.kiipet.com/assets/logokhipupayment-ffefb9825d678627a873db3c4299143d860333a0a8fd6d4fe711de4d23b24f8f.png',
-      return_url: thanks_payments_url,
-      cancel_url: cancel_payments_url,
-      notify_url: notify_payments_url,
+      return_url: return_url,
+      cancel_url: cancel_url,
+      notify_url: notify_url,
       notify_api_version: '1.3'
    })
 
    self.payment_id = response.payment_id if response
    self.save
-   p = Payment.create(payment_id: response.payment_id, booking_id: self.id, profile_id: self.profile_id)
+   p = Payment.create(payment_id: response.payment_id, booking_id: self.id, profile_id: self.profile_id, amount: amount)
    p.save
 
     return response

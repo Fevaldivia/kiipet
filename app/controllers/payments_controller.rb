@@ -38,7 +38,7 @@ class PaymentsController < ApplicationController
 
       if @booking.save
         flash[:success] = "Se ha reservado exitosamente. En unos minutos llegará un correo confirmando el pago."
-        payment_url = @booking.payment!
+        payment_url = @booking.payment!(thanks_payments_url,cancel_payments_url,notify_payments_url)
         redirect_to payment_url.payment_url
       else
         flash[:success] = "Ha ocurrido un error. Intente más tarde"

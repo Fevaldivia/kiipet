@@ -11,28 +11,45 @@ class PaymentsController < ApplicationController
 
   def notify
     notification_token = params["notification_token"]
-    client = Khipu::PaymentsApi.new
-    response = client.payments_get(notification_token)
+    binding.pry
 
+    client = Khipu::PaymentsApi.new
+    binding.pry
+
+    response = client.payments_get(notification_token)
+    binding.pry
     if response.status == "done"
+      binding.pry
+
       #alfanumerico
       puts "debugger: #{response}"
+      binding.pry
+
       #booking_id, #profile_id, state, payment_id, cantidad
       booking = Booking.where(payment_id: response.payment_id).last
       payment = Payment.where(payment_id: response.payment_id).last
       puts "debugger: #{booking}"
+      binding.pry
+
       puts "debugger: #{payment}"
+      binding.pry
 
       unless booking.nil? and payment.nil?
+        binding.pry
+
           payment.paid
           payment.save
           if booking.save
             render json: true, status: 200
           end
       else
+        binding.pry
+
         render json: false, status: 422
       end
     else
+      binding.pry
+
       render json: false, status: 422
     end
   end

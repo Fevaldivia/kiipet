@@ -1,5 +1,8 @@
 class PaymentsController < ApplicationController
   before_action :get_booking, only: [:booking]
+  def details
+    @payments = Payment.all
+  end
 
   def thanks
     @booking = current_user.profile.bookings.last
@@ -7,13 +10,34 @@ class PaymentsController < ApplicationController
   end
 
   def notify
+    notification_token = params["notification_token"]
+    client = Khipu::PaymentsApi.new
+    response = client.payments_get(notification_token)
+
+    if response.status == "done"
+      #alfanumerico
+      #booking_id, #profile_id, state, payment_id, cantidad
+      booking = Booking.where(payment_id: response.payment_id).last
+      payment = Payment.where(payment_id: response.payment_id).last
+      if booking and payment
+          payment.paid
+          payment.save
+          if booking.save
+            render json: true, status: 200
+          end
+      else
+        render json: false, status: 422
+      end
+    else
+      render json: false, status: 422
+    end
   end
 
   def booking
     @booking.profile_id = current_user.id
 
       if @booking.save
-        flash[:success] = "Se ha reservado exitosamente"
+        flash[:success] = "Se ha reservado exitosamente. En unos minutos llegará un correo confirmando el pago."
         payment_url = @booking.payment!
         redirect_to payment_url.payment_url
       else

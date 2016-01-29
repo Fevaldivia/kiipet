@@ -21,6 +21,14 @@ Rails.application.routes.draw do
   resources :keeper_users, only: [:index]
   resources :services
 
+  resources :payments, only: [:notify, :booking, :cancel, :thanks] do
+    post 'notify', on: :collection
+    get 'booking', on: :collection
+    get 'cancel', on: :collection
+    get 'thanks', on: :collection
+    get 'details', on: :collection
+  end
+
   resources :wizards, only: [:step_1, :create] do
     collection do
       get 'step_1'

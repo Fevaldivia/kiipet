@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  booking_id: 
+  profile_id: 
+  state: 1
+  token: MyString
+  amount: 1
+  payment_id: 1
+
+two:
+  booking_id: 
+  profile_id: 
+  state: 1
+  token: MyString
+  amount: 1
+  payment_id: 1

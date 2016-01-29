@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160122155440) do
+ActiveRecord::Schema.define(version: 20160129044244) do
 
   create_table "available_accounts", force: :cascade do |t|
     t.integer  "bank_id"
@@ -67,6 +67,7 @@ ActiveRecord::Schema.define(version: 20160122155440) do
     t.string   "payment_id"
     t.integer  "profile_service_id"
     t.string   "state"
+    t.boolean  "paid"
   end
 
   add_index "bookings", ["calendar_id"], name: "index_bookings_on_calendar_id"
@@ -107,6 +108,20 @@ ActiveRecord::Schema.define(version: 20160122155440) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "payments", force: :cascade do |t|
+    t.integer  "booking_id"
+    t.integer  "profile_id"
+    t.string   "state"
+    t.string   "token"
+    t.integer  "amount"
+    t.string   "payment_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "payments", ["booking_id"], name: "index_payments_on_booking_id"
+  add_index "payments", ["profile_id"], name: "index_payments_on_profile_id"
 
   create_table "pets", force: :cascade do |t|
     t.string   "name"

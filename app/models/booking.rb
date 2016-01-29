@@ -69,8 +69,9 @@ class Booking < ActiveRecord::Base
    })
 
    self.payment_id = response.payment_id if response
-   self.take
    self.save
+   p = Payment.create(payement_id: response.payment_id, booking_id: self.id, profile_id: self.profile_id)
+   p.save
 
     return response
   end

@@ -5,4 +5,7 @@ tr
   th
     span[class="#{get_status(booking.state)[1]}"]
       =get_status(booking.state)[0]
-  td = link_to "Ver Reserva", calendar_booking_path(@calendar, booking)
+  -if booking.state == "taken"
+    td = link_to "Ver Reserva", calendar_booking_path(@calendar, booking)
+  -else
+    td

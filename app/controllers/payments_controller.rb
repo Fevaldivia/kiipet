@@ -6,13 +6,11 @@ class PaymentsController < ApplicationController
   end
 
   def thanks
-    puts "debug:!"
     @booking = current_user.profile.bookings.last
     BookingMailer.confirmation(current_user, @booking).deliver_now
   end
 
   def notify
-    puts "debug: #{params}"
 
     notification_token = params["notification_token"]
     client = Khipu::PaymentsApi.new
@@ -22,17 +20,17 @@ class PaymentsController < ApplicationController
       booking = Booking.where(payment_id: response.payment_id).last
       payment = Payment.where(payment_id: response.payment_id).last
 
-      unless booking.nil? and payment.nil?
+      unless booking.nil? and payment.nil? and payment.state == "pending"
           payment.paid
           payment.save
           if booking.save
             render json: true, status: 200
           end
       else
-        render json: "No entro validador #{booking} #{payment}", status: 800
+        render json: false, status: 422
       end
     else
-      render json: "No entro por status #{response} #{notification_token}", status: 900, message: "#{notification_token}"
+      render json: false, status: 422
     end
   end
 

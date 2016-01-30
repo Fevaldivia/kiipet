@@ -330,6 +330,7 @@ DEPENDENCIES
   omniauth-facebook
   paperclip (~> 4.2)
   pg
+  pry
   pry-rails
   pundit
   rails (= 4.2.0)

@@ -25,10 +25,10 @@ class PaymentsController < ApplicationController
             render json: true, status: 200
           end
       else
-        render json: "No entro validador #{booking} #{payment}", status: 422
+        render json: "No entro validador #{booking} #{payment}", status: 800
       end
     else
-      render json: "No entro por status #{response} #{notification_token}", status: 422
+      render json: "No entro por status #{response} #{notification_token}", status: 900
     end
   end
 

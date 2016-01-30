@@ -5,11 +5,14 @@ class PaymentsController < ApplicationController
   end
 
   def thanks
+    puts "debug:!"
     @booking = current_user.profile.bookings.last
     BookingMailer.confirmation(current_user, @booking).deliver_now
   end
 
   def notify
+    puts "debug: #{params}"
+
     notification_token = params["notification_token"]
     client = Khipu::PaymentsApi.new
     response = client.payments_get(notification_token)
@@ -28,7 +31,7 @@ class PaymentsController < ApplicationController
         render json: "No entro validador #{booking} #{payment}", status: 800
       end
     else
-      render json: "No entro por status #{response} #{notification_token}", status: 900
+      render json: "No entro por status #{response} #{notification_token}", status: 900, message: "#{notification_token}"
     end
   end
 

@@ -335,6 +335,7 @@ DEPENDENCIES
   pundit
   rails (= 4.2.0)
   rails4-autocomplete
+  rails_12factor
   ransack
   ratyrate
   sass-rails (~> 5.0)

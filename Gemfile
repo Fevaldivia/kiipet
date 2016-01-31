@@ -74,5 +74,5 @@ gem 'translated_attribute_value'
 # Adds support for creating state machines for attributes on any Ruby class
 gem 'state_machine'
 # add gem for amazon web services
-gem 'aws-sdk'
+gem 'aws-sdk', '< 2.0'
 gem "sentry-raven"

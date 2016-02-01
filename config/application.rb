@@ -8,7 +8,24 @@ Bundler.require(*Rails.groups)
 
 module Kiipet
   class Application < Rails::Application
-    config.font_assets.origin = '*' 
+    config.middleware.insert_before ActionDispatch::Static, Rack::Cors do
+      allow do
+        origins ''
+
+        resource '',
+          :headers => :any,
+          :methods => [:get, :options]
+        end
+      end
+
+        config.assets.paths << Rails.root.join("app", "assets")
+        config.assets.precompile += %w(.svg .eot .woff .ttf)
+        config.assets.header_rules = {
+          :global => {'Cache-Control' => 'public, max-age=31536000'},
+          :fonts => {'Acces-Control-Allow-Origin' => '*'}
+        }
+      end
+    end
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.

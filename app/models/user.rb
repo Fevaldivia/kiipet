@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  after_create :send_welcome_email
   ratyrate_rater
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
@@ -14,6 +15,11 @@ class User < ActiveRecord::Base
   validates :terms_of_service, acceptance: true
 
   accepts_nested_attributes_for :profile
+
+
+  def send_welcome_email
+   UserMailer.welcome_email(self).deliver_later
+  end
 
   def display_image
     return self.gravatar_url || '/user.png' if profile.nil?

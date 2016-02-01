@@ -9,7 +9,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # POST /resource
   def create
-    super
+    super do |resource|
+      UserMailer.welcome_email(resource).deliver_later if resource.persisted?
+    end
   end
 
   # GET /resource/edit

@@ -192,6 +192,7 @@ GEM
     pundit (1.1.0)
       activesupport (>= 3.0.0)
     rack (1.6.4)
+    rack-cors (0.4.0)
     rack-test (0.6.3)
       rack (>= 1.0)
     rails (4.2.0)
@@ -331,6 +332,7 @@ DEPENDENCIES
   pry
   pry-rails
   pundit
+  rack-cors
   rails (= 4.2.0)
   rails4-autocomplete
   rails_12factor

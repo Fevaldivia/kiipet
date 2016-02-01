@@ -8,6 +8,10 @@ class ProfilesController < ApplicationController
     @bookings =  @profile.bookings.get_valid_bookings
   end
 
+  def dashboard
+    @profile = current_user.profile
+  end
+
   # GET /profiles/1/edit
   def edit
     @profile = current_user.profile

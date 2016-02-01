@@ -1,0 +1,93 @@
+<div class="breadcrumb-wrap">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6">
+                <h4>Mi informacion</h4>
+            </div>
+            <div class="col-sm-6 hidden-xs text-right">
+            </div>
+        </div>
+    </div>
+</div>
+<br>
+<div class="col-md-3 text-center">
+    <div class="panel panel-default">
+    <div class="panel-body">
+      <div class="results-box">
+        <div class="">
+          <%= image_tag @profile.avatar.url, class: 'img-circle', :size => "150x150"%>
+          <% if current_user %>
+            <%= rating_for @profile, "quality", :disable_after_rate => true %>
+          <% end %>
+        </div>
+        <div class="">
+          <h4 class="profile_name"><%= @profile.name %></h4>
+          <ul class="list-inline link-ul">
+            <p><%= @profile.county.name%></p>
+          </ul>
+          <p>
+            <p><%= @profile.bio %></p>
+          </p>
+          <hr>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="col-md-9">
+  <div class="panel panel-default">
+    <div class="panel-body" id="tabs-profile">
+      <!-- Nav tabs -->
+    <% if @profile.type == "KeeperProfile"%>
+      <ul class="nav nav-tabs" role="tablist">
+        <li role="presentation" class="active"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Tus Servicios</a></li>
+        <li role="presentation"><a href="#schedule" aria-controls="availability" role="tab" data-toggle="tab">Tus Pagos</a></li>
+        <li role="presentation"><a href="#availability" aria-controls="availability" role="tab" data-toggle="tab">#</a></li>
+      </ul>
+      <% else %>
+      <ul class="nav nav-tabs" role="tablist">
+        <li role="presentation" class="active"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Tus reservas</a></li>
+      </ul>
+      <% end %>
+
+      <!-- Tab panes -->
+      <div class="tab-content" style="padding: 0px;">
+
+        <div role="tabpanel" class="tab-pane active" id="profile">
+          <div class="col-md-12">
+             <% @profile.services.each do |ps| %>
+                  <div class='service'>
+                    <li class="col-md-4 services">
+                      <div class="thumbnail">
+                        <div class="caption">
+                          <h4><%= ps.name %> </h4>
+                          <p><%= ps.description%></p>
+                        </div>
+                        <span>
+                        </span>
+                        <span class="caption">
+                          <p class="price-services">Precio:
+                            <%= ps.profile_services.get_price(@profile.id) %>
+                          </p>
+                        </span>
+                      </div>
+                    </li>
+                  </div>
+                <% end %>
+            </div>
+        </div>
+
+
+        <div role="tabpanel" class="tab-pane" id="availability">
+          <p>
+            Informacion por definir
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</div>

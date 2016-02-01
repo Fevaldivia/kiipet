@@ -1,3 +1,20 @@
+<div class="breadcrumb-wrap">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6">
+                <h4>Perfil</h4>
+            </div>
+            <div class="col-sm-6 hidden-xs text-right">
+              <% if @profile.state == "approved"%>
+                <%= link_to "Aprobado", profile_dashboard_path(@profile), class: 'btn btn-success'%>
+              <% else %>
+                <%= link_to "Pendiente", "#", class: 'btn btn-danger' %>
+              <% end %>
+            </div>
+        </div>
+    </div>
+</div>
+<br>
 <div class="container">
 <!-- tab panel menu opcion-->
   <div class="tabs" role="tabpanel">

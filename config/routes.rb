@@ -17,7 +17,9 @@ Rails.application.routes.draw do
     put 'booking/:id', to: 'payments#booking', on: :collection, as: :book
   end
 
-  resources :profiles, only: [:show, :edit, :update]
+  resources :profiles, only: [:show, :edit, :update] do
+   get 'dashboard'
+  end
   resources :keeper_users, only: [:index]
   resources :services
 

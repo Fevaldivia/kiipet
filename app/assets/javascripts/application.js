@@ -24,12 +24,3 @@
 $(document).on('ready page:change', function() {
     $('.datetimepicker').datepicker();
   });
-
-$.ajax({
-  url: "http://beta.kiipet.com",
-  type: "GET",
-  crossDomain: true,
-  xhrFields: {
-    withCredentials: true
-  }
-})

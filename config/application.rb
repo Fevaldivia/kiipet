@@ -8,6 +8,12 @@ Bundler.require(*Rails.groups)
 
 module Kiipet
   class Application < Rails::Application
+  config.action_dispatch.default_headers = {
+    'Access-Control-Allow-Origin' => 'http://d26n7qwq5qwjss.cloudfront.net',
+    'Access-Control-Request-Method' => %w{GET POST OPTIONS}.join(",")
+    }
+
+
     config.middleware.insert_before ActionDispatch::Static, Rack::Cors do
      allow do
        origins ''

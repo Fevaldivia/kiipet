@@ -11,15 +11,13 @@ end
 gem 'rails_12factor'
 
 group :development, :test do
-  # testing emails to locally
   gem "letter_opener"
-  # gem for sqlite
   gem 'sqlite3'
-  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
-  # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
   gem 'dotenv-rails'
+  gem 'rspec-rails', '~> 3.0.0'
+  gem 'database_cleaner'
 end
 
 group :assets do

@@ -40,7 +40,7 @@
                         <hr>
                     </div><!--sidebar box of search results end-->
                 </div><!--search sidebar col end-->
-              <div class="col-sm-9">
+              <div class="col-md-8">
                 <% if @keepers.present? %>
                   <span class="results-number">Cerca <%= @keepers.total_count %> resultados</span>
 
@@ -50,7 +50,7 @@
                       <div class="col-md-2">
                         <%= image_tag kp.avatar.url , :size => "100x100", class: "img-circle"%>
                       </div>
-                      <div class="col-md-7">
+                      <div class="col-md-10">
                         <h3><%= link_to kp.slogan, profile_path(kp) %></h3>
                         <% if current_user%>
                         <%= rating_for kp, "quality", current_user %>

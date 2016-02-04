@@ -11,7 +11,6 @@ class PaymentsController < ApplicationController
   end
 
   def notify
-
     notification_token = params["notification_token"]
     client = Khipu::PaymentsApi.new
     response = client.payments_get(notification_token)
@@ -35,8 +34,8 @@ class PaymentsController < ApplicationController
   end
 
   def booking
-    @booking.profile_id = current_user.id
-
+		@booking.profile_id = current_user.id
+	
       if @booking.save
         flash[:success] = "Se ha reservado exitosamente. En unos minutos llegará un correo confirmando el pago."
         payment_url = @booking.payment!(thanks_payments_url,cancel_payments_url,notify_payments_url)

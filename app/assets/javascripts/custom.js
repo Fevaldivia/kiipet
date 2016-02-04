@@ -29,9 +29,11 @@ var calendar = function(){
         var resources = '/calendars/'+profiles+'/bookings?state='+state;
         return resources;
       }else{
-        var profiles = window.location.href.match(/calendars\/(\d+)\/bookings/)[1];
-        var resources = '/calendars/'+profiles+'/bookings?state='+state;
-        return resources;
+				if(window.location.href.match(/calendars\/(\d+)\/bookings/)){
+					var profiles = window.location.href.match(/calendars\/(\d+)\/bookings/)[1];
+					var resources = '/calendars/'+profiles+'/bookings?state='+state;
+					return resources;
+				};
       };
     };
 

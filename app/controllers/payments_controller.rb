@@ -22,6 +22,7 @@ class PaymentsController < ApplicationController
       unless booking.nil? and payment.nil? and payment.state == "pending"
           payment.paid
           payment.save
+          booking.take
           if booking.save
             render json: true, status: 200
           end
@@ -35,7 +36,7 @@ class PaymentsController < ApplicationController
 
   def booking
 		@booking.profile_id = current_user.id
-	
+
       if @booking.save
         flash[:success] = "Se ha reservado exitosamente. En unos minutos llegará un correo confirmando el pago."
         payment_url = @booking.payment!(thanks_payments_url,cancel_payments_url,notify_payments_url)

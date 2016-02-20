@@ -116,6 +116,7 @@
               <hr>
               <div class="form-actions text-center">
                 <%= f.button :submit, "Guardar", class: 'btn btn-info'%>
+                <%= link_to "Ver Perfil", profile_dashboard_path(@profile), class: 'btn btn-default'%>
               </div>
           <% end %>
         </div>
@@ -126,9 +127,9 @@
                     <div class="col-md-6">
                       <h3>Informacion de Servicios</h3>
                       <p>Esta es la información que le mostraras a tus clientes en nuestro buscador</p>
-                      <%= f.input :slogan, input_html: { class: 'form-control' }, placeholder: 'Me encanta cuidar ballenas azules y viajar por el mundo' %>
+                      <%= f.input :slogan, input_html: { class: 'form-control' }, placeholder: 'Ej: Experto cuidando mascotas en santiago' %>
                       <br>
-                      <%= f.input :bio, input_html: { class: 'form-control' }, placeholder: 'Tengo 3 a;os de experiencias cuidando ballenas. Antes cuidaba elefantes.' %>
+                      <%= f.input :bio, input_html: { class: 'form-control' }, placeholder: 'Tengo 3 años de experiencia cuidando las mascotas de mis vecinos...' %>
                     </div>
                   </div>
              <section>
@@ -165,7 +166,6 @@
               </div>
           <% end %>
         </div>
-
       </div>
     </div>
   </div>

@@ -44,7 +44,6 @@
       <ul class="nav nav-tabs" role="tablist">
         <li role="presentation" class="active"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Tus Servicios</a></li>
         <li role="presentation"><a href="#schedule" aria-controls="availability" role="tab" data-toggle="tab">Tus Pagos</a></li>
-        <li role="presentation"><a href="#availability" aria-controls="availability" role="tab" data-toggle="tab">#</a></li>
       </ul>
       <% else %>
       <ul class="nav nav-tabs" role="tablist">
@@ -78,16 +77,10 @@
                 <% end %>
             </div>
         </div>
-
-
-        <div role="tabpanel" class="tab-pane" id="availability">
-          <p>
-            Informacion por definir
-          </p>
-        </div>
       </div>
-
     </div>
   </div>
-
+      <div class="form-actions text-center">
+        <%= link_to 'Volver', edit_profile_path(current_user.profile), class: "btn btn-info" %>
+      </div>
 </div>

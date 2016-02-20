@@ -27,8 +27,6 @@ class ProfilesController < ApplicationController
   def update
     @profile = current_user.profile
 
-    @profile.state = :in_analysis
-
     respond_to do |format|
       if @profile.update(profile_params)
         # send mail to admin when a profile is created

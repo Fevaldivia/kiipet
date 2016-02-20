@@ -56,7 +56,6 @@ sin tener que hacer tantas consultas en la vista.
   end
 
   def update
-    binding.pry
     @booking = Booking.find(params[:id])
     # @booking.calendar = @calendar
 

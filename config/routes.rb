@@ -45,6 +45,7 @@ Rails.application.routes.draw do
   get "works", to: "home#works"
 
   get '/regions/:region_id/counties', to: 'counties#index', as: :counties
+  get '/banks/:bank_id/bank_account_types', to: 'bank_account_types#index', as: :bank_account_types
 
   namespace :api, defaults: { format: :json } do
     scope module: :v1 do

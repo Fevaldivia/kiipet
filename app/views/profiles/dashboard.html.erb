@@ -16,9 +16,6 @@
       <div class="results-box">
         <div class="">
           <%= image_tag @profile.avatar.url, class: 'img-circle', :size => "150x150"%>
-          <% if current_user %>
-            <%= rating_for @profile, "quality", :disable_after_rate => true %>
-          <% end %>
         </div>
         <div class="">
           <h4 class="profile_name"><%= @profile.name %></h4>

@@ -1,14 +1,14 @@
 $("#booking-form").html("<%= j render 'form' %>");
-//$('.datetimepicker').datepicker(); 
+//$('.datetimepicker').datepicker();
 $("#booking-void").hide();
 $("#booking-items").hide();
 
 var $fp = $( ".dtp-desde" ),
         now = moment( ).subtract( "seconds", 1 );
-$fp.filthypillow( { 
+$fp.filthypillow( {
     minDateTime: function( ) {
                        return now;
-                         } 
+                         }
 } );
 $fp.on( "focus", function( ) {
     $fp.filthypillow( "show" );
@@ -20,10 +20,10 @@ $fp.on( "fp:save", function( e, dateObj ) {
 
 var $fp2 = $( ".dtp-hasta" ),
         now = moment( ).subtract( "seconds", 1 );
-$fp2.filthypillow( { 
+$fp2.filthypillow( {
     minDateTime: function( ) {
                        return now;
-                         } 
+                         }
 } );
 $fp2.on( "focus", function( ) {
     $fp2.filthypillow( "show" );

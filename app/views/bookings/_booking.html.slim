@@ -8,4 +8,4 @@ tr
   -if booking.state == "taken"
     td = link_to "Ver Reserva", calendar_booking_path(@calendar, booking)
   -else
-    td
+    / td = link_to "Editar", edit_calendar_booking_path(@calendar, booking), class: 'btn btn-warning'

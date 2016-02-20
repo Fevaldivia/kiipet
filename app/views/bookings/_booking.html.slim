@@ -8,4 +8,5 @@ tr
   -if booking.state == "taken"
     td = link_to "Ver Reserva", calendar_booking_path(@calendar, booking)
   -else
-    / td = link_to "Editar", edit_calendar_booking_path(@calendar, booking), class: 'btn btn-warning'
+    td = link_to "Eliminar", calendar_booking_path(@calendar, booking), data: { confirm: 'Estar seguro?' }, method: :delete, :remote => true, :class => 'delete_booking btn btn-danger'
+

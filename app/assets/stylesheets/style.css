@@ -2229,6 +2229,9 @@ ul.post-desc li + li {
 .social-1 li a i.fa-dribbble {
   background-color: #ea4c89; }
 
+.social-1 li a i.fa-instagram {
+  background-color: #C63D2D; }
+
 /**************coming soon*************/
 .soon-bg {
   background: url("../img/showcase-1.jpg");

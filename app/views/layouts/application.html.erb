@@ -12,19 +12,15 @@
           <div class="row">
               <div class="col-sm-4 hidden-xs">
                   <ul class="list-inline socials-simple">
-                      <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                      <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                      <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-                      <li><a href="#"><i class="fa fa-pinterest"></i></a></li>
-                      <li><a href="#"><i class="fa fa-youtube"></i></a></li>
-                      <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
+                      <li><a href="https://www.facebook.com/kiipetcom/?fref=ts" target="_blank"><i class="fa fa-facebook"></i></a></li>
+                      <li><a href="https://twitter.com/kiipet_com" target="_blank"><i class="fa fa-twitter"></i></a></li>
+                      <li><a href="https://www.instagram.com/kiipet/" target="_blank"><i class="fa fa-instagram"></i></a></li>
                   </ul>
               </div>
               <div class="col-sm-8 text-right">
               <% if user_signed_in? %>
                 <ul class="list-inline top-dark-right">
-                  <li class="hidden-sm hidden-xs"><i class="fa fa-envelope"></i> contacto@kiipet.com</li>
-                  <li class="hidden-sm hidden-xs"><i class="fa fa-phone"></i> +01 1800 453 7678</li>
+                  <li class="hidden-sm hidden-xs"><i class="fa fa-envelope"></i> matias@kiipet.com</li>
                   <li class="dropdown login">
                     <%= link_to '#', class: 'dropdown-toggle', 'aria-expanded' => "false", 'data-toggle' => "dropdown", role: "button" do%>
                       <%= image_tag(current_user.display_image, :size => "40x40", class: 'img-circle')%>
@@ -44,15 +40,12 @@
                       <li><%= link_to('Cerrar Sesion', destroy_user_session_path, :method => :delete) %></li>
                   </ul>
                   </li>
-                  <li><a class="topbar-icons" href="index.html#"><span><i class="fa fa-search top-search"></i></span></a></li>
                 </ul>
               <% else %>
                   <ul class="list-inline top-dark-right">
-                      <li class="hidden-sm hidden-xs"><i class="fa fa-envelope"></i> contacto@kiipet.com</li>
-                      <li class="hidden-sm hidden-xs"><i class="fa fa-phone"></i> +01 1800 453 7678</li>
+                      <li class="hidden-sm hidden-xs"><i class="fa fa-envelope"></i> matias@kiipet.com</li>
                       <li><i class="fa fa-lock"></i><%= link_to "Login", new_user_session_path %></li>
                       <li><i class="fa fa-user"></i><%= link_to "Registrate", new_user_registration_path%></li>
-                      <li><a class="topbar-icons" href="index.html#"><span><i class="fa fa-search top-search"></i></span></a></li>
                   </ul>
                    <div class="search">
                       <form role="form">
@@ -120,10 +113,7 @@
                     <h3>Contacto</h3>
 
                     <ul class="list-unstyled contact">
-                        <li><p><strong><i class="fa fa-map-marker"></i> Direccion:</strong> moneda</p></li>
-                        <li><p><strong><i class="fa fa-envelope"></i> E-mail:</strong> contacto@kiipet.com</p></li>
-                        <li> <p><strong><i class="fa fa-phone"></i> Telefono:</strong> +91 1800 2345 2132</p></li>
-                        <li> <p><strong><i class="fa fa-skype"></i> Skype</strong> kiipet</p></li>
+                        <li><p><strong><i class="fa fa-envelope"></i> E-mail:</strong> matias@kiipet.com</p></li>
                         <li> <p><strong><i class="fa fa-file-pdf-o"></i></strong><%= link_to "Condiciones de uso", terms_path%></li>
 
                     </ul>
@@ -133,11 +123,9 @@
                 <div class="footer-col">
                     <h3>Social</h3>
                     <ul class="list-inline social-1">
-                        <li><a href="index.html#"><i class="fa fa-facebook"></i></a></li>
-                        <li><a href="index.html#"><i class="fa fa-twitter"></i></a></li>
-                        <li><a href="index.html#"><i class="fa fa-google-plus"></i></a></li>
-                        <li><a href="index.html#"><i class="fa fa-pinterest"></i></a></li>
-                        <li><a href="index.html#"><i class="fa fa-dribbble"></i></a></li>
+                      <li><a href="https://www.facebook.com/kiipetcom/?fref=ts" target="_blank"><i class="fa fa-facebook"></i></a></li>
+                      <li><a href="https://twitter.com/kiipet_com" target="_blank"><i class="fa fa-twitter"></i></a></li>
+                      <li><a href="https://www.instagram.com/kiipet/" target="_blank"><i class="fa fa-instagram"></i></a></li>
                     </ul>
                 </div>
             </div><!--footer col-->
@@ -162,7 +150,7 @@
         <div class="row">
             <div class="col-md-12 text-center">
                 <div class="footer-btm">
-                    <span>&copy;2015. Kiipet</span>
+                    <span>&copy;2016. Kiipet</span>
                 </div>
             </div>
         </div>

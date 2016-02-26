@@ -1,6 +1,5 @@
 class Profile < ActiveRecord::Base
   include TranslatedAttributeValue::Base
-  ratyrate_rateable "quality"
 
   after_create :assign_calendar
   after_initialize :set_initial_status

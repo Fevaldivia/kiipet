@@ -17,9 +17,15 @@ table.table
       tr
         td=payment.payment_id
         td=get_cuidador(payment.booking_id)
-        td=get_cuidador(profile.county_id)
+        - if get_cuidador(profile.county_id)
+          td=get_cuidador(profile.county_id)
+        - else
+          td no hay comuna
         td=get_pagador(payment.profile_id)
-        td=get_pagador(profile.county_id)
+        - if get_pagador(profile.county_id)
+          td=get_pagador(profile.county_id)
+        - else
+          td no hay comuna
         td=payment.created_at
         td=payment.booking_id
         td=payment.state

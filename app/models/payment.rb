@@ -3,7 +3,7 @@ class Payment < ActiveRecord::Base
   after_initialize :set_initial_status
 
   belongs_to :booking
-  belongs_to :profile
+  belongs_to :profile, inverse_of: :payments
 
   state_machine :state, :initial => :pending do
     state :pending, :paid, :cancel

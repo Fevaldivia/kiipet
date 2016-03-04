@@ -50,7 +50,7 @@
 
       <!-- Tab panes -->
       <div class="tab-content" style="padding: 0px;">
-
+      <% if @profile.type == "KeeperProfile"%>
         <div role="tabpanel" class="tab-pane active" id="profile">
           <div class="col-md-12">
              <% @profile.services.each do |ps| %>
@@ -74,12 +74,41 @@
                 <% end %>
             </div>
         </div>
-        <div role="tabpanel" class="tab-pane" id="schedule">
-                  <div class="col-md-10">
+        <% else %>
+        <div role="tabpanel" class="tab-pane active" id="profile">
+          <div class="col-md-12">
+                  <p>Aqui aparecera un listado de los cuidadores a los que le has reservado.</p>
                     <table class="table table-striped table-bordered table-condensed">
                       <thead>
                             <tr>
                               <th>Nombre Cuidador</th>
+                              <th>Estado</th>
+                              <th>Servicio</th>
+                              <th>Precio</th>
+                            </tr>
+                            <tbody>
+                            <% @payments.each do |payment| %>
+                                <tr>
+                                  <td><%=get_cuidador(payment.booking_id) %></td>
+                                  <td><%=payment.state%></td>
+                                  <td><%=get_pagador(payment.profile_id) %></td>
+                                  <td><%=get_servicio(payment.booking_id)%></td>
+                                  <td><%=payment.amount%></td>
+                                </tr>
+                            <% end %>
+                            </tbody>
+                      </thead>
+                  </table>
+                  </div>
+        </div>
+        <% end %>
+
+        <div role="tabpanel" class="tab-pane" id="schedule">
+                  <div class="col-md-12">
+                  <p>Aqui aparecera un listado de las personas que han reservado contigo.</p>
+                    <table class="table table-striped table-bordered table-condensed">
+                      <thead>
+                            <tr>
                               <th>Nombre Dueño</th>
                               <th>Servicio</th>
                               <th>Precio</th>
@@ -87,7 +116,6 @@
                             <tbody>
                             <% @payments.each do |payment| %>
                                 <tr>
-                                  <td><%=get_cuidador(payment.booking_id)%></td>
                                   <td><%=get_pagador(payment.profile_id) %></td>
                                   <td><%=get_servicio(payment.booking_id)%></td>
                                   <td><%=payment.amount%></td>

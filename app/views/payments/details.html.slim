@@ -5,6 +5,7 @@ table.table
       th Khipu Token
       th Nombre Cuidador
       th Nombre Pagador
+      th Fecha de pago
       th Booking ID
       th Estado
       th Servicio
@@ -15,6 +16,7 @@ table.table
         td=payment.payment_id
         td=get_cuidador(payment.booking_id)
         td=get_pagador(payment.profile_id)
+        td=payment.created_at
         td=payment.booking_id
         td=payment.state
         td=get_servicio(payment.booking_id)

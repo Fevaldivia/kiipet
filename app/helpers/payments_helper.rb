@@ -11,7 +11,7 @@ module PaymentsHelper
   def get_comuna(booking_id)
     c = Booking.find(booking_id)
     if c
-      c.calendar.profile
+      c.calendar.profile.county_id.name
     else
       "No encontrado"
     end

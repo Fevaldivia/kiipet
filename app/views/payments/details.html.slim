@@ -17,13 +17,13 @@ table.table
       tr
         td=payment.payment_id
         td=get_cuidador(payment.booking_id)
-        - if get_comuna(county_id)
-          td=get_comuna(county_id)
+        - if get_comuna.present?
+          td=get_comuna
         - else
           td no hay comuna
         td=get_pagador(payment.profile_id)
-        - if get_comuna(county_id)
-          td=get_comuna(county_id)
+        - if get_comuna.present?
+          td=get_comuna
         - else
           td no hay comuna
         td=payment.created_at

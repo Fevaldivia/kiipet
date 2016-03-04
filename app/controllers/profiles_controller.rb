@@ -10,6 +10,7 @@ class ProfilesController < ApplicationController
 
   def dashboard
     @profile = current_user.profile
+    @payments = @profile.payments
   end
 
   # GET /profiles/1/edit

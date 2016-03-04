@@ -8,15 +8,6 @@ module PaymentsHelper
     end
   end
 
-  def get_comuna(booking_id)
-    c = Booking.find(booking_id)
-    if c
-      c.calendar.profile.county_id.name
-    else
-      "No encontrado"
-    end
-  end
-
   def get_pagador(profile_id)
     p = Profile.find(profile_id)
 

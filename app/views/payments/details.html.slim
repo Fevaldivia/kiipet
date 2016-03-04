@@ -4,9 +4,7 @@ table.table
     tr
       th Khipu Token
       th Nombre Cuidador
-      th Comuna
       th Nombre Pagador
-      th Comuna
       th Fecha de pago
       th Booking ID
       th Estado
@@ -17,15 +15,7 @@ table.table
       tr
         td=payment.payment_id
         td=get_cuidador(payment.booking_id)
-        - if get_comuna.present?
-          td=get_comuna
-        - else
-          td no hay comuna
         td=get_pagador(payment.profile_id)
-        - if get_comuna.present?
-          td=get_comuna
-        - else
-          td no hay comuna
         td=payment.created_at
         td=payment.booking_id
         td=payment.state

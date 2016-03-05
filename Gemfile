@@ -74,3 +74,4 @@ gem 'aws-sdk', '< 2.0'
 gem "sentry-raven"
 gem 'rack-cors', :require => 'rack/cors'
 gem 'font_assets'
+gem 'meta-tags'

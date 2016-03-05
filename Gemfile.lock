@@ -149,6 +149,8 @@ GEM
     mail_form (1.5.1)
       actionmailer (>= 3.2, < 5)
       activemodel (>= 3.2, < 5)
+    meta-tags (2.1.0)
+      actionpack (>= 3.0.0)
     method_source (0.8.2)
     mime-types (2.99)
     mimemagic (0.3.0)
@@ -327,6 +329,7 @@ DEPENDENCIES
   koala (~> 2.2)
   letter_opener
   mail_form
+  meta-tags
   momentjs-rails
   omniauth
   omniauth-facebook
@@ -354,4 +357,4 @@ DEPENDENCIES
   web-console (~> 2.0)
 
 BUNDLED WITH
-   1.10.6
+   1.11.2

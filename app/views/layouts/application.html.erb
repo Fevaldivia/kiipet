@@ -6,8 +6,9 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
   <%= favicon_link_tag '/favicon.ico' %>
-  <% meta description: "Kiipet es una plataforma que conecta dueños de perros con cuidadores y/o paseadores, para que puedas hacer tu vida con tranquilidad mientras tu mejor amigo esta en las mejores manos." %>
-  <% meta keywords: ["Mascotas", "Kiipet", "Diversion", "Cuidadores", "Paseadores", "Perros", "Pets", "Veterinario", "Veterinarias"]%>
+  <%= metamagic title: "Kiipet",
+  description: "Kiipet es una plataforma que conecta dueños de perros con cuidadores y/o paseadores, para que puedas hacer tu vida con tranquilidad mientras tu mejor amigo esta en las mejores manos." ,
+   keywords: %w(Mascotas", "Kiipet", "Diversion", "Cuidadores", "Paseadores", "Perros", "Pets", "Veterinario", "Veterinarias) %>
 </head>
 <body>
    <div class="top-bar-dark">

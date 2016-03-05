@@ -24,6 +24,12 @@
         <dt><%= Profile.human_attribute_name :address %></dt>
         <dd><%= @profile.address%></dd>
 
+        <dt><%= Profile.human_attribute_name :county %></dt>
+        <dd><%= @profile.county.name %></dd>
+
+        <dt><%= Profile.human_attribute_name :region %></dt>
+        <dd><%= @profile.county.region.short_name%></dd>
+
         <dt><%= Profile.human_attribute_name :phone %></dt>
         <dd><%= @profile.phone %></dd>
 
@@ -32,6 +38,15 @@
       </dl>
     </div>
   </div>
+<!--    <div id="services" class="tab-pane" role="tabpanel">
+     <ul class="list-style">
+       <% @profile.services.each do |service| %>
+          <li><%= link_to service.name, admin_service_path(service)%></li>
+       <% end %>
+     </ul>
+
+   </div>
+ -->
 
   <hr>
 

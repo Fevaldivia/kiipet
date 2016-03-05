@@ -1,0 +1,32 @@
+<div class="col-md-12">
+<br>
+  <h3>Revisa los pagos</h3>
+  <table class="table">
+  <thead>
+    <tr>
+      <th>Khipu Token</th>
+      <th>Nombre Cuidador</th>
+      <th>Nombre Pagador</th>
+      <th>Fecha de pago</th>
+      <th>Booking ID</th>
+      <th>Estado</th>
+      <th>Servicio</th>
+      <th>Precio</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @payments.each do |payment| %>
+      <tr>
+        <td><%=payment.payment_id%></td>
+        <td><%=get_cuidador(payment.booking_id)%></td>
+        <td><%=get_pagador(payment.profile_id)%></td>
+        <td><%=payment.created_at%></td>
+        <td><%=payment.booking_id%></td>
+        <td><%=payment.state%></td>
+        <td><%=get_servicio(payment.booking_id)%></td>
+        <td><%=payment.amount%></td>
+      </tr>
+    <% end %>
+  </tbody>
+  </table>
+</div>

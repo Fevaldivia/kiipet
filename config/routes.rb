@@ -62,7 +62,10 @@ Rails.application.routes.draw do
         get :reject
       end
     end
+    resources :payments
+    resources :services
 
+    root 'profiles#index'
   end
 
 end

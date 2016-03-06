@@ -66,7 +66,7 @@ Rails.application.configure do
     end
   }
 
-  config.font_assets.origin = "http://kiipet.com"
+  config.font_assets.origin = "http://www.kiipet.com"
   config.static_cache_control = 'public, max-age=31536000'
 
   # Ignore bad email addresses and do not raise email delivery errors.

@@ -67,6 +67,7 @@ Rails.application.configure do
   }
 
   config.font_assets.origin = "http://kiipet.com"
+  config.static_cache_control = 'public, max-age=31536000'
 
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.

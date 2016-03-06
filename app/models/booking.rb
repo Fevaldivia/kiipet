@@ -61,7 +61,7 @@ class Booking < ActiveRecord::Base
       transaction_id: self.id,
       expires_date: DateTime.new(2016, 4, 4),
       body: 'Estas pagando el precio del servicio que solicitaste para tu mascota',
-      picture_url: 'http://beta.kiipet.com/assets/logokhipupayment-ffefb9825d678627a873db3c4299143d860333a0a8fd6d4fe711de4d23b24f8f.png',
+      picture_url: 'http://kiipet.com/assets/logokhipupayment-ffefb9825d678627a873db3c4299143d860333a0a8fd6d4fe711de4d23b24f8f.png',
       return_url: return_url,
       cancel_url: cancel_url,
       notify_url: notify_url,

@@ -2,7 +2,6 @@
 <html>
 <head>
   <title>Kiipet</title>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
@@ -10,6 +9,7 @@
   <%= metamagic title: "Kiipet",
   description: "Kiipet es una plataforma que conecta dueños de perros con cuidadores y/o paseadores, para que puedas hacer tu vida con tranquilidad mientras tu mejor amigo esta en las mejores manos." ,
    keywords: %w(Mascotas", "Kiipet", "Diversion", "Cuidadores", "Paseadores", "Perros", "Pets", "Veterinario", "Veterinarias) %>
+   <%= link{:rel => "stylesheet", :href => "https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"}%>
 </head>
 <body>
    <div class="top-bar-dark">

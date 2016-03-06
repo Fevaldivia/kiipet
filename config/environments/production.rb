@@ -66,7 +66,7 @@ Rails.application.configure do
     end
   }
 
-  config.font_assets.origin = "http://www.kiipet.com"
+  config.font_assets.origin = "http://kiipet.com"
 
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.

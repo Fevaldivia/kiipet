@@ -46,9 +46,9 @@
                 </div><!--search sidebar col end-->
               <div class="col-md-8">
                 <% if @keepers.present? %>
-                  <span class="results-number">Cerca <%= @keepers.total_count %> resultados</span>
                   <% @keepers.each do |kp|%>
                         <% if kp.state == "approved"%>
+                  <span class="results-number">Cerca <%= @keepers.total_count %> resultados</span>
                     <div class="results-box col-md-12">
                       <div class="col-md-2">
                         <%= image_tag kp.avatar.url , :size => "100x100", class: "img-circle"%>

@@ -18,12 +18,24 @@
           <%= image_tag @profile.avatar.url, class: 'img-circle', :size => "150x150"%>
         </div>
         <div class="">
+        <% if @profile.name %>
           <h4 class="profile_name"><%= @profile.name %></h4>
+        <% else %>
+          <h4 class="profile_name">No definido</h4>
+        <% end %>
           <ul class="list-inline link-ul">
+          <% if @profile.county.name %>
             <p><%= @profile.county.name%></p>
+          <% else %>
+          <p>No definido</p>
+          <%end%>
           </ul>
           <p>
+          <% if @profile.bio %>
             <p><%= @profile.bio %></p>
+          <% else %>
+          <p>No definido</p>
+          <% end %>
           </p>
           <hr>
         </div>

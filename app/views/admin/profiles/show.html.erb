@@ -25,7 +25,11 @@
         <dd><%= @profile.address%></dd>
 
         <dt><%= Profile.human_attribute_name :county %></dt>
+        <% if @profile.county.present?%>
         <dd><%= @profile.county.name %></dd>
+        <% else %>
+        <dd>informacion no completada</dd>
+        <% end %>
 
         <dt><%= Profile.human_attribute_name :region %></dt>
         <dd><%= @profile.county.region.short_name%></dd>

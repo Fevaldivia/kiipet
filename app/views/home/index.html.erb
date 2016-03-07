@@ -12,7 +12,7 @@
             <br>
             <br>
             <%= search_form_for @search, url: keeper_users_url do |f| %>
-              <%= f.text_field :county_region_name_cont , placeholder: "Busca cuidadores por comuna...", class: "input-lg col-md-6", data: { autocomplete_source: api_searches_path  } %>
+              <%= f.text_field :county_name_cont , placeholder: "Busca cuidadores por comuna...", class: "input-lg col-md-6", data: { autocomplete_source: api_searches_path  } %>
               <%= button_tag(class: "btn btn-info btn-lg") do %>
                 <i class="fa fa-search top-search"> Buscar Cuidadores</i>
               <% end -%>

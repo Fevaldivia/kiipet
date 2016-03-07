@@ -121,7 +121,9 @@
               <% if current_user.profile.is_a? KeeperProfile %>
                   <%= link_to 'Agregar disponibilidad', calendar_bookings_path(@profile), class: "btn btn-success" %>
                   <%= f.button :submit, "Guardar", class: 'btn btn-info'%>
+              <% if current_user.profile.state == "approved" %>
                   <%= link_to "Ver Perfil", profile_dashboard_path(@profile), class: 'btn btn-default'%>
+              <% end %>
               <% else %>
                   <%= link_to 'Agrega tu Mascota',  pets_path(@profile), class: "btn btn-success"%>
                   <%= f.button :submit, "Guardar", class: 'btn btn-info'%>

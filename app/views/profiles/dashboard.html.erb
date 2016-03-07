@@ -18,7 +18,7 @@
           <%= image_tag @profile.avatar.url, class: 'img-circle', :size => "150x150"%>
         </div>
         <div class="">
-        <% if @profile.name %>
+        <% if @profile.name.present? %>
           <h4 class="profile_name"><%= @profile.name %></h4>
         <% else %>
           <h4 class="profile_name">No definido</h4>

@@ -32,7 +32,7 @@
         <% end %>
 
         <dt><%= Profile.human_attribute_name :region %></dt>
-        <% if @profile.county.region.present?%>
+        <% if @profile.county.region.short_name.present?%>
           <dd><%= @profile.county.region.short_name%></dd>
         <% else %>
           <dd>Informacion no completada</dd>

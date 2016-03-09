@@ -4,8 +4,7 @@
     h3 Disponibilidad en mi #{@calendar.name}
     #booking-form
     #booking-items
-      p Agrega tu disponibilidad pulsando el "+"
-      =link_to "+", new_calendar_booking_path(@calendar), remote: true, class: 'btn btn-success pull-right'
+      =link_to "Agrega Disponibilidad", new_calendar_booking_path(@calendar), remote: true, class: 'btn btn-success pull-right'
       table#booking-table.bookings_table.table.table-striped
         thead
           tr

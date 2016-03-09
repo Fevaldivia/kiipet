@@ -17,7 +17,7 @@
 <br>
 <div class="container">
 <!-- tab panel menu opcion-->
-  <div class="tabs" role="tabpanel">
+  <div id="tabs" class="tabs" role="tabpanel">
   <div class="container">
     <ul class="nav nav-tabs" role="tablist">
       <li class="active" role="presentation">
@@ -40,7 +40,12 @@
           <%= simple_form_for @profile, as: :profile, url: profile_path(@profile) do |f| %>
               <div class="row">
                 <div class="col-sm-6">
-                  <h3>Información Personal</h3>
+                  <div class="panel panel-default">
+                    <div class="panel-heading"><h4>1.- Información Personal</h4>
+                      <p>Completa toda la informacion personal para que asi nuestros administradores aprueben tu perfil en la plataforma</p>
+                    </div>
+                    <div class="panel-body">
+
                   <%= f.input :name, input_html: { class: 'form-control' }, placeholder: "Nombre" %>
 
                   <div class="form-group file optional profile_avatar">
@@ -71,35 +76,46 @@
                     <label>Email</label><span class="form-control"><%= current_user.email%></span>
                   </div>
                 </div>
+                    </div>
+                  </div>
+
                 <div class="col-sm-6">
-                  <h3>
-                    Información de Contacto
-                  </h3>
-                  <div class="row">
-                    <div class="col-sm-6">
+                  <div class="panel panel-default">
+                    <div class="panel-heading"><h4>2.- Informacion de contacto</h4>
+                      <p>Agrega tu informacion de contacto para que nosotros te podamos contactar cuando tengas una reserva o busques
+                      un cuidador</p>
+                    </div>
+                    <div class="panel-body">
+                      <div class="row">
+                        <div class="col-sm-6">
+                          <div class="form-group">
+                            <%= f.input :phone, input_html: { class: 'form-control' }, placeholder: "Telefono" %>
+                          </div>
+                        </div>
+                        <div class="col-sm-6">
+                          <%= f.input :cellphone, input_html: { class: 'form-control' }, placeholder: "Celular" %>
+                        </div>
+                      </div>
                       <div class="form-group">
-                        <%= f.input :phone, input_html: { class: 'form-control' }, placeholder: "Telefono" %>
+                        <%= f.input :address, input_html: { class: 'form-control' }, placeholder: "Direccion" %>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-6">
+                          <%= f.input :region_id, collection: Region.all, input_html: { class: 'form-control' }%>
+                        </div>
+                        <div class="col-md-6">
+                          <%= f.association :county, input_html: { class: 'form-control' } %>
+                        </div>
                       </div>
                     </div>
-                    <div class="col-sm-6">
-                      <%= f.input :cellphone, input_html: { class: 'form-control' }, placeholder: "Celular" %>
-                    </div>
                   </div>
-                  <div class="form-group">
-                    <%= f.input :address, input_html: { class: 'form-control' }, placeholder: "Direccion" %>
-                  </div>
-                  <div class="row">
-                    <div class="col-md-6">
-                      <%= f.input :region_id, collection: Region.all, input_html: { class: 'form-control' }%>
+
+                  <div class="panel panel-default">
+                    <div class="panel-heading"><h4>3.- Informacion Bancaria</h4>
+                      <p>Esta informacion es siempre privada y solo sera utilizada para realizar los pagos a fin de cada mes.</p>
                     </div>
-                    <div class="col-md-6">
-                      <%= f.association :county, input_html: { class: 'form-control' } %>
-                    </div>
-                  </div>
-                  <br>
-                  <br>
-                  <h3>Informacion Bancaria</h3>
-                  <%= f.simple_fields_for :bank_account do |builder| %>
+                    <div class="panel-body">
+                      <%= f.simple_fields_for :bank_account do |builder| %>
                     <div class="row">
                       <div class="col-md-6">
                         <%= builder.association :bank, input_html: { class: 'form-control' } %>
@@ -110,16 +126,17 @@
                     </div>
                       <%= builder.input :number, input_html: { class: 'form-control' } %>
                   <% end %>
+                    </div>
+                  </div>
                 </div>
               </div>
               <div class="col-md-10">
-                 <p>Debes completar todos los campos para que aprobemos tu perfil *</p>
                </div>
                 <br>
               <hr>
               <div class="form-actions text-center">
               <% if current_user.profile.is_a? KeeperProfile %>
-                  <%= link_to 'Agregar disponibilidad', calendar_bookings_path(@profile), class: "btn btn-success" %>
+                  <a href="#servicios" role="tab" data-toggle="tab" class="btn btn-default">Siguiente</a>
                   <%= f.button :submit, "Guardar", class: 'btn btn-info'%>
               <% else %>
                   <%= link_to 'Agrega tu Mascota',  pets_path(@profile), class: "btn btn-success"%>
@@ -131,47 +148,65 @@
         </div>
 
         <div role="tabpanel" class="tab-pane" id="servicios">
-          <%= simple_form_for @profile, as: :profile, url: profile_path(@profile) do |f| %>
+            <div class="panel panel-default">
+              <div class="panel-heading"><h4>4.- Informacion de Servicios</h4>
+              <p>Debes completar tu slogan para que aparescas en nuestro buscador, de eso dependera si tu servicio es contratado asi que usa tu imaginacion ! ademas necesitamos saber un poco mas de ti asi que no olvides tu biografia</p>
+              </div>
+              <div class="panel-body">
+                <%= simple_form_for @profile, as: :profile, url: profile_path(@profile) do |f| %>
                   <div class="row">
                     <div class="col-md-6">
-                      <h3>Informacion de Servicios</h3>
-                      <p>Esta es la información que le mostraras a tus clientes en nuestro buscador</p>
                       <%= f.input :slogan, input_html: { class: 'form-control' }, placeholder: 'Ej: Experto cuidando mascotas en santiago' %>
                       <br>
                       <%= f.input :bio, input_html: { class: 'form-control' }, placeholder: 'Tengo 3 años de experiencia cuidando las mascotas de mis vecinos...' %>
                     </div>
                   </div>
-             <section>
-             <br>
-             <br>
-                <div class="row">
-                  <h3 class="precios">Precios</h3>
-                  <p>Aquí debes especificar el valor por tus servicios. Por ahora tienes que llenarlos todos, pero si no prestas todos los servicios puedes colocar 0.</p>
-                  <br>
-                  <ul class="thumbnails" id="servicio">
-                    <%= f.simple_fields_for :profile_services do |ps| %>
-                      <div class='service'>
-                        <li class="col-md-3">
-                          <div class="thumbnail">
-                            <div class="caption">
-                              <h4><%= ps.object.service.name %></h4>
-                              <p><%= ps.object.service.description%></p>
-                            </div>
-                            <span>
-                            </span>
-                            <span class="caption">
-                              <%= ps.input :service_id, as: :hidden, input_html: { value: ps.object.service.id} %>
-                              <%= ps.input :price, input_html: { class: 'form-control' }%>
-                            </span>
+              </div>
+            </div>
+
+            <div class="panel panel-default">
+                <div class="panel-heading"><h4 class="precios">5.- Precios</h4>
+                  <p>Aquí debes especificar el valor de tus servicios. Por ahora tienes que llenarlos todos, pero si no prestas todos los servicios puedes colocar 0.</p>
+                </div>
+                <div class="panel-body">
+                    <section>
+                      <div class="row">
+                      <br>
+                      <ul class="thumbnails" id="servicio">
+                        <%= f.simple_fields_for :profile_services do |ps| %>
+                          <div class='service'>
+                            <li class="col-md-3">
+                              <div class="thumbnail">
+                                <div class="caption">
+                                  <h4><%= ps.object.service.name %></h4>
+                                  <p><%= ps.object.service.description%></p>
+                                </div>
+                                <span>
+                                </span>
+                                <span class="caption">
+                                  <%= ps.input :service_id, as: :hidden, input_html: { value: ps.object.service.id} %>
+                                  <%= ps.input :price, input_html: { class: 'form-control' }%>
+                                </span>
+                              </div>
+                            </li>
                           </div>
-                        </li>
-                      </div>
-                    <% end %>
-                    </ul>
-                    </div>
+                        <% end %>
+                        </ul>
+                        </div>
                   </section>
+                </div>
+              </div>
+
+
                   <div class="form-actions text-center">
-                <%= f.button :submit, "Guardar", class: 'btn btn-info'%>
+                     <% if current_user.profile.is_a? KeeperProfile %>
+                      <%= f.button :submit, "Guardar", class: 'btn btn-info'%>
+                      <%= link_to 'Agregar disponibilidad', calendar_bookings_path(@profile), class: "btn btn-success" %>
+                  <% else %>
+                      <%= link_to 'Agrega tu Mascota',  pets_path(@profile), class: "btn btn-success"%>
+                      <%= f.button :submit, "Guardar", class: 'btn btn-info'%>
+                      <%= link_to "Ver Perfil", profile_dashboard_path(@profile), class: 'btn btn-default'%>
+                  <% end %>
               </div>
           <% end %>
         </div>

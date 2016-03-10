@@ -14,7 +14,7 @@ class Admin::ProfilesController < Admin::AdminController
   # GET /backend/companies/1/approve
   def approve
     if @profile.approve
-      # CompanyMailer.approved(@company).deliver_later
+      ProfileMailer.approved(@profile).deliver_later
 
       flash[:notice] = t(:approved, scope: [:messages, :controllers, :profiles, :successfully])
     else

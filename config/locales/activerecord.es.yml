@@ -34,7 +34,7 @@ es:
         bank_account: Cuenta de Banco
         county: Comuna
         county_id: Comuna
-        phone: Teléfono Fijo
+        phone: Teléfono
         cell_phone: Teléfono Celular
         address: Dirección
         address_proof: Comprobante de domicilio

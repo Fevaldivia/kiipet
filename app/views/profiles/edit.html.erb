@@ -59,19 +59,6 @@
                       <%= f.input :date_birth, as: :string, input_html: { class: 'datetimepicker form-control' }%>
                     </div>
                   </div>
-                  <div class="row">
-                    <div class="col-sm-6">
-                      <div class="form-group">
-                        <%= f.label :country_code %>
-                        <%= country_select(:profile, :country_code, {selected: f.object.country_code || "CL"}, {class: 'form-control'})%>
-                      </div>
-                    </div>
-                    <div class="col-sm-6">
-                      <div class="form-group">
-                        <%= f.input :rut, input_html: { class: 'form-control' }, placeholder: " rut 55.555.555-k" %>
-                      </div>
-                    </div>
-                  </div>
                   <div class="form-group">
                     <label>Email</label><span class="form-control"><%= current_user.email%></span>
                   </div>
@@ -87,17 +74,22 @@
                     </div>
                     <div class="panel-body">
                       <div class="row">
-                        <div class="col-sm-6">
+                        <div class="col-sm-12">
                           <div class="form-group">
                             <%= f.input :phone, input_html: { class: 'form-control' }, placeholder: "Telefono" %>
                           </div>
                         </div>
-                        <div class="col-sm-6">
-                          <%= f.input :cellphone, input_html: { class: 'form-control' }, placeholder: "Celular" %>
-                        </div>
                       </div>
                       <div class="form-group">
                         <%= f.input :address, input_html: { class: 'form-control' }, placeholder: "Direccion" %>
+                      </div>
+                      <div class="row">
+                        <div class="col-sm-12">
+                          <div class="form-group">
+                            <%= f.label :country_code %>
+                            <%= country_select(:profile, :country_code, {selected: f.object.country_code || "CL"}, {class: 'form-control'})%>
+                          </div>
+                        </div>
                       </div>
                       <div class="row">
                         <div class="col-md-6">
@@ -113,6 +105,11 @@
                   <div class="panel panel-default">
                     <div class="panel-heading"><h4>3.- Informacion Bancaria</h4>
                       <p>Esta informacion es siempre privada y solo sera utilizada para realizar los pagos a fin de cada mes.</p>
+                    </div>
+                    <div class="col-sm-12">
+                      <div class="form-group">
+                        <%= f.input :rut, input_html: { class: 'form-control' }, placeholder: " rut 55.555.555-k" %>
+                      </div>
                     </div>
                     <div class="panel-body">
                       <%= f.simple_fields_for :bank_account do |builder| %>
@@ -170,7 +167,6 @@
                 </div>
                 <div class="panel-body">
                     <section>
-                      <div class="row">
                       <br>
                       <ul class="thumbnails" id="servicio">
                         <%= f.simple_fields_for :profile_services do |ps| %>
@@ -185,14 +181,16 @@
                                 </span>
                                 <span class="caption">
                                   <%= ps.input :service_id, as: :hidden, input_html: { value: ps.object.service.id} %>
-                                  <%= ps.input :price, input_html: { class: 'form-control' }%>
+                                  <div class="input-group">
+                                    <span class="input-group-addon">$</span>
+                                    <%= ps.input :price, label: false, placeholder: "precio", input_html: { class: 'form-control' }%>
+                                  </div>
                                 </span>
                               </div>
                             </li>
                           </div>
                         <% end %>
                         </ul>
-                        </div>
                   </section>
                 </div>
               </div>

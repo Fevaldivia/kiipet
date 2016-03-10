@@ -21,7 +21,7 @@
               <td><%= profile.name%></td>
               <td><%= profile.user.email%></td>
               <td><%= profile.human_state_name%></td>
-              <td><%= profile.user.created_at%></td>
+              <td><%= profile.user.created_at.strftime("%d-%m-%Y")%></td>
               <td><%= link_to "ver", admin_profile_path(profile), class: 'btn btn-default'%></td>
               <td>
                 <%- if profile.in_analysis? %>

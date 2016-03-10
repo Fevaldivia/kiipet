@@ -12,24 +12,27 @@
         <div class="divide40"></div>
         <div class="container">
             <div class="row">
-            <div class="col-md-12">
-              <%= link_to "Mostrar todos", keeper_users_path, class: "btn btn-default" %>
-            </div>
-                <div class="col-sm-3">
-                    <br>
-                    <div class="results-sidebar-box">
+                <div class="col-sm-4">
+                    <div class="panel panel-default">
+                      <div class="panel-heading">Cuidadores cerca de ti</div>
+                      <div class="panel-body">
+                        <%= link_to "Mostrar todos", keeper_users_path, class: "btn btn-default" %>
+                          <br>
+                        <div class="results-sidebar-box">
+                        <br>
                         <h4>Busca por region</h4>
                           <%= search_form_for @search, url: keeper_users_url do |f| %>
                             <div class="field">
-                              <%= f.collection_select :county_region_id_eq, Region.all, :id, :name, include_blank: true %>
+                              <%= f.collection_select :county_region_id_eq, Region.all, :id, :name, include_blank: true, input_html: { class: 'form-control large' } %>
                             </div>
                             <div class="actions">
                             <br>
-                              <%= f.submit "Buscar", class: "btn btn-info btn-lg" %>
+                              <%= f.submit "Buscar", class: "btn btn-info btn-lg text-center" %>
                             </div>
                         <% end -%>
                         <hr>
                     </div><!--sidebar box of search results end-->
+
                     <div class="results-sidebar-box">
                         <h4>Busca por comuna</h4>
                         <%= search_form_for @search, url: keeper_users_url do |f| %>
@@ -43,11 +46,19 @@
                         <% end -%>
                         <hr>
                     </div><!--sidebar box of search results end-->
+
+                      </div>
+                    </div>
+
                 </div><!--search sidebar col end-->
               <div class="col-md-8">
-                <% if @keepers.present? %>
-                <span class="results-number">Cerca de<%= @keepers.total_count %> resultados</span>
-                  <% @keepers.each do |kp|%>
+                <div class="panel panel-default">
+                  <div class="panel-heading">
+                    <% if @keepers.present? %>
+                    <span class="results-number">Cerca de<%= @keepers.total_count %> resultados</span>
+                  </div>
+                  <div class="panel-body">
+                    <% @keepers.each do |kp|%>
                         <% if kp.state == "approved"%>
                     <div class="results-box col-md-12">
                       <div class="col-md-2">
@@ -69,11 +80,13 @@
                       </div>
                     </div><!--result box-->
                   <% end %>
-                <% end %>
-                   <%= paginate @keepers %>
-                    <% else %>
-                    <p>No se han econtrado resultados...</p>
-                    <% end -%>
+                  <% end %>
+                  </div>
+                </div>
+               <%= paginate @keepers %>
+                <% else %>
+                <p>No se han econtrado resultados...</p>
+                <% end -%>
                 </div>
             </div>
         </div><!--buscador de contenidos end-->

@@ -14,7 +14,7 @@ class ProfileService < ActiveRecord::Base
   end
 
   def name_with_price
-    "#{service.name} - #{price}"
+    "#{service.name} - $#{price}"
   end
 
   scope :get_price, ->(id) { find_by_profile_id(id).price }

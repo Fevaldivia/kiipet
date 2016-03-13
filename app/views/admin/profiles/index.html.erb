@@ -28,6 +28,9 @@
                   <%= link_to "Aprobar", approve_admin_profile_path(profile), class: 'btn btn-primary'%>
                   <%= link_to "Rechazar", reject_admin_profile_path(profile), class: 'btn btn-danger'%>
                <% end %>
+               <%- if profile.rejected? %>
+                  <%= link_to "Aprobar", approve_admin_profile_path(profile), class: 'btn btn-primary'%>
+              <% end %>
               </td>
             </tr>
             <% end %>

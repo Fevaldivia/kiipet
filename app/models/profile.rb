@@ -1,8 +1,8 @@
 class Profile < ActiveRecord::Base
   include TranslatedAttributeValue::Base
-  
-  scope :active, -> { where(state: :approved ) } 
- 
+
+  scope :active, -> { where(state: :approved ) }
+
   after_create :assign_calendar
   after_initialize :set_initial_status
 

@@ -46,7 +46,7 @@
                     </div>
                     <div class="panel-body">
 
-                  <%= f.input :name, input_html: { class: 'form-control' }, placeholder: "Nombre" %>
+                  <%= f.input :name, input_html: { class: 'form-control' }, placeholder: "Nombre", required: true%>
 
                   <div class="form-group file optional profile_avatar">
                   <%= f.input :avatar, input_html: {'data-input' => false, 'data-buttonText' => '', 'data-iconName' => 'fa fa-user'}%>
@@ -76,12 +76,12 @@
                       <div class="row">
                         <div class="col-sm-12">
                           <div class="form-group">
-                            <%= f.input :phone, input_html: { class: 'form-control' }, placeholder: "Telefono" %>
+                            <%= f.input :phone, input_html: { class: 'form-control' }, placeholder: "Telefono", required: true %>
                           </div>
                         </div>
                       </div>
                       <div class="form-group">
-                        <%= f.input :address, input_html: { class: 'form-control' }, placeholder: "Direccion" %>
+                        <%= f.input :address, input_html: { class: 'form-control' }, placeholder: "Direccion", required: true %>
                       </div>
                       <div class="row">
                         <div class="col-sm-12">
@@ -93,22 +93,22 @@
                       </div>
                       <div class="row">
                         <div class="col-md-6">
-                          <%= f.input :region_id, collection: Region.all, input_html: { class: 'form-control' }%>
+                          <%= f.input :region_id, collection: Region.all, input_html: { class: 'form-control' }, required: true%>
                         </div>
                         <div class="col-md-6">
-                          <%= f.association :county, input_html: { class: 'form-control' } %>
+                          <%= f.association :county, input_html: { class: 'form-control' }, required: true%>
                         </div>
                       </div>
                     </div>
                   </div>
-
+                <% if current_user.profile.is_a? KeeperProfile %>
                   <div class="panel panel-default">
                     <div class="panel-heading"><h4>3.- Informacion Bancaria</h4>
                       <p>Esta informacion es siempre privada y solo sera utilizada para realizar los pagos a fin de cada mes.</p>
                     </div>
                     <div class="col-sm-12">
                       <div class="form-group">
-                        <%= f.input :rut, input_html: { class: 'form-control' }, placeholder: " rut 55.555.555-k" %>
+                        <%= f.input :rut, input_html: { class: 'form-control' }, placeholder: " rut 55.555.555-k", required: true %>
                       </div>
                     </div>
                     <div class="panel-body">
@@ -125,6 +125,7 @@
                   <% end %>
                     </div>
                   </div>
+                <% end %>
                 </div>
               </div>
               <div class="col-md-10">

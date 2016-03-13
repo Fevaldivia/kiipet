@@ -27,7 +27,7 @@
                           </span>
                           <span class="caption">
                             <p class="price-services">Precio:
-                              <%= ps.profile_services.get_price(@profile.id) %>
+                              <%= number_with_delimiter  ps.profile_services.get_price(@profile.id) %>
                             </p>
                           </span>
                         </div>

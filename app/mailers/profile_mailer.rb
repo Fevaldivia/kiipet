@@ -17,9 +17,13 @@ class ProfileMailer < ApplicationMailer
   # with the following lookup:
   #
   #
-  def rejected profile, message
+  def rejected profile
     @profile = profile
-    @message = message
+
+    attachments.inline['welcome_email.jpg'] = File.read("#{Rails.root}/app/assets/images/welcome_email.jpg")
+    attachments.inline['fb.png'] = File.read("#{Rails.root}/app/assets/images/fb.png")
+    attachments.inline['tw.png'] = File.read("#{Rails.root}/app/assets/images/tw.png")
+    attachments.inline['in.png'] = File.read("#{Rails.root}/app/assets/images/in.png")
 
     mail to: @profile.user.email
   end

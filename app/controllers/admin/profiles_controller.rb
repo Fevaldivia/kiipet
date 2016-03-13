@@ -29,7 +29,7 @@ class Admin::ProfilesController < Admin::AdminController
 
   def reject
     if @profile.reject
-      # CompanyMailer.rejected(@company, params[:message]).deliver_later
+      ProfileMailer.rejected(@profile).deliver_later
 
       flash[:notice] = t(:rejected, scope: [:messages, :controllers, :profiles, :successfully])
     else

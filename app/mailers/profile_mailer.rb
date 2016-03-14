@@ -10,7 +10,7 @@ class ProfileMailer < ApplicationMailer
     attachments.inline['tw.png'] = File.read("#{Rails.root}/app/assets/images/tw.png")
     attachments.inline['in.png'] = File.read("#{Rails.root}/app/assets/images/in.png")
 
-    mail to: @profile.user.email
+    mail to: @profile.user.email, subject: 'Perfil Aprobado en Kiipet.com'
   end
 
   # Subject can be set in your I18n file at config/locales/en.yml
@@ -25,7 +25,7 @@ class ProfileMailer < ApplicationMailer
     attachments.inline['tw.png'] = File.read("#{Rails.root}/app/assets/images/tw.png")
     attachments.inline['in.png'] = File.read("#{Rails.root}/app/assets/images/in.png")
 
-    mail to: @profile.user.email
+    mail to: @profile.user.email,  subject: 'Perfil Rechazado en Kiipet.com'
   end
 
   # Subject can be set in your I18n file at config/locales/en.yml

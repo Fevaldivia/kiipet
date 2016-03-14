@@ -1,10 +1,12 @@
 .container
   br
   .col-md-4
-    h3 Disponibilidad en mi #{@calendar.name}
     #booking-form
     #booking-items
-      =link_to "Agrega Disponibilidad", new_calendar_booking_path(@calendar), remote: true, class: 'btn btn-success pull-right'
+      =link_to "Agrega Disponibilidad", new_calendar_booking_path(@calendar), remote: true, class: 'btn btn-info pull-right'
+      /! Button trigger modal
+      button.btn.btn-sm.btn-default data-target="#myModal" data-toggle="modal" type="button"
+        | Instrucciones
       table#booking-table.bookings_table.table.table-striped
         thead
           tr
@@ -18,10 +20,32 @@
             = render 'bookings'
           - else
             #booking-void.jumbotron
-              h3 Agrega tu disponibilidad
-              p Agrega tus horarios disponibles! Para los paseos agrega tu disponibilidad por hora y para guardería y alojamiento agrega la disponibilidad de todas las horas que vas a cuidar de un perro.
-              =link_to 'Agregar', new_calendar_booking_path(@calendar), remote: true, class: 'btn btn-sm btn-success'
+              h4 ¡Agrega tu disponibilidad para que te puedan contratar!
+              p 1.- Haz click en el boton de abajo que dice Agregar disponibilidad.
+              p 2.- Selecciona que servicio vas a ofrecer (Paseo, Alojamiento o Guardería).
+              p 3.- Ingresa el día y horario para realizar el servicio. ¡Recuerda siempre ingresar el horario por servicio individualmente! Así podrás sacar más partido a tus horas libres.
+              =link_to 'Agregar', new_calendar_booking_path(@calendar), remote: true, class: 'btn btn-sm btn-info'
 
   .col-md-8
     .calendar_container
       #calendar
+
+/! Modal
+#myModal.modal.fade aria-labelledby="myModalLabel" role="dialog" tabindex="-1"
+  .modal-dialog role="document"
+    .modal-content
+      .modal-header
+        button.close aria-label="Close" data-dismiss="modal" type="button"
+          span aria-hidden="true"  &times;
+        h4#myModalLabel.modal-title Instrucciones para agregar disponibilidad
+      .modal-body
+        p 1.- Haz click en el boton de abajo que dice Agregar disponibilidad.
+        p 2.- Selecciona que servicio vas a ofrecer (Paseo, Alojamiento o Guardería).
+        p 3.- Ingresa el día y horario para realizar el servicio. ¡Recuerda siempre ingresar el horario por servicio individualmente! Así podrás sacar más partido a tus horas libres.
+        p Ejemplos:
+        p - Ingresa bloques de una hora para los paseos, independiente si tienes 3 horas para pasear. Si partes a las 12:00 hrs. deberías hacer 3 bloques: [12:00 - 13:00], [13:00 - 14:00], [14:00 - 15:00]
+        p -Ingresa horario continuado para guardería y alojamiento, de 20:00 hrs. del Viernes a las 14:00 hrs del Sábado (Alojamiento) o de 9:00 hrs a 19:00 hrs (Guardería).
+      .modal-footer
+        button.btn.btn-default data-dismiss="modal" type="button"  Close
+
+

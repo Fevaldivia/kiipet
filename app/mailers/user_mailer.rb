@@ -1,5 +1,5 @@
 class UserMailer < ApplicationMailer
-  default from: 'matias@kiipet.com'
+  default from: 'contacto@kiipet.com'
 
   def welcome_email(user)
     @registro = user

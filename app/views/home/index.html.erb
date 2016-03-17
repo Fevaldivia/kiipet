@@ -153,14 +153,38 @@
             </div>
         </div><!--testimonials v-2 end-->
 
-
-          <div class="divide40"></div>
+        <div class="divide40"></div>
         <div class="intro-text-1 light">
+            <div class="container">
+                <div class="row">
+                      <div class="col-sm-8 col-sm-offset-2">
+                        <div class="center-heading">
+                            <h2><strong>Vet Partners</strong></h2>
+                            <span class="center-line"></span>
+
+                        </div>
+                    </div>
+                </div>
+                 <div class="row">
+                  <div class="col-md-3 ">
+                      <%= link_to "http://www.pethappy.cl/locales", target: "_blank"  do %>
+                        <%= image_tag "logopethappy.png", class: "pet-happy" %>
+                      <% end%>
+                      <h4 class="text-center"><%= link_to "Pet Happy", "http://www.pethappy.cl/locales", class: "pet-partner"%></h4>
+                  </div><!--facts in-->
+                  <div class="col-md-8 partners">
+                      <h4 class="text-left">¿ Quieres ser un vet partner de kiipet ? contactate con nosotros <%= link_to "Aquí", new_contact_path, class: "pet-partner"%> o escribenos a <b>contacto@kiipet.com</b></h4>
+                  </div>
+                </div><!--testi slider row end-->
+            </div>
+        </div> <!--intro text end-->
+
+
+        <div class="testimonials-v-2 wow animated fadeInUp" data-wow-duration="700ms" data-wow-delay="100ms">
             <div class="container">
                 <div class="row">
                     <div class="col-sm-8">
                         <h4 class="animated slideInDown">Kiipet la mejor opcion para tus mascotas</h4>
-
                         <p>
                             Encuentra a los mejores cuidadores
                         </p>
@@ -170,4 +194,4 @@
                     </div>
                 </div>
             </div>
-        </div> <!--intro text end-->
+        </div><!--testimonials v-2 end-->

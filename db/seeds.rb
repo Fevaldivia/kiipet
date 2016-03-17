@@ -8,3 +8,6 @@
 load "#{Rails.root}/db/seeds/chilean_cities.rb"
 load "#{Rails.root}/db/seeds/banks.rb"
 load "#{Rails.root}/db/seeds/services.rb"
+
+Role.find_or_create_by(name: 'keeper')
+Role.find_or_create_by(name: 'owner')

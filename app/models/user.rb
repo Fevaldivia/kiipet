@@ -1,5 +1,7 @@
 class User < ActiveRecord::Base
+  rolify
   after_create :send_welcome_email
+  before_create :build_profile
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -7,7 +9,7 @@ class User < ActiveRecord::Base
 
   has_one :profile, inverse_of: :user, dependent: :destroy
   has_many :pets, dependent: :destroy
-  validates :profile, presence: true
+  belongs_to :role
 
   attr_accessor :terms_of_service
 

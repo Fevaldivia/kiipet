@@ -75,3 +75,4 @@ gem "sentry-raven"
 gem 'rack-cors', :require => 'rack/cors'
 gem 'font_assets'
 gem 'metamagic'
+gem "rolify"

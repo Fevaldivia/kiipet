@@ -123,3 +123,13 @@ li.services
   width: 90px;
   height: auto;
 }
+.pet-happy{
+  width: 300px;
+  height: 150px;
+}
+.pet-partner{
+  color: #0095c5;
+}
+.partners{
+  margin-left: 50px;
+}

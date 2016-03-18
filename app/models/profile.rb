@@ -45,6 +45,7 @@ class Profile < ActiveRecord::Base
     event :reject do
       transition in_analysis: :rejected
       transition approved: :rejected
+      transition rejected: :approved
     end
   end
 

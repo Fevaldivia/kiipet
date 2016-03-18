@@ -76,3 +76,6 @@ gem 'rack-cors', :require => 'rack/cors'
 gem 'font_assets'
 gem 'metamagic'
 gem "rolify"
+gem 'cancancan', '~> 1.10'
+gem 'wicked'
+

@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
 
+  resources :after_signup_keeper, only: [:show, :update]
+   #ruta para crear user en el wizard
+  get '/after_signup_keeper/new', to: 'after_signup_keeper#new', as: :new_after_signup_keeper, id: 'step1'
+  post '/after_signup_keeper/create', to: 'after_signup_keeper#create', as: :order_after_signup_keepers, id: 'step1'
+
   post '/rate' => 'rater#create', :as => 'rate'
   resources :calendars do
 	  resources :bookings

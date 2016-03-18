@@ -45,6 +45,7 @@ class Profile < ActiveRecord::Base
     event :reject do
       transition in_analysis: :rejected
       transition approved: :rejected
+      transition rejected: :approved
     end
   end
 
@@ -72,6 +73,11 @@ class Profile < ActiveRecord::Base
 
   def set_initial_status
     self.state ||= :in_analysis
+  end
+
+  # indica si el evento esta en un estado del wizard
+  def wizard?
+    [:step1, :step2, :step3, :step4].include? state.to_sym
   end
 
   def self.allowed_attributes

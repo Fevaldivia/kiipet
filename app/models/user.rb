@@ -12,10 +12,12 @@ class User < ActiveRecord::Base
   belongs_to :role
 
   attr_accessor :terms_of_service
+  attr_accessor :role_ids
 
   validates :terms_of_service, acceptance: true
 
   accepts_nested_attributes_for :profile
+  accepts_nested_attributes_for :role
 
 
   def send_welcome_email

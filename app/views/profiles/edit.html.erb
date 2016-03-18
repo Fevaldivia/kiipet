@@ -23,7 +23,7 @@
       <li class="active" role="presentation">
         <%= link_to "Información Personal", edit_profile_path(@profile)%>
       </li>
-      <% if current_user.profile.is_a? KeeperProfile %>
+      <% if current_user.role.name == "keeper"%>
       <li role="presentation">
         <a href="#servicios" role="tab" data-toggle="tab">Servicios</a>
       </li>
@@ -101,7 +101,7 @@
                       </div>
                     </div>
                   </div>
-                <% if current_user.profile.is_a? KeeperProfile %>
+                <% if current_user.role.name == "keeper"%>
                   <div class="panel panel-default">
                     <div class="panel-heading"><h4>3.- Informacion Bancaria</h4>
                       <p>Esta informacion es siempre privada y solo sera utilizada para realizar los pagos a fin de cada mes.</p>
@@ -133,7 +133,7 @@
                 <br>
               <hr>
               <div class="form-actions text-center">
-              <% if current_user.profile.is_a? KeeperProfile %>
+              <% if current_user.role.name == "keeper" %>
                   <a href="#servicios" role="tab" data-toggle="tab" class="btn btn-default">Siguiente</a>
                   <%= f.button :submit, "Guardar", class: 'btn btn-info'%>
               <% else %>
@@ -197,7 +197,7 @@
 
 
                   <div class="form-actions text-center">
-                     <% if current_user.profile.is_a? KeeperProfile %>
+                     <% if current_user.role.name == "keeper"%>
                       <%= f.button :submit, "Guardar", class: 'btn btn-info'%>
                       <%= link_to 'Agregar disponibilidad', calendar_bookings_path(@profile), class: "btn btn-success" %>
                   <% else %>

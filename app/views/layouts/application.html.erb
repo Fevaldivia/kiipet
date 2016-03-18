@@ -44,11 +44,11 @@
                     <% end %>
                     <i class="fa fa-angle-down"></i>
                     <ul class="dropdown-menu menu-principal">
-                      <% if current_user.profile.is_a? KeeperProfile %>
+                      <% if current_user.role.name == "keeper" %>
                         <li><%= link_to 'Perfil', edit_profile_path(current_user.profile) %></li>
                         <li><%= link_to('Disponibilidad', calendar_bookings_path(current_user.profile)) %></li>
                       <% end %>
-                      <% if current_user.profile.is_a? ProspectorProfile %>
+                      <% if current_user.role.name == "owner"%>
                         <li><%= link_to 'Perfil', edit_profile_path(current_user.profile)  %></li>
                         <li><%= link_to('Mis Mascotas',  pets_path) %></li>
                       <% end %>

@@ -1,18 +1,27 @@
 Rails.application.routes.draw do
 
-  resources :after_signup_keeper, only: [:show, :update]
+   resources :profiles, only: [:show] do
+    resources :after_signup_keeper, only: [:show, :update]
+      get 'dashboard'
+   end
+
+
    #ruta para crear user en el wizard
   get '/after_signup_keeper/new', to: 'after_signup_keeper#new', as: :new_after_signup_keeper, id: 'step1'
-  post '/after_signup_keeper/create', to: 'after_signup_keeper#create', as: :order_after_signup_keepers, id: 'step1'
+  post '/after_signup_keeper/create', to: 'after_signup_keeper#create', as: :profile_after_signup_keepers, id: 'step1'
 
-  post '/rate' => 'rater#create', :as => 'rate'
+  #ruta para crear user en el owners
+  get '/after_signup_owner/new', to: 'after_signup_owner#new', as: :new_after_signup_owner, id: 'step1'
+  post '/after_signup_owner/create', to: 'after_signup_owner#create', as: :profile_after_signup_owners, id: 'step1'
+
   resources :calendars do
 	  resources :bookings
 	end
   get 'calendars/index'
 
   devise_for :users, controllers: {
-    omniauth_callbacks: "users/omniauth_callbacks"
+    omniauth_callbacks: "users/omniauth_callbacks",
+    registrations: "registrations"
   }
 
   resources :pets
@@ -22,9 +31,6 @@ Rails.application.routes.draw do
     put 'booking/:id', to: 'payments#booking', on: :collection, as: :book
   end
 
-  resources :profiles, only: [:show, :edit, :update] do
-   get 'dashboard'
-  end
   resources :keeper_users, only: [:index]
   resources :services
 

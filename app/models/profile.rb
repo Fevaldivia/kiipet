@@ -76,12 +76,12 @@ class Profile < ActiveRecord::Base
   end
 
   # indica si el evento esta en un estado del wizard
-  def wizard?
-    [:step1, :step2, :step3, :step4].include? state.to_sym
+  def after_signup_keeper?
+    [:step1, :step2, :step3, :step4].include?
   end
 
   def self.allowed_attributes
-    [:name, :bio, :slogan, :avatar, :country_code, :gender, :date_birth, :county_id, :rut ,:phone, :cellphone, :address,
-    profile_services_attributes: [:id, :service_id, :price] ]
+    [:name, :last_name, :bio, :slogan, :avatar, :country_code, :gender, :date_birth, :county_id, :rut ,:phone, :cellphone, :address,
+    :profile_id, :id, :region_id, profile_services_attributes: [:id, :service_id, :price] ]
   end
 end

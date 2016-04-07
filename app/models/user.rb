@@ -1,7 +1,6 @@
 class User < ActiveRecord::Base
   rolify
   after_create :send_welcome_email
-  before_create :build_profile
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,

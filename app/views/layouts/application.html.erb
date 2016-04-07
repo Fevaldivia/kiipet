@@ -45,8 +45,8 @@
                     <i class="fa fa-angle-down"></i>
                     <ul class="dropdown-menu menu-principal">
                       <% if current_user.role.name == "keeper" %>
-                        <li><%= link_to 'Perfil', edit_profile_path(current_user.profile) %></li>
-                        <li><%= link_to('Disponibilidad', calendar_bookings_path(current_user.profile)) %></li>
+                        <li><%= link_to 'Perfil',profile_dashboard_path(current_user)%></li>
+                        <li></li>
                       <% end %>
                       <% if current_user.role.name == "owner"%>
                         <li><%= link_to 'Perfil', edit_profile_path(current_user.profile)  %></li>

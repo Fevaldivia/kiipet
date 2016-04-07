@@ -1,1 +1,58 @@
-<h2>hola soy el paso 1</h2>
+  <div class="wizard">
+    <div class="row">
+      <div class="col-sm-12">
+        <%= wizard_menu %>
+      </div>
+    </div>
+  </div>
+  <h4 class="text-center">Información Personal</h4>
+  <br>
+  <%= simple_form_for @profile, url: (@profile.persisted? ? profile_after_signup_keeper_path(profile_id: @profile) : profile_after_signup_keepers_path) do |f| %>
+        <div class="row">
+          <div class="col-md-2"></div>
+            <div class="col-sm-8">
+              <div class="panel panel-default">
+                <div class="panel-heading">
+                  <p>Completa toda la informacion personal para que asi nuestros administradores aprueben tu perfil en la plataforma</p>
+                </div>
+                <div class="panel-body">
+              <div class="row">
+                <div class="col-md-6">
+                  <%= f.input :name, input_html: { class: 'form-control' }, placeholder: "Nombre", required: true%>
+                </div>
+                <div class="col-md-6">
+                  <%= f.input :last_name, input_html: { class: 'form-control' }, placeholder: "Apellido", required: true%>
+                </div>
+              </div>
+
+              <div class="form-group file optional profile_avatar">
+              <%= f.input :avatar, input_html: {'data-input' => false, 'data-buttonText' => '', 'data-iconName' => 'fa fa-user'}%>
+              </div>
+              <div class="row">
+                <div class="col-sm-6">
+                  <%= f.input :gender, as: :radio_buttons, collection: Profile.genders.map {|g| [g.first, g.first]}, label_method: lambda { |gender| t("simple_form.options.profile.gender.#{gender.first}") }%>
+                </div>
+                <div class="col-sm-6">
+                  <%= f.input :date_birth, as: :string, input_html: { class: 'datetimepicker form-control' }%>
+                </div>
+              </div>
+              <div class="form-group">
+                <label>Email</label><span class="form-control"><%= current_user.email%></span>
+              </div>
+            </div>
+          </div>
+      </div>
+      <div class="col-md-2"></div>
+  </div>
+
+      <div class="action">
+        <hr>
+        <div class="form-actions text-center">
+          <%= f.button :button, class: "btn btn-default btn-special" do %>
+              <%= "Siguiente" %>
+          <% end %>
+        </div>
+      </div>
+  <% end %>
+</div>
+<br>

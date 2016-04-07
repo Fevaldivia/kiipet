@@ -1,0 +1,60 @@
+  <div class="wizard">
+    <div class="row">
+      <div class="col-sm-12">
+        <%= wizard_menu %>
+      </div>
+    </div>
+  </div>
+  <h4 class="text-center">Tus Precios</h4>
+  <%= simple_form_for @profile, url: (@profile.persisted? ? profile_after_signup_keeper_path(profile_id: @profile) : profile_after_signup_keepers_path) do |f| %>
+  <div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+    <div class="panel panel-default">
+  <div class="panel-heading">
+    <p>Aquí debes especificar el valor de tus servicios. Por ahora tienes que llenarlos todos, pero si no prestas todos los servicios puedes colocar 0.</p>
+  </div>
+        <div class="panel-body">
+      <section>
+        <br>
+        <ul class="thumbnails center-block" id="servicio">
+          <%= f.simple_fields_for :profile_services do |ps| %>
+            <div class='service'>
+              <li class="col-md-8">
+                <div class="thumbnail">
+                  <div class="caption">
+                    <h4><%= ps.object.service.name %></h4>
+                    <p><%= ps.object.service.description%></p>
+                  </div>
+                  <span>
+                  </span>
+                  <span class="caption">
+                    <%= ps.input :service_id, as: :hidden, input_html: { value: ps.object.service.id} %>
+                    <div class="input-group col-md-3">
+                      <span class="input-group-addon">$</span>
+                      <%= ps.input :price, label: false, placeholder: "precio", input_html: { class: 'form-control' }%>
+                    </div>
+                  </span>
+                </div>
+              </li>
+            </div>
+          <% end %>
+          </ul>
+    </section>
+  </div>
+    </div>
+    <div class="col-md-2"></div>
+  </div>
+</div>
+<div class="action">
+      <hr>
+      <div class="form-actions text-center">
+        <%= link_to profile_after_signup_keeper_path(:step3, profile_id: @profile), class: 'btn btn-primary' do %>
+            <%= "Anterior" %>
+        <% end %>
+        <%= f.button :button, class: "btn btn-default btn-special" do %>
+            <%= "Crear Perfil" %>
+        <% end %>
+      </div>
+    </div>
+<% end %>

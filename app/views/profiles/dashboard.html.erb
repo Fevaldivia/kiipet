@@ -1,55 +1,69 @@
 <div class="breadcrumb-wrap">
     <div class="container">
         <div class="row">
-            <div class="col-sm-6">
-                <h4>Mi informacion</h4>
-            </div>
-            <div class="col-sm-6 hidden-xs text-right">
-            </div>
+          <h3>Dashboard</h3>
         </div>
     </div>
 </div>
+
 <br>
 <div class="col-md-3 text-center">
     <div class="panel panel-default">
     <div class="panel-body">
+     <h3>Mi perfil</h3>
       <div class="results-box">
         <div class="">
           <%= image_tag @profile.avatar.url, class: 'img-circle', :size => "150x150"%>
         </div>
         <div class="">
-        <% if @profile.name.present? %>
-          <h4 class="profile_name"><%= @profile.name %></h4>
-        <% else %>
-          <h4 class="profile_name">No definido</h4>
-        <% end %>
+          <h4 class="profile_name"><%= @profile.try(:name) %></h4>
           <ul class="list-inline link-ul">
-          <% if @profile.county.name %>
-            <p><%= @profile.county.name%></p>
-          <% else %>
-          <p>No definido</p>
-          <%end%>
-          </ul>
-          <p>
-          <% if @profile.bio %>
-            <p><%= @profile.bio %></p>
-          <% else %>
-          <p>No definido</p>
-          <% end %>
-          </p>
+            <p><%= @profile.county.try(:name)%></p>
+            <p><%= @profile.try(:bio) %></p>
           <hr>
         </div>
 
       </div>
     </div>
   </div>
+
+      <div class="panel panel-default">
+    <div class="panel-body">
+     <h3>Estado</h3>
+      <div class="results-box">
+          <h3><strong><%= @profile.state %></strong></h3>
+          <p>Como estar listo para ser aprobado?</p>
+      </div>
+    </div>
+  </div>
+
 </div>
 
 <div class="col-md-9">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title">Gracias por ser parte de kiipet!</h3>
+          </div>
+          <div class="panel-body">
+            <p>Estamos muy entusiasmados por que te uniste a una gran comunidad! Nuestro team se encarga de revisar cuidadosamente cada perfil, y estamos ansiosos de trabajar contigo. In the meantime, aqui tienes algunos tips para que tu perfil sea aprobado en el menor tiempo posible:</p>
+            <p>
+              1. Completa tu perfil -- esta seguro que tienes:
+            </p>
+            <ul>
+              <li>Una foto de perfil clara (recuerda sonreir (= !)</li>
+              <li>Una detallada descripcion de ti y experiencia cuidando mascota (solo si eres cuidador)</li>
+              <li>Debes recordar en añadir tus precios y si hay un servicio que no brindas solo debes poner 0 (solo si eres cuidador)</li>
+              <li>Por ultimo ve a la seccion de calendario y añade tus horas disponible (solo si eres cuidador).</li>
+            </ul>
+            <p>Cualquier consulta por favor escribenos <%= link_to "Aqui", "#" %></p>
+            <%= link_to "Completa tu perfil", profile_after_signup_keeper_path(:step1, profile_id: current_user.profile), class: "btn btn-info text-right"%>
+          </div>
+      </div>
+<br>
   <div class="panel panel-default">
     <div class="panel-body" id="tabs-profile">
       <!-- Nav tabs -->
-    <% if @profile.type == "KeeperProfile"%>
+    <% if current_user.role.name == "keeper" %>
       <ul class="nav nav-tabs" role="tablist">
         <li role="presentation" class="active"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Tus Servicios</a></li>
         <li role="presentation"><a href="#schedule" aria-controls="availability" role="tab" data-toggle="tab">Tus Pagos</a></li>
@@ -62,7 +76,7 @@
 
       <!-- Tab panes -->
       <div class="tab-content" style="padding: 0px;">
-      <% if @profile.type == "KeeperProfile"%>
+      <% if current_user.role.name == "keeper" %>
         <div role="tabpanel" class="tab-pane active" id="profile">
           <div class="col-md-12">
              <% @profile.services.each do |ps| %>
@@ -141,7 +155,4 @@
       </div>
     </div>
   </div>
-      <div class="form-actions text-center">
-        <%= link_to 'Volver', edit_profile_path(current_user.profile), class: "btn btn-info" %>
-      </div>
 </div>

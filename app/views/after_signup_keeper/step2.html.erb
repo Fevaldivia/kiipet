@@ -1,0 +1,68 @@
+  <div class="wizard">
+    <div class="row">
+      <div class="col-sm-12">
+        <%= wizard_menu %>
+      </div>
+    </div>
+  </div>
+  <h4 class="text-center">Informacion de contacto</h4>
+  <br>
+  <%= simple_form_for @profile, url: (@profile.persisted? ? profile_after_signup_keeper_path(profile_id: @profile) : profile_after_signup_keepers_path) do |f| %>
+  <div class="col-md-2"></div>
+<div class="col-sm-8">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <p>Agrega tu informacion de contacto para que nosotros te podamos contactar cuando tengas una reserva o busques
+      un cuidador</p>
+    </div>
+    <div class="panel-body">
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="form-group">
+            <%= f.input :phone, input_html: { class: 'form-control' }, placeholder: "Telefono", required: true %>
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <%= f.input :address, input_html: { class: 'form-control' }, placeholder: "Direccion", required: true %>
+      </div>
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="form-group">
+            <%= f.label :country_code %>
+            <%= country_select(:profile, :country_code, {selected: f.object.country_code || "CL"}, {class: 'form-control'})%>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <%= f.input :region_id, collection: Region.all, input_html: { class: 'form-control' }, required: true%>
+        </div>
+        <div class="col-md-6">
+          <%= f.association :county, input_html: { class: 'form-control' }, required: true%>
+        </div>
+      </div>
+    </div>
+  </div>
+<div class="action">
+        <hr>
+        <div class="form-actions text-center">
+          <%= link_to profile_after_signup_keeper_path(:step1, profile_id: @profile), class: 'btn btn-primary' do %>
+              <%= "Anterior" %>
+          <% end %>
+
+          <%= link_to 'javascript:void(0);', class: "btn btn-info btn-special next-page" do %>
+              <%= "Siguiente" %>
+          <% end %>
+        </div>
+      </div>
+<% end %>
+</div>
+<div class="col-md-2"></div>
+<br>
+
+<script type="text/javascript">
+    $(document).on('click', '.next-page', function (profile) {
+        $('form.edit_profile').trigger('submit');
+    });
+</script>

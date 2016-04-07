@@ -1,0 +1,52 @@
+  <div class="wizard">
+    <div class="row">
+      <div class="col-sm-12">
+        <%= wizard_menu %>
+      </div>
+    </div>
+  </div>
+  <h4 class="text-center">Tus Servicios</h4>
+  <br>
+  <div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+        <%= simple_form_for @profile, url: (@profile.persisted? ? profile_after_signup_keeper_path(profile_id: @profile) : profile_after_signup_keepers_path) do |f| %>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                <p>Debes completar tu slogan para que aparescas en nuestro buscador, de eso dependera si tu servicio es contratado asi que usa tu imaginacion ! ademas necesitamos saber un poco mas de ti asi que no olvides tu biografia</p>
+                </div>
+                <div class="panel-body">
+                  <%= simple_form_for @profile, as: :profile, url: profile_path(@profile) do |f| %>
+                    <div class="row">
+                      <div class="col-md-12">
+                        <%= f.input :slogan, input_html: { class: 'form-control' }, placeholder: 'Ej: Experto cuidando mascotas en santiago' %>
+                        <br>
+                        <%= f.input :bio, input_html: { class: 'form-control' }, placeholder: 'Tengo 3 años de experiencia cuidando las mascotas de mis vecinos...' %>
+                      </div>
+                    </div>
+                </div>
+              </div>
+            <% end %>
+            <div class="action">
+                    <hr>
+                    <div class="form-actions text-center">
+                      <%= link_to profile_after_signup_keeper_path(:step2, profile_id: @profile), class: 'btn btn-primary' do %>
+                          <%= "Anterior" %>
+                      <% end %>
+
+                      <%= link_to 'javascript:void(0);', class: "btn btn-info btn-special next-page" do %>
+                          <%= "Siguiente" %>
+                      <% end %>
+                    </div>
+                  </div>
+            <% end %>
+            </div>
+    </div>
+    <div class="col-md-2"></div>
+  </div>
+
+<script type="text/javascript">
+    $(document).on('click', '.next-page', function (profile) {
+        $('form.edit_profile').trigger('submit');
+    });
+</script>

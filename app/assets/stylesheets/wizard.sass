@@ -1,0 +1,54 @@
+//Wizard
+.wizard
+  padding-top: 30px
+  .wizard-steps
+    width: 100%
+    text-align: center
+    margin: 30px 0 20px 0
+    z-index: 0
+    &:before
+      content: ""
+      border-top: 1px solid #ddd
+      display: table
+      width: 100%
+      position: absolute
+    &.btn-group
+      .btn
+        float: none
+        border-radius: 0
+        box-shadow: none
+        padding-top: 16px
+        width: 1%
+        display: table-cell
+        white-space: normal
+        .label
+          position: absolute
+          top: -16px
+          left: 47%
+          margin-left: -10px
+          border-radius: 50%
+          width: 30px
+          height: 30px
+          font-size: 14px
+          line-height: 27px
+          padding: 0
+          border: 1px solid #ddd
+        &.active
+          .label
+            border: 1px solid rgb(7, 134, 199)
+            background-color: rgb(0, 157, 236)
+        &.disabled
+          opacity: 1
+          filter: alpha(opacity=100)
+          color: #ccc
+          cursor: not-allowed
+          pointer-events: auto
+          .label
+            background-color: #ccc
+  .form-actions
+    .btn
+      padding: 8px 15px
+    button
+      margin-left: 5px
+      i
+        margin-left: 4px
